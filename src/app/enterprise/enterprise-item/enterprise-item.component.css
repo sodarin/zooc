@@ -1,0 +1,30 @@
+img {
+  border-radius: 10px;
+}
+mat-card {
+  margin-left: 10px;
+  height: 200px;
+  border-radius: 10px;
+}
+mat-card-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.name {
+  font-weight: bold;
+  font-size: 17px;
+}
+.introduction {
+  color: rgba(0, 0, 0, .75);
+  font-size: 13px;
+  margin-top: -10px;
+}
+p {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
+}

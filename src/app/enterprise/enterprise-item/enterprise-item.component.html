@@ -1,0 +1,11 @@
+<mat-card (click)="detailEnterprise(item.enterpriseId)">
+  <img mat-card-image [src]="item.imgUrl" [alt]="item.introduction">
+  <mat-card-content>
+    <div class="name">
+      <p>{{item.name}}</p>
+    </div>
+    <div class="introduction">
+      <p>{{item.introduction}}</p>
+    </div>
+  </mat-card-content>
+</mat-card>

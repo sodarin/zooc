@@ -1,0 +1,35 @@
+@import "~@angular/material/theming";
+
+@include mat-core();
+
+$my-app-primary: mat-palette($mat-red, 700);
+$my-app-accent: mat-palette($mat-deep-orange, 500);
+$my-app-warning: mat-palette($mat-purple, A400);
+
+$my-app-theme: mat-light-theme($my-app-primary, $my-app-accent, $my-app-warning);
+@include angular-material-theme($my-app-theme);
+
+$my-dark-primary: mat-palette($mat-grey, 800);
+$my-dark-accent: mat-palette($mat-blue-grey, 700);
+$my-dark-warn: mat-palette($mat-deep-orange, A700);
+
+$my-dark-theme: mat-dark-theme($my-dark-primary, $my-dark-accent, $my-dark-warn);
+
+.myapp-dark-theme{
+  @include angular-material-theme($my-dark-theme);
+}
+
+$custom-typography: mat-typography-config(
+  $font-family: '"Roboto",
+  "Inziu Roboto SC",
+  "Neue Haas Unica W1G",
+  Helvetica,
+  "Neue Haas Grotesk Text Pro",
+  Arial,
+  "Segoe UI",
+  "Sarasa Gothic UI SC",
+  "Noto Sans CJK SC",
+  "Microsoft YaHei UI",
+  "微软雅黑"'
+);
+@include angular-material-typography($custom-typography);

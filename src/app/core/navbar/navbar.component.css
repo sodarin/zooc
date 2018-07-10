@@ -1,0 +1,6 @@
+.carousel {
+  height: 150px;
+}
+a:active, a:hover {
+  color: rgba(0, 0, 0, .87) !important;
+}

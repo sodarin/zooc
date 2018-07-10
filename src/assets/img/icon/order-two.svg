@@ -1,0 +1,24 @@
+<?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1529892376597" class="icon" style="" viewBox="0 0 1036 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="6968" xmlns:xlink="http://www.w3.org/1999/xlink" width="202.34375" height="200"><defs><style type="text/css">@font-face { font-family: SimSun; unicode-range: U+20-FFFF; src: local("Noto Serif CJK SC"); }
+@font-face { font-family: 宋体; unicode-range: U+20-FFFF; src: local("Noto Serif CJK SC"); }
+@font-face { font-family: NSimSun; unicode-range: U+20-FFFF; src: local("Noto Serif CJK SC"); }
+@font-face { font-family: 新宋体; unicode-range: U+20-FFFF; src: local("Noto Serif CJK SC"); }
+@font-face { font-family: Arial; unicode-range: U+20-FFFF; src: local("Neue Haas Unica W1G"); }
+@font-face { font-family: Helvetica; unicode-range: U+20-FFFF; src: local("Neue Haas Grotesk Text Pro"); }
+@font-face { font-family: Helvetica; unicode-range: U+20-FFFF; src: local("Neue Haas Grotesk Text Pro"); }
+@font-face { font-family: "Helvetica Neue"; unicode-range: U+20-FFFF; src: local("Neue Haas Grotesk Text Pro"); }
+@font-face { font-family: Tahoma; unicode-range: U+20-52F; src: local("Neue Haas Unica W1G"); }
+@font-face { font-family: Verdana; unicode-range: U+20-52F; src: local("SF UI Text Regular"); }
+@font-face { font-family: "PingFang SC"; unicode-range: U+20-52F; src: local("SF UI Text"); }
+@font-face { font-family: "Courier New"; unicode-range: U+4E00-9FFF; src: local("XHei WP Mono"); }
+@font-face { font-family: Courier; unicode-range: U+4E00-9FFF; src: local("XHei WP Mono"); }
+@font-face { font-family: "Hiragino Sans GB"; unicode-range: U+2E80-FFFF; src: local("XHei WP"); }
+@font-face { font-family: "MS PGothic"; unicode-range: U+2E80-FFFF; src: local("Inziu Roboto J"); }
+@font-face { font-family: "ＭＳ Ｐゴシック"; unicode-range: U+2E80-FFFF; src: local("Inziu Roboto J"); }
+@font-face { font-family: "MS PMincho"; unicode-range: U+2E80-FFFF; src: local("Noto Serif CJK J"); }
+@font-face { font-family: "Microsoft JhengHei"; unicode-range: U+2E80-FFFF; src: local("Inziu Roboto TC"); }
+@font-face { font-family: 微軟正黑; unicode-range: U+2E80-FFFF; src: local("Inziu Roboto TC"); }
+@font-face { font-family: PMingLiU; unicode-range: U+2E80-FFFF; src: local("Noto Serif CJK TC"); }
+@font-face { font-family: 新細明體; unicode-range: U+2E80-FFFF; src: local("Noto Serif CJK TC"); }
+@font-face { font-family: MingLiU; unicode-range: U+2E80-FFFF; src: local("Noto Serif CJK TC"); }
+@font-face { font-family: 細明體; unicode-range: U+2E80-FFFF; src: local("Noto Serif CJK TC"); }
+</style></defs><path d="M0 0l0 0 0 0zM887.994907 960.13811l-575.042605 0 0-59.412559 460.462959 0q14.869247 0 28.110502-7.943791t21.218702-21.761046 7.943791-29.70676l0-594.122706 57.307613 0 0 712.947824zM282.226243 781.901395q-12.730644 0-21.218702-9.030401t-8.488058-21.218702 8.488058-20.675397 21.218702-8.488058l404.208299 0q12.730644 0 20.675397 8.488058t7.943791 21.218702q0 7.435104-3.699282 14.326903t-10.082393 11.136309-14.869247 4.24451l-404.208299 0zM282.226243 544.251158l404.208299 0q12.730644 0 20.675397 8.488058t7.943791 21.218702q0 6.383112-2.138602 11.678652t-5.839807 9.030401-9.030401 6.383112-11.678652 2.647289l-404.208299 0q-8.488058 0-14.869247-4.24451t-10.625698-11.136309-4.24451-14.326903q0-12.730644 8.488058-21.218702t21.218702-8.488058zM282.226243 366.015404l404.208299 0q12.730644 0 20.675397 8.488058t7.943791 20.675397-7.943791 21.218702-20.675397 9.030401l-404.208299 0q-12.730644 0-21.218702-9.030401t-8.488058-21.218702 8.488058-20.675397 21.218702-8.488058zM454.080808 187.777727l232.352773 0q12.730644 0 20.675397 8.488058t7.943791 20.675397-7.943791 21.218702-20.675397 9.030401l-232.352773 0q-5.296502 0-10.625698-2.647289t-9.54005-6.383112-6.383112-9.030401-2.138602-11.678652q0-22.271656 20.16671-28.653806 5.296502-1.051992 8.488058-1.051992zM887.994907 187.777727l-57.307613 0 0-59.412559q0-24.410258-16.974193-41.8941t-40.332459-17.518459l-576.096521 0q-23.357305 0-40.332459 17.518459t-16.974193 41.8941l0 712.947824q0 24.410258 16.974193 41.8941t40.332459 17.518459l58.359605 0 0 59.412559q0 24.410258 16.431849 41.8941t40.842108 17.518459l575.042605 0q11.678652 0 22.271656-4.786853t18.571413-12.730644 12.188301-19.113756 4.24451-22.814l0-712.947824q0-12.730644-4.24451-23.357305t-12.188301-18.571413-18.571413-12.730644-22.271656-4.786853z" p-id="6969" fill="#d81e06"></path></svg>

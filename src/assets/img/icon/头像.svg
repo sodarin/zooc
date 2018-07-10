@@ -1,0 +1,24 @@
+<?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1529851399231" class="icon" style="" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1194" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><defs><style type="text/css">@font-face { font-family: SimSun; unicode-range: U+20-FFFF; src: local("Noto Serif CJK SC"); }
+@font-face { font-family: 宋体; unicode-range: U+20-FFFF; src: local("Noto Serif CJK SC"); }
+@font-face { font-family: NSimSun; unicode-range: U+20-FFFF; src: local("Noto Serif CJK SC"); }
+@font-face { font-family: 新宋体; unicode-range: U+20-FFFF; src: local("Noto Serif CJK SC"); }
+@font-face { font-family: Arial; unicode-range: U+20-FFFF; src: local("Neue Haas Unica W1G"); }
+@font-face { font-family: Helvetica; unicode-range: U+20-FFFF; src: local("Neue Haas Grotesk Text Pro"); }
+@font-face { font-family: Helvetica; unicode-range: U+20-FFFF; src: local("Neue Haas Grotesk Text Pro"); }
+@font-face { font-family: "Helvetica Neue"; unicode-range: U+20-FFFF; src: local("Neue Haas Grotesk Text Pro"); }
+@font-face { font-family: Tahoma; unicode-range: U+20-52F; src: local("Neue Haas Unica W1G"); }
+@font-face { font-family: Verdana; unicode-range: U+20-52F; src: local("SF UI Text Regular"); }
+@font-face { font-family: "PingFang SC"; unicode-range: U+20-52F; src: local("SF UI Text"); }
+@font-face { font-family: "Courier New"; unicode-range: U+4E00-9FFF; src: local("XHei WP Mono"); }
+@font-face { font-family: Courier; unicode-range: U+4E00-9FFF; src: local("XHei WP Mono"); }
+@font-face { font-family: "Hiragino Sans GB"; unicode-range: U+2E80-FFFF; src: local("XHei WP"); }
+@font-face { font-family: "MS PGothic"; unicode-range: U+2E80-FFFF; src: local("Inziu Roboto J"); }
+@font-face { font-family: "ＭＳ Ｐゴシック"; unicode-range: U+2E80-FFFF; src: local("Inziu Roboto J"); }
+@font-face { font-family: "MS PMincho"; unicode-range: U+2E80-FFFF; src: local("Noto Serif CJK J"); }
+@font-face { font-family: "Microsoft JhengHei"; unicode-range: U+2E80-FFFF; src: local("Inziu Roboto TC"); }
+@font-face { font-family: 微軟正黑; unicode-range: U+2E80-FFFF; src: local("Inziu Roboto TC"); }
+@font-face { font-family: PMingLiU; unicode-range: U+2E80-FFFF; src: local("Noto Serif CJK TC"); }
+@font-face { font-family: 新細明體; unicode-range: U+2E80-FFFF; src: local("Noto Serif CJK TC"); }
+@font-face { font-family: MingLiU; unicode-range: U+2E80-FFFF; src: local("Noto Serif CJK TC"); }
+@font-face { font-family: 細明體; unicode-range: U+2E80-FFFF; src: local("Noto Serif CJK TC"); }
+</style></defs><path d="M510.45 70.554c-243.163 0-442.115 198.951-442.115 442.115 0 243.16 198.952 442.11 442.116 442.11 243.159 0 442.11-198.95 442.11-442.11 0-243.165-198.951-442.115-442.11-442.115z m11.051 132.633c168.556 0 168.556 127.11 168.556 198.95 0 71.847-66.318 204.48-168.556 207.24-99.475 0-168.556-132.632-168.556-207.24 0.001-71.841 0.001-198.95 168.556-198.95z m-11.05 726.723c-127.11 0-243.164-58.03-320.534-149.211 11.051-27.635 24.868-58.03 44.212-74.607 41.446-33.162 165.79-88.425 165.79-88.425l77.37 149.215 13.816-35.923L469 686.747l44.212-44.208 44.212 44.208-19.345 46.974 11.055 35.924 80.132-146.45s124.343 55.262 165.793 88.424c19.34 13.813 33.157 38.685 41.447 60.787C761.9 869.12 643.082 929.91 510.45 929.91z m0 0" fill="#d81e06" p-id="1195"></path></svg>

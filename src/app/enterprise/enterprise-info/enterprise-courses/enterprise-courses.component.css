@@ -1,0 +1,16 @@
+.home-content {
+  margin-top: 14px;
+}
+.free-trial-header, .elaborate-course-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+span {
+  color: #000;
+  font-weight: bold;
+  width: 88.5%;
+}
+.empty-space {
+  width: 1.5%;
+}

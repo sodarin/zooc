@@ -1,0 +1,18 @@
+mat-card-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.name {
+  width: 40%;
+  font-size: 16px;
+  font-weight: bold;
+}
+.telephone {
+  font-size: 16px;
+  width: 60%;
+}
+.address {
+  width: 100%;
+}

@@ -1,0 +1,22 @@
+<mat-card>
+  <mat-card-header>
+    <img mat-card-avatar [src]="enterprise.imgUrl" [alt]="enterprise.name">
+  </mat-card-header>
+  <mat-card-content>
+    <span class="name">{{enterprise.name}}</span>
+    <span class="content">{{moment.content}}</span>
+    <div class="footer">
+      <span class="time">{{moment.time}}</span>
+      <div class="like-num">
+        <span>{{likeNum}}人喜欢</span>
+        <mat-icon color="primary" *ngIf="!like" (click)="operateFavorite()">favorite_border</mat-icon>
+        <mat-icon color="primary" *ngIf=like (click)="operateFavorite()">favorite</mat-icon>
+      </div>
+    </div>
+    <div class="empty-space"></div>
+    <div class="comment">
+      <app-enterprise-moment-comment-item *ngFor="let latest of latestComment" [comment]="latest"></app-enterprise-moment-comment-item>
+      <span style="color: #6495ed; font-size: 10px;" *ngIf="momentCommentLength > 3" (click)="openFullComment()">查看全部评论</span>
+    </div>
+  </mat-card-content>
+</mat-card>

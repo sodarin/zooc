@@ -1,0 +1,26 @@
+<div class="home-content">
+  <mat-divider></mat-divider>
+  <div class="free-trial-part">
+    <div class="free-trial-header">
+      <div class="empty-space"></div>
+      <span>试听课程推荐</span>
+      <a (click)="turnToFreeTrialsPage()">更多</a>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="free-trial-display">
+      <app-free-trial-item *ngFor="let item of freeTrials" [item]="item"></app-free-trial-item>
+    </div>
+  </div>
+
+  <div class="elaborate-course-part">
+    <div class="elaborate-course-header">
+      <div class="empty-space"></div>
+      <span>精品课程推荐</span>
+      <a (click)="turnToElaborateCoursesPage()">更多</a>
+    </div>
+    <mat-divider></mat-divider>
+    <div class="elaborate-course-display">
+      <app-elaborate-course-item *ngFor="let item of elaborateCourses" [item]="item"></app-elaborate-course-item>
+    </div>
+  </div>
+</div>

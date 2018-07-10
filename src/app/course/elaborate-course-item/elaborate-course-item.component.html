@@ -1,0 +1,17 @@
+<div class="container">
+  <div class="content">
+    <img [src]="item.url" [alt]="item.title">
+    <div class="empty-space"></div>
+    <div class="description">
+      <span class="title">{{item.title}}</span>
+      <div class="details">
+        <span class="price">￥{{item.price}}</span>
+        <div class="empty-space"></div>
+        <span>{{item.stage}}</span>
+        <div class="empty-space"></div>
+        <span class="num">学生：{{item.studentNum}}人</span>
+      </div>
+    </div>
+  </div>
+</div>
+<mat-divider></mat-divider>

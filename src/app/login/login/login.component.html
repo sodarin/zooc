@@ -1,0 +1,38 @@
+<div class="login-page">
+  <div class="header">
+    <mat-toolbar color="primary">
+      <span>登录</span>
+    </mat-toolbar>
+  </div>
+  <div class="icon">
+    <mat-icon svgIcon="portrait"></mat-icon>
+  </div>
+  <div class="content">
+    <form [formGroup]="loginForm">
+      <mat-card>
+        <mat-card-content>
+          <mat-form-field *ngIf="!isMobile" color="accent" style="width: 100%;">
+            <input type="email" matInput formControlName="email" placeholder="邮箱">
+          </mat-form-field>
+          <mat-form-field *ngIf="isMobile" color="accent" style="width: 100%;">
+            <input matInput formControlName="mobile" placeholder="手机号码">
+          </mat-form-field>
+          <mat-form-field *ngIf="!isMobile" color="accent" style="width: 100%;">
+            <input matInput formControlName="password" type="password" placeholder="密码">
+          </mat-form-field>
+          <mat-form-field *ngIf="isMobile" color="accent" style="width: 100%;">
+            <input matInput formControlName="code" type="text" placeholder="短信验证码">
+          </mat-form-field>
+          <div style="color: #6495ed; margin-bottom: 5px" class="mobile">
+            <span *ngIf="!isMobile" (click)="isMobile = !isMobile">使用短信验证登录</span>
+            <span *ngIf="isMobile" (click)="isMobile = !isMobile">使用邮箱登录</span>
+          </div>
+          <div class="controller">
+            <button [disabled]="!((loginForm.get('email').valid && loginForm.get('password').valid) ||(loginForm.get('mobile').valid && loginForm.get('code').valid))" style="width: 100%;" class="login-button" mat-raised-button color="primary" type="button" (click)="login()">登录</button>
+            <button style="width: 100%;" class="login-button" mat-raised-button color="accent" type="button" [routerLink]="['/register']">注册</button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </form>
+  </div>
+</div>

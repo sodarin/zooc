@@ -1,0 +1,11 @@
+<mat-toolbar color="primary">
+  <mat-icon>shopping_cart</mat-icon>
+  <button class="search-button" mat-button>search</button>
+  <span *ngIf="user == null" class="header-font">
+    <a [routerLink]="['/login']">登录</a>
+    <span>/</span>
+    <a [routerLink]="['/register']">注册</a>
+  </span>
+  <mat-icon style="border-radius: 50%" *ngIf="user != null" [svgIcon]="user.avatarUrl? user.avatarUrl: 'avatar'" [routerLink]="['/user']"></mat-icon>
+</mat-toolbar>
+
