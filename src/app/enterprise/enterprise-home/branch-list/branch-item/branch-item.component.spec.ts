@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EnterpriseHomeComponent } from './enterprise-home.component';
+import { BranchItemComponent } from './branch-item.component';
 
-describe('EnterpriseInfoComponent', () => {
-  let component: EnterpriseHomeComponent;
-  let fixture: ComponentFixture<EnterpriseHomeComponent>;
+describe('BranchItemComponent', () => {
+  let component: BranchItemComponent;
+  let fixture: ComponentFixture<BranchItemComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EnterpriseHomeComponent ]
+      declarations: [ BranchItemComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(EnterpriseHomeComponent);
+    fixture = TestBed.createComponent(BranchItemComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

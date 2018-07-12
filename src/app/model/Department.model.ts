@@ -1,4 +1,4 @@
-export class Department {
+export class Branch {
   constructor(
     public branchId: string,
     public enterpriseId: string,
