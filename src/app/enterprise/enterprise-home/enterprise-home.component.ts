@@ -26,7 +26,6 @@ export class EnterpriseHomeComponent implements OnInit {
       {'label': '信息', 'path': `/enterprise`, 'icon': 'home'},
       {'label': '师资', 'path': `/enterprise/lecturers`, 'icon': 'people'},
       {'label': '分部', 'path': `/enterprise/branches`, 'icon': 'person_pin'},
-      {'label': '课程', 'path': `/enterprise/courses`, 'icon': 'school'},
       {'label': '朋友圈', 'path': `/enterprise/moments`, 'icon': 'chat'}
     ];
   }

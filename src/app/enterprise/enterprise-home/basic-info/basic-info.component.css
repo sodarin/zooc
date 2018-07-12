@@ -59,6 +59,7 @@ right: 0;
   font-size: 42px;
   font-weight: 400;
   margin-left: 24px;
+  margin-bottom: -12px;
 }
 .paragraph {
   text-indent: 2em;

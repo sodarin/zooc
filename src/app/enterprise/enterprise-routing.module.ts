@@ -13,7 +13,6 @@ const routes: Routes = [
       {path: '', component: BasicInfoComponent},
       {path: 'lecturers', component: LecturerListComponent},
       {path: 'branches', component: BranchListComponent},
-      {path: 'courses', component: CourseListDeprecatedComponent},
       {path: 'moments', component: EnterpriseMomentComponent}
     ]
   }
@@ -23,4 +22,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule]
 })
-export class EnterpriseRoutingModule{}
+export class EnterpriseRoutingModule {}
