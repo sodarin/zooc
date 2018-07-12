@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FreeTrial} from '../../model/FreeTrialModel';
+import {Trial} from '../../model/Trial';
 import {FreeTrialService} from '../../service/course/free-trial/free-trial.service';
 
 @Component({
@@ -9,12 +9,15 @@ import {FreeTrialService} from '../../service/course/free-trial/free-trial.servi
 })
 export class FreeTrialsComponent implements OnInit {
 
-  freeTrials: FreeTrial[];
+  freeTrials: Trial[];
 
   constructor(private freeTrailService: FreeTrialService) { }
 
   ngOnInit() {
-    this.freeTrials = this.freeTrailService.getFreeTrials();
+    // TODO The enterprise ID is hard coded
+    this.freeTrailService.getAll(1).subscribe(result => {
+      this.freeTrials = result.list;
+    });
   }
 
 }

@@ -5,7 +5,7 @@ import { UserRoutingModule } from './user-routing.module';
 import { UserComponent } from './user.component';
 import {LoginService} from '../service/login/login.service';
 import { ReserveComponent } from './reserve/reserve.component';
-import { ReserveListComponent } from './reserve-list/reserve-list.component';
+import { ReserveItemComponent } from './reserve-item/reserve-item.component';
 import {ReserveService} from '../service/reserve/reserve.service';
 import { OrderComponent } from './order/order.component';
 import { OrderListComponent } from './order-list/order-list.component';
@@ -22,6 +22,6 @@ import {OrderService} from '../service/order/order.service';
     ReserveService,
     OrderService
   ],
-  declarations: [ UserComponent, ReserveComponent, ReserveListComponent, OrderComponent, OrderListComponent]
+  declarations: [ UserComponent, ReserveComponent, ReserveItemComponent, OrderComponent, OrderListComponent]
 })
 export class UserModule { }

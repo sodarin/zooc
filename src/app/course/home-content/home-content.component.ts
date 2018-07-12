@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {FreeTrialService} from '../../service/course/free-trial/free-trial.service';
-import {FreeTrial} from '../../model/FreeTrialModel';
+import {Trial} from '../../model/Trial';
 import {ElaborateCourse} from '../../model/ElaborateCourse.model';
 import {ElaborateCourseService} from '../../service/course/elaborate-course/elaborate-course.service';
 
@@ -12,14 +12,18 @@ import {ElaborateCourseService} from '../../service/course/elaborate-course/elab
 })
 export class HomeContentComponent implements OnInit {
 
-  freeTrials: FreeTrial[];
+  freeTrials: Trial[];
 
   elaborateCourses: ElaborateCourse[];
 
   constructor(private route: Router, private freeTrailService: FreeTrialService, private elaborateCourseService: ElaborateCourseService) { }
 
   ngOnInit() {
-    this.freeTrials = this.freeTrailService.getFreeTrialsTopThree();
+    // TODO The enterprise ID is hard coded
+    this.freeTrailService.getLatest(1, 3).subscribe(result => {
+      this.freeTrials = result;
+    });
+    // TODO
     this.elaborateCourses = this.elaborateCourseService.getElaborateCourseTopThree();
   }
 

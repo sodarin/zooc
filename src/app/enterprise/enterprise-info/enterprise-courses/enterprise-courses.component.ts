@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ElaborateCourseService} from '../../../service/course/elaborate-course/elaborate-course.service';
 import {FreeTrialService} from '../../../service/course/free-trial/free-trial.service';
 import {ElaborateCourse} from '../../../model/ElaborateCourse.model';
-import {FreeTrial} from '../../../model/FreeTrialModel';
+import {Trial} from '../../../model/Trial';
 
 @Component({
   selector: 'app-enterprise-courses',
@@ -12,13 +12,13 @@ import {FreeTrial} from '../../../model/FreeTrialModel';
 export class EnterpriseCoursesComponent implements OnInit {
 
   elaborateCourses: ElaborateCourse[];
-  freeTrials: FreeTrial[];
+  freeTrials: Trial[];
 
   constructor(private elaborateCourseService$: ElaborateCourseService, private freeTrialService$: FreeTrialService) { }
 
   ngOnInit() {
     this.elaborateCourses = this.elaborateCourseService$.getElaborateCourse();
-    this.freeTrials = this.freeTrialService$.getFreeTrials()
+    // this.freeTrials = this.freeTrialService$.getFreeTrials()
   }
 
 }
