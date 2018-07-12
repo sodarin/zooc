@@ -1,33 +1,37 @@
 import { Injectable } from '@angular/core';
-import {ElaborateCourse} from '../../../model/ElaborateCourse.model';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Course } from '../../../model/Course';
+import { CourseStatusEnum } from '../../../model/enum/CourseStatusEnum';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ElaborateCourseService {
 
-  elaborateCourse = [
-    new ElaborateCourse('1', '../../../assets/img/free-trial/5a39cd3f0001c09805400300.jpg', '全网最热Python3入门', 336.00, '初级', 510),
-    new ElaborateCourse('2', '../../../assets/img/free-trial/5ac2dfe100014a9005400300.jpg', '分布式事务实践', 348.00, '高级', 130),
-    new ElaborateCourse('3', '../../../assets/img/free-trial/5b2a29d50001bf4605400300.jpg', 'Python3入门机器学习', 400.00, '初级', 600),
-    new ElaborateCourse('4', '../../../assets/img/free-trial/59b8a486000107fb05400300.jpg', 'Vue2.5开发从零基础入门到实战项目', 226.00, '中级', 410)
-  ];
+  // elaborateCourse = [
+  //   new Course('1', '../../../assets/img/free-trial/5a39cd3f0001c09805400300.jpg', '全网最热Python3入门', 336.00, '初级', 510),
+  //   new Course('2', '../../../assets/img/free-trial/5ac2dfe100014a9005400300.jpg', '分布式事务实践', 348.00, '高级', 130),
+  //   new Course('3', '../../../assets/img/free-trial/5b2a29d50001bf4605400300.jpg', 'Python3入门机器学习', 400.00, '初级', 600),
+  //   new Course('4', '../../../assets/img/free-trial/59b8a486000107fb05400300.jpg', 'Vue2.5开发从零基础入门到实战项目', 226.00, '中级', 410)
+  // ];
 
-  constructor() { }
+  constructor(private _http: HttpClient) { }
 
-  getElaborateCourse(): ElaborateCourse[] {
-    return this.elaborateCourse;
+  // TODO filter not implemented
+  getAll(enterpriseId: number,
+         courseId: number = null, nameContaining: string = null,
+         categoryId: number = null,
+         priceMin: number = null, priceMax: number = null,
+         status: CourseStatusEnum = null): Observable<any> {
+    return this._http.get(`/api/v1/enterprise/${enterpriseId}/course/list`);
   }
 
-  getElaborateCourseTopThree(): ElaborateCourse[] {
-    return this.elaborateCourse.slice(0, 3);
+  getLatest(enterpriseId: number, n: number): Observable<Course[]> {
+    return this._http.get<Course[]>(`/api/v1/enterprise/${enterpriseId}/course/latest?n=${n}`);
   }
 
-  getElaborateCoursesById(trialId: string): ElaborateCourse {
-    for (let i = 0; i < this.elaborateCourse.length; i++) {
-      if (this.elaborateCourse[i].courseId == trialId) {
-        return this.elaborateCourse[i];
-      }
-    }
+  getById(courseId: string): Observable<Course> {
+    return this._http.get<Course>(`/api/v1/course/${courseId}`);
   }
 }

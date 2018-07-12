@@ -23,7 +23,7 @@ img {
   font-size: 16px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .details {
   display: flex;

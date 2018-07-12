@@ -17,6 +17,7 @@ export class FreeTrialService {
 
   constructor(private _http: HttpClient) { }
 
+  // TODO filter not implemented
   getAll(enterpriseId: number,
          trialId: number = null, nameContaining: string = null,
          branchId: number = null, branchNameContaining: string = null,

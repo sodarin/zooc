@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ElaborateCourse} from '../../model/ElaborateCourse.model';
+import {Course} from '../../model/Course';
 import {ElaborateCourseService} from '../../service/course/elaborate-course/elaborate-course.service';
 
 @Component({
@@ -9,12 +9,15 @@ import {ElaborateCourseService} from '../../service/course/elaborate-course/elab
 })
 export class ElaborateCourseComponent implements OnInit {
 
-  elaborateCourses: ElaborateCourse[];
+  elaborateCourses: Course[];
 
   constructor(private elaborateCourseService: ElaborateCourseService) { }
 
   ngOnInit() {
-    this.elaborateCourses = this.elaborateCourseService.getElaborateCourse();
+    // TODO The enterprise ID is hard coded
+    this.elaborateCourseService.getAll(1).subscribe(result => {
+      this.elaborateCourses = result.list;
+    });
   }
 
 }

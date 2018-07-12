@@ -1,23 +1,23 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ElaborateCourse} from '../../model/ElaborateCourse.model';
+import {Course} from '../../model/Course';
 import {ElaborateCourseService} from '../../service/course/elaborate-course/elaborate-course.service';
 import {OrderEnum} from '../../model/enum/OrderEnum';
 
 @Component({
   selector: 'app-order-list',
-  templateUrl: './order-list.component.html',
-  styleUrls: ['./order-list.component.css']
+  templateUrl: './order-item.component.html',
+  styleUrls: ['./order-item.component.css']
 })
-export class OrderListComponent implements OnInit {
+export class OrderItemComponent implements OnInit {
 
   @Input() item;
 
-  elaborateCourse: ElaborateCourse;
+  elaborateCourse: Course;
 
   constructor(private elaborateCourseService: ElaborateCourseService) { }
 
   ngOnInit() {
-    this.elaborateCourse = this.elaborateCourseService.getElaborateCoursesById(this.item.courseId);
+    // this.elaborateCourse = this.elaborateCourseService.getElaborateCoursesById(this.item.courseId);
   }
 
 }
