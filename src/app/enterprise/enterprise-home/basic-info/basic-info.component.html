@@ -1,18 +1,33 @@
-<div class="detail-page">
-  <div class="empty-space"></div>
-  <mat-card>
-    <mat-card-header>
-      <mat-card-title>{{enterprise.name}}</mat-card-title>
-    </mat-card-header>
-    <mat-card-content>
-      <div>此处应有图</div>
-      <div>这里是文字描述</div>
-      <div>此处应有图</div>
-      <div>这里是文字描述</div>
-      <div>此处应有图</div>
-      <div>这里是文字描述</div>
-      <div>此处应有图</div>
-      <div>这里是文字描述</div>
-    </mat-card-content>
-  </mat-card>
+<div class="basic-info-page">
+  <div class="image-container">
+    <!-- Image -->
+    <img src="{{enterprise.imgUrl}}" />
+  </div>
+  <span>在这里本来有张图片，但是做不出来。我想这个区域给定一个固定的 height，其中的图片像 background-size: cover 一样
+      显示（即 100% 地显示出横向并保持比例）。这个又折腾了我一个小时。</span>
+  <div class="main-part">
+    <!-- Name -->
+    <div class="name">
+      <span>{{enterprise.name}}</span>
+    </div>
+    <!-- Introduction -->
+    <div class="section-title">
+      <span class="section-title-content">企业简介</span>
+    </div>
+    <div class="paragraph">
+      <span>{{enterprise.introduction}}</span>
+    </div>
+    <!-- Video -->
+    <div class="section-title">
+      <span class="section-title-content">视频展示</span>
+    </div>
+    <video width="100%" src="{{enterprise.videoUrl}}" controls="controls"></video>
+    <!-- Detail -->
+    <div class="section-title">
+      <span class="section-title-content">精彩展示</span>
+    </div>
+    <div class="detail">
+      {{enterprise.detail}}
+    </div>
+  </div>
 </div>

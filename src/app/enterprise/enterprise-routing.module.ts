@@ -11,10 +11,10 @@ const routes: Routes = [
   // {path: 'enterprise', component: EnterpriseHomeDeprecatedComponent},
   {path: 'enterprise', component: EnterpriseHomeComponent, children: [
       {path: '', component: BasicInfoComponent},
-      {path: 'faculty', component: LecturerListComponent},
-      {path: 'department', component: BranchListComponent},
+      {path: 'lecturers', component: LecturerListComponent},
+      {path: 'branches', component: BranchListComponent},
       {path: 'courses', component: CourseListDeprecatedComponent},
-      {path: 'moment', component: EnterpriseMomentComponent}
+      {path: 'moments', component: EnterpriseMomentComponent}
     ]
   }
 ];

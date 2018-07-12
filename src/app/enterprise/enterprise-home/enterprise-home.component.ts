@@ -23,11 +23,11 @@ export class EnterpriseHomeComponent implements OnInit {
       this.enterprise = result;
     });
     this.navLinks = [
-      {'label': '信息', 'path': `/enterprise/${id}`, 'icon': 'home'},
-      {'label': '师资', 'path': `/enterprise/${id}/faculty`, 'icon': 'people'},
-      {'label': '分部', 'path': `/enterprise/${id}/department`, 'icon': 'person_pin'},
-      {'label': '课程', 'path': `/enterprise/${id}/courses`, 'icon': 'school'},
-      {'label': '朋友圈', 'path': `/enterprise/${id}/moment`, 'icon': 'chat'}
+      {'label': '信息', 'path': `/enterprise`, 'icon': 'home'},
+      {'label': '师资', 'path': `/enterprise/lecturers`, 'icon': 'people'},
+      {'label': '分部', 'path': `/enterprise/branches`, 'icon': 'person_pin'},
+      {'label': '课程', 'path': `/enterprise/courses`, 'icon': 'school'},
+      {'label': '朋友圈', 'path': `/enterprise/moments`, 'icon': 'chat'}
     ];
   }
 
