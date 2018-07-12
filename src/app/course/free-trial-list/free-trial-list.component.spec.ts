@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FreeTrialsComponent } from './free-trials.component';
+import { FreeTrialListComponent } from './free-trial-list.component';
 
 describe('FreeTrialsComponent', () => {
-  let component: FreeTrialsComponent;
-  let fixture: ComponentFixture<FreeTrialsComponent>;
+  let component: FreeTrialListComponent;
+  let fixture: ComponentFixture<FreeTrialListComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FreeTrialsComponent ]
+      declarations: [ FreeTrialListComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FreeTrialsComponent);
+    fixture = TestBed.createComponent(FreeTrialListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

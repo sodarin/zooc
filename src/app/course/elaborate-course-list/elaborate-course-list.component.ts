@@ -4,10 +4,10 @@ import {CourseService} from '../../service/course/course.service';
 
 @Component({
   selector: 'app-elaborate-course',
-  templateUrl: './elaborate-course.component.html',
-  styleUrls: ['./elaborate-course.component.css']
+  templateUrl: './elaborate-course-list.component.html',
+  styleUrls: ['./elaborate-course-list.component.css']
 })
-export class ElaborateCourseComponent implements OnInit {
+export class ElaborateCourseListComponent implements OnInit {
 
   elaborateCourses: Course[];
 

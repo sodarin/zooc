@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
-import {Trial} from '../../model/Trial';
-import {TrialService} from '../../service/trial/trial.service';
+import { Trial } from '../../model/Trial';
+import { TrialService } from '../../service/trial/trial.service';
 
 @Component({
   selector: 'app-free-trials',
-  templateUrl: './free-trials.component.html',
-  styleUrls: ['./free-trials.component.css']
+  templateUrl: './free-trial-list.component.html',
+  styleUrls: ['./free-trial-list.component.css']
 })
-export class FreeTrialsComponent implements OnInit {
+export class FreeTrialListComponent implements OnInit {
 
   freeTrials: Trial[];
 
