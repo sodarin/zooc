@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
-import {FreeTrialService} from '../../service/course/free-trial/free-trial.service';
+import {TrialService} from '../../service/trial/trial.service';
 import {Trial} from '../../model/Trial';
 import {Course} from '../../model/Course';
-import {ElaborateCourseService} from '../../service/course/elaborate-course/elaborate-course.service';
+import {CourseService} from '../../service/course/course.service';
 
 @Component({
   selector: 'app-home-content',
@@ -15,7 +15,7 @@ export class HomeContentComponent implements OnInit {
   freeTrials: Trial[];
   elaborateCourses: Course[];
 
-  constructor(private route: Router, private freeTrailService: FreeTrialService, private elaborateCourseService: ElaborateCourseService) { }
+  constructor(private route: Router, private freeTrailService: TrialService, private elaborateCourseService: CourseService) { }
 
   ngOnInit() {
     // TODO The enterprise ID is hard coded

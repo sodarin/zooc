@@ -18,8 +18,8 @@ import { CourseModule } from '../course/course.module';
 import { EnterpriseMomentItemComponent } from './enterprise-info/enterprise-moment/enterprise-moment-item/enterprise-moment-item.component';
 import {MomentService} from '../service/moment/moment.service';
 import {DepartmentService} from '../service/department/department.service';
-import {ElaborateCourseService} from '../service/course/elaborate-course/elaborate-course.service';
-import {FreeTrialService} from '../service/course/free-trial/free-trial.service';
+import {CourseService} from '../service/course/course.service';
+import {TrialService} from '../service/trial/trial.service';
 import { EnterpriseMomentCommentItemComponent } from './enterprise-info/enterprise-moment/enterprise-moment-comment-item/enterprise-moment-comment-item.component';
 import {LoginService} from '../service/login/login.service';
 import { EnterpriseFullMomentCommentComponent } from './enterprise-info/enterprise-moment/enterprise-full-moment-comment/enterprise-full-moment-comment.component';
@@ -40,8 +40,8 @@ import {DateFormatService} from '../service/date-format/date-format.service';
     LecturerService,
     MomentService,
     DepartmentService,
-    ElaborateCourseService,
-    FreeTrialService,
+    CourseService,
+    TrialService,
     LoginService,
     DateFormatService
   ],

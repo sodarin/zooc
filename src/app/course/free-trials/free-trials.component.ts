@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Trial} from '../../model/Trial';
-import {FreeTrialService} from '../../service/course/free-trial/free-trial.service';
+import {TrialService} from '../../service/trial/trial.service';
 
 @Component({
   selector: 'app-free-trials',
@@ -11,7 +11,7 @@ export class FreeTrialsComponent implements OnInit {
 
   freeTrials: Trial[];
 
-  constructor(private freeTrailService: FreeTrialService) { }
+  constructor(private freeTrailService: TrialService) { }
 
   ngOnInit() {
     // TODO The enterprise ID is hard coded

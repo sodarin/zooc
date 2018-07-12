@@ -1,12 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Trial } from '../../../model/Trial';
+import { Trial } from '../../model/Trial';
 import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class FreeTrialService {
+export class TrialService {
 
   // freeTrials = [
   //   new Trial('1', '../../../assets/img/free-trial/5a39cd3f0001c09805400300.jpg', '全网最热Python3入门', 336.00, '初级', 510),

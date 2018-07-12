@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FreeTrialService } from '../../service/course/free-trial/free-trial.service';
+import { TrialService } from '../../service/trial/trial.service';
 import { Trial } from '../../model/Trial';
 
 @Component({
@@ -13,7 +13,7 @@ export class ReserveItemComponent implements OnInit {
 
   freeTrial: Trial;
 
-  constructor(private freeTrialService: FreeTrialService) { }
+  constructor(private freeTrialService: TrialService) { }
 
   ngOnInit() {
 

@@ -8,8 +8,8 @@ import { FreeTrialsComponent } from './free-trials/free-trials.component';
 import { ElaborateCourseComponent } from './elaborate-course/elaborate-course.component';
 import { ElaborateCourseItemComponent } from './elaborate-course-item/elaborate-course-item.component';
 import { FreeTrialItemComponent } from './free-trial-item/free-trial-item.component';
-import {FreeTrialService} from '../service/course/free-trial/free-trial.service';
-import {ElaborateCourseService} from '../service/course/elaborate-course/elaborate-course.service';
+import {TrialService} from '../service/trial/trial.service';
+import {CourseService} from '../service/course/course.service';
 
 @NgModule({
   imports: [
@@ -18,8 +18,8 @@ import {ElaborateCourseService} from '../service/course/elaborate-course/elabora
     CourseRoutingModule
   ],
   providers: [
-    FreeTrialService,
-    ElaborateCourseService
+    TrialService,
+    CourseService
   ],
   exports: [
     FreeTrialItemComponent,

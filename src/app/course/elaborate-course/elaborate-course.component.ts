@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {Course} from '../../model/Course';
-import {ElaborateCourseService} from '../../service/course/elaborate-course/elaborate-course.service';
+import {CourseService} from '../../service/course/course.service';
 
 @Component({
   selector: 'app-elaborate-course',
@@ -11,7 +11,7 @@ export class ElaborateCourseComponent implements OnInit {
 
   elaborateCourses: Course[];
 
-  constructor(private elaborateCourseService: ElaborateCourseService) { }
+  constructor(private elaborateCourseService: CourseService) { }
 
   ngOnInit() {
     // TODO The enterprise ID is hard coded

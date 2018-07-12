@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ElaborateCourseService} from '../../../service/course/elaborate-course/elaborate-course.service';
-import {FreeTrialService} from '../../../service/course/free-trial/free-trial.service';
+import {CourseService} from '../../../service/course/course.service';
+import {TrialService} from '../../../service/trial/trial.service';
 import {Course} from '../../../model/Course';
 import {Trial} from '../../../model/Trial';
 
@@ -14,7 +14,7 @@ export class EnterpriseCoursesComponent implements OnInit {
   elaborateCourses: Course[];
   freeTrials: Trial[];
 
-  constructor(private elaborateCourseService$: ElaborateCourseService, private freeTrialService$: FreeTrialService) { }
+  constructor(private elaborateCourseService$: CourseService, private freeTrialService$: TrialService) { }
 
   ngOnInit() {
     this.elaborateCourseService$.getAll(1).subscribe(result => {

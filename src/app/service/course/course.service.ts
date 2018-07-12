@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Course } from '../../../model/Course';
-import { CourseStatusEnum } from '../../../model/enum/CourseStatusEnum';
-import {Observable} from 'rxjs';
+import { Course } from '../../model/Course';
+import { CourseStatusEnum } from '../../model/enum/CourseStatusEnum';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ElaborateCourseService {
+export class CourseService {
 
   // elaborateCourse = [
   //   new Course('1', '../../../assets/img/free-trial/5a39cd3f0001c09805400300.jpg', '全网最热Python3入门', 336.00, '初级', 510),

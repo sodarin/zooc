@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { FreeTrialService } from './free-trial.service';
+import { TrialService } from './trial.service';
 
 describe('FreeTrialService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [FreeTrialService]
+      providers: [TrialService]
     });
   });
 
-  it('should be created', inject([FreeTrialService], (service: FreeTrialService) => {
+  it('should be created', inject([TrialService], (service: TrialService) => {
     expect(service).toBeTruthy();
   }));
 });

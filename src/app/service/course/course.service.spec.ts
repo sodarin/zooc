@@ -1,15 +1,15 @@
 import { TestBed, inject } from '@angular/core/testing';
 
-import { ElaborateCourseService } from './elaborate-course.service';
+import { CourseService } from './course.service';
 
 describe('ElaborateCourseService', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers: [ElaborateCourseService]
+      providers: [CourseService]
     });
   });
 
-  it('should be created', inject([ElaborateCourseService], (service: ElaborateCourseService) => {
+  it('should be created', inject([CourseService], (service: CourseService) => {
     expect(service).toBeTruthy();
   }));
 });
