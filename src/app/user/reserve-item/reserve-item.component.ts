@@ -3,7 +3,7 @@ import { FreeTrialService } from '../../service/course/free-trial/free-trial.ser
 import { Trial } from '../../model/Trial';
 
 @Component({
-  selector: 'app-reserve-list',
+  selector: 'app-reserve-item',
   templateUrl: './reserve-item.component.html',
   styleUrls: ['./reserve-item.component.css']
 })
