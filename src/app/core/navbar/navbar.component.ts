@@ -9,8 +9,8 @@ export class NavbarComponent implements OnInit {
 
   navLinks = [
     { 'label': '首页', 'path': '/home', 'icon': 'home' },
-    { 'label': '试听', 'path': '/home/free-trials', 'icon': 'local_offer' },
-    { 'label': '精品', 'path': '/home/elaborate-courses', 'icon': 'grade' },
+    { 'label': '试听', 'path': 'trials', 'icon': 'local_offer' },
+    { 'label': '精品', 'path': 'courses', 'icon': 'grade' },
     { 'label': '企业', 'path': '/enterprise', 'icon': 'business_center' },
   ];
 

@@ -6,7 +6,7 @@
       <span>试听课程</span>
     </div>
     <div class="free-trial-display">
-      <app-free-trial-item *ngFor="let item of freeTrials" [item]="item"></app-free-trial-item>
+      <app-trial-item *ngFor="let item of freeTrials" [item]="item"></app-trial-item>
     </div>
   </div>
 
@@ -16,7 +16,7 @@
       <span>精品课程</span>
     </div>
     <div class="elaborate-course-display">
-      <app-elaborate-course-item *ngFor="let item of elaborateCourses" [item]="item"></app-elaborate-course-item>
+      <app-course-item *ngFor="let item of elaborateCourses" [item]="item"></app-course-item>
     </div>
   </div>
 </div>

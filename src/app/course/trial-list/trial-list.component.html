@@ -1,0 +1,5 @@
+<div class="free-trial-content">
+  <div class="free-trial-list">
+    <app-trial-item *ngFor="let item of trials" [item]="item" (click)="navToTrialDetailPage(item)"></app-trial-item>
+  </div>
+</div>

@@ -4,10 +4,10 @@ import { SharedModule } from '../shared/shared.module';
 import { CoreModule } from '../core/core.module';
 import { CourseRoutingModule } from './course-routing.module';
 import { HomeContentComponent } from './home-content/home-content.component';
-import { FreeTrialListComponent } from './free-trial-list/free-trial-list.component';
-import { ElaborateCourseListComponent } from './elaborate-course-list/elaborate-course-list.component';
-import { ElaborateCourseItemComponent } from './elaborate-course-item/elaborate-course-item.component';
-import { FreeTrialItemComponent } from './free-trial-item/free-trial-item.component';
+import { TrialListComponent } from './trial-list/trial-list.component';
+import { CourseListComponent } from './course-list/course-list.component';
+import { CourseItemComponent } from './course-item/course-item.component';
+import { TrialItemComponent } from './trial-item/trial-item.component';
 import {TrialService} from '../service/trial/trial.service';
 import {CourseService} from '../service/course/course.service';
 
@@ -22,9 +22,9 @@ import {CourseService} from '../service/course/course.service';
     CourseService
   ],
   exports: [
-    FreeTrialItemComponent,
-    ElaborateCourseItemComponent
+    TrialItemComponent,
+    CourseItemComponent
   ],
-  declarations: [CourseComponent, HomeContentComponent, FreeTrialListComponent, ElaborateCourseListComponent, ElaborateCourseItemComponent, FreeTrialItemComponent]
+  declarations: [CourseComponent, HomeContentComponent, TrialListComponent, CourseListComponent, CourseItemComponent, TrialItemComponent]
 })
 export class CourseModule { }
