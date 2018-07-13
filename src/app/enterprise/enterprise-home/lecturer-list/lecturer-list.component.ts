@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {Lecturer} from '../../../model/Lecturer.model';
+import {Lecturer} from '../../../model/Lecturer';
 import {LecturerService} from '../../../service/lecturer/lecturer.service';
 import {Location} from '@angular/common';
 
@@ -16,8 +16,10 @@ export class LecturerListComponent implements OnInit {
   constructor( private lecturerService$: LecturerService, private location: Location) { }
 
   ngOnInit() {
-    const id = this.location.path().slice(12,13);
-    this.lecturers = this.lecturerService$.getLecturersById(id);
+    // TODO The enterprise ID is hard coded
+    this.lecturerService$.getAll(1).subscribe(result => {
+      this.lecturers = result.list;
+    });
   }
 
 }
