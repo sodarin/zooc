@@ -30,5 +30,4 @@ export class TrialItemInfoComponent implements OnInit {
       this.branch = branch;
     });
   }
-
 }

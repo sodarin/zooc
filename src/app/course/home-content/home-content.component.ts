@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {ActivatedRoute, Router} from '@angular/router';
 import {TrialService} from '../../service/trial/trial.service';
 import {Trial} from '../../model/Trial';
 import {Course} from '../../model/Course';
@@ -15,7 +15,8 @@ export class HomeContentComponent implements OnInit {
   freeTrials: Trial[];
   elaborateCourses: Course[];
 
-  constructor(private route: Router, private freeTrailService: TrialService, private elaborateCourseService: CourseService) { }
+  constructor(private router: Router, private routeInfo: ActivatedRoute,
+              private freeTrailService: TrialService, private elaborateCourseService: CourseService) { }
 
   ngOnInit() {
     // TODO The enterprise ID is hard coded
@@ -28,12 +29,15 @@ export class HomeContentComponent implements OnInit {
     });
   }
 
-  turnToFreeTrialsPage() {
-    this.route.navigateByUrl('/home/free-trials');
+  navToTrialListPage() {
+    this.router.navigateByUrl('/home/trials');
   }
 
-  turnToElaborateCoursesPage() {
-    this.route.navigateByUrl('/home/elaborate-courses');
+  navToCourseListPage() {
+    this.router.navigateByUrl('/home/courses');
   }
 
+  navToTrialDetailPage(item: Trial) {
+    this.router.navigate([`trials/${item.trialId}`], { relativeTo: this.routeInfo });
+  }
 }
