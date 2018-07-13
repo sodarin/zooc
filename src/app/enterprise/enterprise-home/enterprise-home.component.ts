@@ -23,7 +23,7 @@ export class EnterpriseHomeComponent implements OnInit {
       this.enterprise = result;
     });
     this.navLinks = [
-      {'label': '信息', 'path': `/enterprise/home`, 'icon': 'home'},
+      {'label': '信息', 'path': `/enterprise/info`, 'icon': 'home'},
       {'label': '师资', 'path': `/enterprise/lecturers`, 'icon': 'people'},
       {'label': '分部', 'path': `/enterprise/branches`, 'icon': 'location_city'},
       {'label': '朋友圈', 'path': `/enterprise/moments`, 'icon': 'camera'}

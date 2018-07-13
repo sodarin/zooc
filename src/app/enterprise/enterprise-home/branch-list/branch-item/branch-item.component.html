@@ -1,4 +1,5 @@
-<mat-card>
+<!-- 现在是点卡片进 branches/1, branch-item-info 组件。你可以改下路由然后一个新的组件在下方，交给你了。 -->
+<mat-card (click)="navToInfoPage(item)">
   <mat-card-content>
     <div class="left">
       <div class="name">{{item.name}}</div>
@@ -6,7 +7,7 @@
     </div>
     <div class="right">
       <div class="telephone">联系方式：{{item.telephone}}</div>
-      <mat-icon (click)="navToInfoPage(item)">chevron_right</mat-icon>
+      <mat-icon>place</mat-icon>
     </div>
   </mat-card-content>
 </mat-card>

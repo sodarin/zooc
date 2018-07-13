@@ -10,8 +10,8 @@ import { BranchItemInfoComponent } from './enterprise-home/branch-list/branch-it
 const routes: Routes = [
   // {path: 'enterprise', component: EnterpriseHomeDeprecatedComponent},
   {path: 'enterprise', component: EnterpriseHomeComponent, children: [
-      {path: '', redirectTo: 'home', pathMatch: 'full'},
-      {path: 'home', component: BasicInfoComponent},
+      {path: '', redirectTo: 'info', pathMatch: 'full'},
+      {path: 'info', component: BasicInfoComponent},
       {path: 'lecturers', component: LecturerListComponent},
       {path: 'branches', component: BranchListComponent},
       {path: 'moments', component: EnterpriseMomentComponent},
