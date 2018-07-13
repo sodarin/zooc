@@ -1,3 +1,26 @@
-<p>
-  branch-item-info works!
-</p>
+<div class="branch-item-info-page">
+  <!-- Map -->
+  <div>
+    Map here
+  </div>
+  <div class="main-part">
+    <!-- Name -->
+    <div class="name">
+      <span>{{item?.name}}</span>
+    </div>
+    <!-- Address -->
+    <div class="section-title">
+      <span class="section-title-content">地址</span>
+    </div>
+    <div class="paragraph">
+      <span>{{item?.address}}</span>
+    </div>
+    <!-- Telephone -->
+    <div class="section-title">
+      <span class="section-title-content">联系方式</span>
+    </div>
+    <div class="paragraph">
+      {{item?.telephone}}
+    </div>
+  </div>
+</div>

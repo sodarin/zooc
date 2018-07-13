@@ -1,0 +1,51 @@
+.branch-item-info-page {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.main-part {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 16px 0;
+}
+.section-title {
+  width: 100%;
+  border-left: solid 12px rgb(211, 47, 47);
+  font-size: 22px;
+  display: block;
+  font-weight: 500;
+  line-height: 22px;
+  margin: 36px 0 16px 0;
+  clear: both;
+  overflow: hidden;
+  position: relative;
+  background: url("https://bkssl.bdimg.com/static/wiki-lemma/widget/lemma_content/mainContent/customTitle/img/title-line_c5e6d61.png") repeat-x;
+}
+.section-title-content {
+  line-height: 1;
+  padding: 0 8px 0 18px;
+  background: white;
+}
+.divider-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: 16px 0;
+}
+.divider-container mat-divider {
+  width: 100%;
+}
+.name {
+  font-size: 42px;
+  font-weight: 400;
+  margin-left: 24px;
+  margin-bottom: -12px;
+}
+.paragraph {
+  text-indent: 2em;
+  margin: 0 26px;
+}

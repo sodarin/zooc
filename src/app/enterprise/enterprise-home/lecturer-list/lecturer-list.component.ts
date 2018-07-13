@@ -13,7 +13,7 @@ export class LecturerListComponent implements OnInit {
 
   lecturers: Lecturer[];
 
-  constructor( private lecturerService$: LecturerService, private location: Location) { }
+  constructor(private lecturerService$: LecturerService, private location: Location) { }
 
   ngOnInit() {
     // TODO The enterprise ID is hard coded
