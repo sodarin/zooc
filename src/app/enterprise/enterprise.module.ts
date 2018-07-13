@@ -24,6 +24,7 @@ import {LoginService} from '../service/login/login.service';
 import { EnterpriseFullMomentCommentComponent } from './enterprise-home/enterprise-moment/enterprise-full-moment-comment/enterprise-full-moment-comment.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {DateFormatService} from '../service/date-format/date-format.service';
+import { BranchItemInfoComponent } from './enterprise-home/branch-list/branch-item-info/branch-item-info.component';
 
 @NgModule({
   imports: [
@@ -47,6 +48,6 @@ import {DateFormatService} from '../service/date-format/date-format.service';
   entryComponents: [
     EnterpriseFullMomentCommentComponent
   ],
-  declarations: [EnterpriseHomeComponent, EnterpriseItemDeprecatedComponent, LecturerListComponent, BranchListComponent, CourseListDeprecatedComponent, EnterpriseMomentComponent, BasicInfoComponent, LecturerItemComponent, BranchItemComponent, EnterpriseMomentItemComponent, EnterpriseMomentCommentItemComponent, EnterpriseFullMomentCommentComponent]
+  declarations: [EnterpriseHomeComponent, EnterpriseItemDeprecatedComponent, LecturerListComponent, BranchListComponent, CourseListDeprecatedComponent, EnterpriseMomentComponent, BasicInfoComponent, LecturerItemComponent, BranchItemComponent, EnterpriseMomentItemComponent, EnterpriseMomentCommentItemComponent, EnterpriseFullMomentCommentComponent, BranchItemInfoComponent]
 })
 export class EnterpriseModule { }

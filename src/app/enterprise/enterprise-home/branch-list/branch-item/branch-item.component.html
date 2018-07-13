@@ -6,7 +6,7 @@
     </div>
     <div class="right">
       <div class="telephone">联系方式：{{item.telephone}}</div>
-      <mat-icon>chevron_right</mat-icon>
+      <mat-icon (click)="navToInfoPage(item)">chevron_right</mat-icon>
     </div>
   </mat-card-content>
 </mat-card>

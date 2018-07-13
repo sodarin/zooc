@@ -1,4 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {Branch} from '../../../../model/Branch';
+import {Router} from '@angular/router';
 
 @Component({
   selector: 'app-branch-item',
@@ -8,9 +10,13 @@ import {Component, Input, OnInit} from '@angular/core';
 export class BranchItemComponent implements OnInit {
 
   @Input() item;
-  constructor() { }
+  constructor(private route: Router) { }
 
   ngOnInit() {
+  }
+
+  navToInfoPage(item: Branch) {
+    this.route.navigateByUrl(`/enterprise/branches/${item.branchId}`);
   }
 
 }
