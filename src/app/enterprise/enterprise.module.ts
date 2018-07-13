@@ -16,7 +16,7 @@ import { BranchItemComponent } from './enterprise-home/branch-list/branch-item/b
 import { CourseModule } from '../course/course.module';
 import { EnterpriseMomentItemComponent } from './enterprise-home/enterprise-moment/enterprise-moment-item/enterprise-moment-item.component';
 import {MomentService} from '../service/moment/moment.service';
-import {DepartmentService} from '../service/department/department.service';
+import {BranchService} from '../service/branch/branch.service';
 import {CourseService} from '../service/course/course.service';
 import {TrialService} from '../service/trial/trial.service';
 import { EnterpriseMomentCommentItemComponent } from './enterprise-home/enterprise-moment/enterprise-moment-comment-item/enterprise-moment-comment-item.component';
@@ -38,7 +38,7 @@ import {DateFormatService} from '../service/date-format/date-format.service';
     EnterpriseService,
     LecturerService,
     MomentService,
-    DepartmentService,
+    BranchService,
     CourseService,
     TrialService,
     LoginService,

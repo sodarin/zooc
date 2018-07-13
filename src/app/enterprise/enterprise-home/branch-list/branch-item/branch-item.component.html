@@ -1,8 +1,12 @@
 <mat-card>
-  <img mat-card-image src="../../../../../assets/img/free-trial/5a39cd3f0001c09805400300.jpg">
   <mat-card-content>
-    <span class="name">{{item.name}}</span>
-    <span class="telephone">联系方式：{{item.telephone}}</span>
-    <span class="address">{{item.address}}</span>
+    <div class="left">
+      <div class="name">{{item.name}}</div>
+      <div class="address">地址：{{item.address}}</div>
+    </div>
+    <div class="right">
+      <div class="telephone">联系方式：{{item.telephone}}</div>
+      <mat-icon>chevron_right</mat-icon>
+    </div>
   </mat-card-content>
 </mat-card>

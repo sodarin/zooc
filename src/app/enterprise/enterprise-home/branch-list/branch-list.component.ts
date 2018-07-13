@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Enterprise} from '../../../model/Enterprise';
-import {Location} from '@angular/common';
-import {EnterpriseService} from '../../../service/enterprise/enterprise.service';
-import {DepartmentService} from '../../../service/department/department.service';
-import {Branch} from '../../../model/Department.model';
+import { Location } from '@angular/common';
+import { BranchService } from '../../../service/branch/branch.service';
+import { Branch } from '../../../model/Branch';
 
 @Component({
   selector: 'app-branch-list',
@@ -13,11 +11,13 @@ import {Branch} from '../../../model/Department.model';
 export class BranchListComponent implements OnInit {
 
   branches: Branch[];
-  constructor(private location: Location, private departmentService$: DepartmentService) { }
+  constructor(private location: Location, private branchService$: BranchService) { }
 
   ngOnInit() {
-    const id = this.location.path().slice(12,13);
-    this.branches = this.departmentService$.getDepartmentById(id);
+    // TODO The enterprise ID is hard coded
+    this.branchService$.getAll(1).subscribe(result => {
+      this.branches = result.list;
+    });
   }
 
 }

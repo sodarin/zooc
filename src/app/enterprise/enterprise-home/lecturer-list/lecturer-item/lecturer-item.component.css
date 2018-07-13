@@ -5,6 +5,7 @@ img {
 mat-card {
   display: flex;
   flex-direction: row;
+  border-radius: 0;
 }
 mat-card-header {
   width: 20%;

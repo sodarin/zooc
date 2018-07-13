@@ -1,11 +1,12 @@
 export class Branch {
   constructor(
-    public branchId: string,
-    public enterpriseId: string,
+    public branchId: number,
+    public enterpriseId: number,
     public name: string,
     public address: string,
     public latitude: number,
     public longitude: number,
-    public telephone: string
-  ){}
+    public telephone: string,
+    public isDisabled: boolean
+  ) {}
 }
