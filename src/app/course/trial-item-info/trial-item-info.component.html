@@ -1,0 +1,71 @@
+<div class="trial-item-info-page">
+  <div class="image-container">
+    <!-- Image -->
+    <img src="{{item?.imgUrl}}" />
+  </div>
+  <!-- TODO 这里放图 -->
+  <span>讲道理，这里再出现轮播图就不好了吧。能不能把轮播图只限制在首页，或者最多也出现在师资列表和课程列表里。然后这里放一个试听课程的图 imgUrl</span>
+  <div class="main-part">
+    <!-- Name -->
+    <div class="name">
+      <span>{{item?.name}}</span>
+    </div>
+
+    <!-- Basic info -->
+    <!-- Branch + lecturer + category + release time -->
+    <div class="section-title">
+      <span class="section-title-content">基本信息</span>
+    </div>
+    <div class="basic-info">
+      <!-- Branch -->
+      <mat-expansion-panel (opened)="getBranchDetailIfNotDone()">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            授课分部
+          </mat-panel-title>
+          <mat-panel-description>
+            {{item?.branchName}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <!-- TODO 这里放地图 -->
+        <p>测试：经度：{{branch?.longitude}}</p>
+        <p>这里放地图，看你了！</p>
+      </mat-expansion-panel>
+      <!-- Lecturer -->
+      <mat-card>
+        <mat-card-title>
+          讲师
+        </mat-card-title>
+        <mat-card-subtitle>
+          {{item?.lecturerName}}
+        </mat-card-subtitle>
+      </mat-card>
+      <!-- Category -->
+      <mat-card>
+        <mat-card-title>
+          类型
+        </mat-card-title>
+        <mat-card-subtitle>
+          {{item?.categoryName}}
+        </mat-card-subtitle>
+      </mat-card>
+      <!-- Release time -->
+      <mat-card>
+        <mat-card-title>
+          发布时间
+        </mat-card-title>
+        <mat-card-subtitle>
+          {{item?.releaseTime}}
+        </mat-card-subtitle>
+      </mat-card>
+    </div>
+
+    <!-- Introduction -->
+    <div class="section-title">
+      <span class="section-title-content">试听课程介绍</span>
+    </div>
+    <div class="paragraph">
+      <span>{{item?.detail}}</span>
+    </div>
+  </div>
+</div>

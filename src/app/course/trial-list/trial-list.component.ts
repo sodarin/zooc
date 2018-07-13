@@ -22,7 +22,7 @@ export class TrialListComponent implements OnInit {
   }
 
   navToTrialDetailPage(item: Trial) {
-    this.router.navigateByUrl(`${item.trialId}`, { relativeTo: this.routeInfo });
+    this.router.navigate([`${item.trialId}`], { relativeTo: this.routeInfo });
   }
 
 }

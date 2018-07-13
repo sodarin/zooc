@@ -10,6 +10,7 @@ import { CourseItemComponent } from './course-item/course-item.component';
 import { TrialItemComponent } from './trial-item/trial-item.component';
 import {TrialService} from '../service/trial/trial.service';
 import {CourseService} from '../service/course/course.service';
+import { TrialItemInfoComponent } from './trial-item-info/trial-item-info.component';
 
 @NgModule({
   imports: [
@@ -25,6 +26,6 @@ import {CourseService} from '../service/course/course.service';
     TrialItemComponent,
     CourseItemComponent
   ],
-  declarations: [CourseComponent, HomeContentComponent, TrialListComponent, CourseListComponent, CourseItemComponent, TrialItemComponent]
+  declarations: [CourseComponent, HomeContentComponent, TrialListComponent, CourseListComponent, CourseItemComponent, TrialItemComponent, TrialItemInfoComponent]
 })
 export class CourseModule { }

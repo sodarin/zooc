@@ -16,7 +16,6 @@ export class BranchItemInfoComponent implements OnInit {
   ngOnInit() {
     this.branchService$.getId(this.routeInfo.snapshot.params['id']).subscribe(result => {
       this.item = result;
-      console.log(this.item);
     });
   }
 
