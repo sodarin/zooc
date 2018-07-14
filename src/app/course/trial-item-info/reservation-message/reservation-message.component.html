@@ -1,0 +1,9 @@
+<div>
+  <form [formGroup]="messageForm">
+    <mat-form-field>
+      <input formControlName="message" [(ngModel)]="message" matInput placeholder="请留下您想对我们说的话">
+    </mat-form-field>
+    <button mat-button color="primary" (click)="sendMessage()">发送</button>
+  </form>
+
+</div>
