@@ -15,6 +15,7 @@ import { NgxAmapModule } from 'ngx-amap';
 import { CourseItemInfoComponent } from './course-item-info/course-item-info.component';
 import { ReservationMessageComponent } from './trial-item-info/reservation-message/reservation-message.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { PurchaseConfirmationDialogComponent } from './course-item-info/purchase-confirmation-dialog/purchase-confirmation-dialog.component';
 
 
 @NgModule({
@@ -37,12 +38,13 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
     CourseItemComponent
   ],
   entryComponents: [
-    ReservationMessageComponent
+    ReservationMessageComponent,
+    PurchaseConfirmationDialogComponent
   ],
   declarations: [
     CourseComponent, HomeContentComponent,
     TrialListComponent, TrialItemComponent, TrialItemInfoComponent,
-    CourseListComponent, CourseItemComponent, CourseItemInfoComponent, ReservationMessageComponent
+    CourseListComponent, CourseItemComponent, CourseItemInfoComponent, ReservationMessageComponent, PurchaseConfirmationDialogComponent
   ]
 })
 export class CourseModule { }

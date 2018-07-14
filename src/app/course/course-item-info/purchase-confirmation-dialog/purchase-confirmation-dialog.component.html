@@ -1,0 +1,15 @@
+<div class="confirmation-dialog">
+  <div class="info">
+    <div class="row">
+      <div class="label">课程名称：</div>
+      <div>{{course.name}}</div>
+    </div>
+    <div class="row">
+      <div class="label">价格：</div>
+      <div>￥{{course.price | number: '1.2-2'}}</div>
+    </div>
+  </div>
+</div>
+<div class="operation-row">
+  <button mat-raised-button color="primary">立即支付</button>
+</div>
