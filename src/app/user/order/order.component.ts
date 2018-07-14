@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import {Order} from '../../model/Order.model';
+import {Order} from '../../model/Order';
 import {OrderService} from '../../service/order/order.service';
 import {LoginService} from '../../service/login/login.service';
-import {OrderEnum} from '../../model/enum/OrderEnum';
+import {OrderStatusEnum} from '../../model/enum/OrderStatusEnum';
 
 
 @Component({
@@ -18,13 +18,15 @@ export class OrderComponent implements OnInit {
   availableOrders: Order[];
   afterSaleOrders: Order[];
 
-  constructor(private orderService: OrderService, private login: LoginService) { }
+  constructor(private orderService$: OrderService, private login: LoginService) { }
 
   ngOnInit() {
-    this.orders = this.orderService.getOrderById(this.login.resultUser.userId);
-    this.pendingOrders = this.orders.filter(order => order.status == OrderEnum.PENDING);
-    this.availableOrders = this.orders.filter(order => order.status == OrderEnum.AVAILABLE);
-    this.afterSaleOrders = this.orders.filter(order => order.status != OrderEnum.AVAILABLE && order.status != OrderEnum.PENDING);
+    this.orderService$.getHistory(+this.login.resultUser.userId).subscribe(listResultOfOrders => {
+      this.orders = listResultOfOrders.list;
+    });
+    this.pendingOrders = this.orders.filter(order => order.status == OrderStatusEnum.PENDING);
+    this.availableOrders = this.orders.filter(order => order.status == OrderStatusEnum.AVAILABLE);
+    this.afterSaleOrders = this.orders.filter(order => order.status != OrderStatusEnum.AVAILABLE && order.status != OrderStatusEnum.PENDING);
   }
 
 }
