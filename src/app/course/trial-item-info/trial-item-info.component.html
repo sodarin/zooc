@@ -1,7 +1,7 @@
 <div class="trial-item-info-page">
   <div class="image-container">
     <!-- Image -->
-    <img [src]="item?.imgUrl" />
+    <img *ngIf="item" [src]="item.imgUrl" />
   </div>
   <div class="main-part">
     <!-- Name -->
@@ -25,9 +25,8 @@
             {{item?.branchName}}
           </mat-panel-description>
         </mat-expansion-panel-header>
-        <!-- TODO 这里放地图 -->
         <p>地址：{{branch?.address}}</p>
-        <ngx-amap style="width: 100%; height: 200px;" [center]="[longitude, latitude]" [zoom]="16"></ngx-amap>
+        <ngx-amap class="map-window" *ngIf="branch" [center]="[branch.longitude, branch.latitude]" [zoom]="13"></ngx-amap>
       </mat-expansion-panel>
       <!-- Lecturer -->
       <mat-card>
@@ -53,7 +52,7 @@
           发布时间
         </mat-card-title>
         <mat-card-subtitle>
-          {{item?.releaseTime | date: 'yyyy年MM月dd日'}}
+          {{item?.releaseTime | date: 'y 年 M 月 d 日'}}
         </mat-card-subtitle>
       </mat-card>
     </div>
