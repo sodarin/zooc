@@ -40,4 +40,8 @@ export class HomeContentComponent implements OnInit {
   navToTrialDetailPage(item: Trial) {
     this.router.navigate([`trials/${item.trialId}`], { relativeTo: this.routeInfo });
   }
+
+  navToCourseDetailPage(item: Course) {
+    this.router.navigate([`courses/${item.courseId}`], { relativeTo: this.routeInfo });
+  }
 }

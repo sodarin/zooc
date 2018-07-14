@@ -1,0 +1,80 @@
+<div class="course-item-info">
+  <div class="image-container">
+    <!-- Image -->
+    <img src="{{item?.imgUrl}}" />
+  </div>
+  <!-- TODO 这里放图 -->
+  <span>这里放课程的图 imgUrl</span>
+  <div class="main-part">
+    <!-- Name -->
+    <div class="name">
+      <span>{{item?.name}}</span>
+    </div>
+
+    <!-- Basic info -->
+    <!-- Category + price + release time -->
+    <div class="section-title">
+      <span class="section-title-content">基本信息</span>
+    </div>
+    <div class="card-info">
+      <!-- Category -->
+      <mat-card>
+        <mat-card-title>
+          类型
+        </mat-card-title>
+        <mat-card-subtitle>
+          {{item?.categoryName}}
+        </mat-card-subtitle>
+      </mat-card>
+      <!-- Price -->
+      <mat-card>
+        <mat-card-title>
+          价格
+        </mat-card-title>
+        <mat-card-subtitle>
+          ￥{{item?.price | number: '1.2-2'}}
+        </mat-card-subtitle>
+      </mat-card>
+      <!-- Release time -->
+      <mat-card>
+        <mat-card-title>
+          发布时间
+        </mat-card-title>
+        <mat-card-subtitle>
+          {{item?.releaseTime | date: 'y 年 M 月 d 日'}}
+        </mat-card-subtitle>
+      </mat-card>
+    </div>
+
+    <!-- Introduction -->
+    <div class="section-title">
+      <span class="section-title-content">课程介绍</span>
+    </div>
+    <div class="paragraph">
+      <span>{{item?.detail}}</span>
+    </div>
+
+    <!-- Offerings -->
+    <div class="section-title">
+      <span class="section-title-content">授课课堂</span>
+    </div>
+    <div class="card-info" *ngIf="offerings">
+      <p *ngIf="offerings.length == 0">暂无课堂</p>
+      <mat-expansion-panel *ngFor="let offering of offerings" (opened)="getBranchDetailIfNotDone(offering.branchId)">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            {{offering.branchName}}
+          </mat-panel-title>
+          <mat-panel-description>
+            {{offering.lecturerName}}
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+        <!-- TODO 这里放地图 -->
+        <p>测试：经度：{{branches[offering.branchId]?.longitude}}</p>
+        <p>地址：{{branches[offering.branchId]?.address}}</p>
+        <p>这里放地图，看你了！</p>
+      </mat-expansion-panel>
+    </div>
+
+  </div>
+</div>

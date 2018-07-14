@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Course} from '../../model/Course';
-import {CourseService} from '../../service/course/course.service';
+import { Course } from '../../model/Course';
+import { CourseService } from '../../service/course/course.service';
+import {ActivatedRoute, Router} from '@angular/router';
 
 @Component({
   selector: 'app-course-list',
@@ -11,7 +12,9 @@ export class CourseListComponent implements OnInit {
 
   elaborateCourses: Course[];
 
-  constructor(private courseService$: CourseService) { }
+  constructor(private router: Router,
+              private routeInfo: ActivatedRoute,
+              private courseService$: CourseService) { }
 
   ngOnInit() {
     // TODO The enterprise ID is hard coded
@@ -20,4 +23,7 @@ export class CourseListComponent implements OnInit {
     });
   }
 
+  navToCourseDetailPage(item: Course) {
+    this.router.navigate([`${item.courseId}`], { relativeTo: this.routeInfo });
+  }
 }
