@@ -12,6 +12,8 @@ import {TrialService} from '../service/trial/trial.service';
 import {CourseService} from '../service/course/course.service';
 import { TrialItemInfoComponent } from './trial-item-info/trial-item-info.component';
 import { NgxAmapModule } from 'ngx-amap';
+import { CourseItemInfoComponent } from './course-item-info/course-item-info.component';
+
 
 @NgModule({
   imports: [
@@ -30,6 +32,10 @@ import { NgxAmapModule } from 'ngx-amap';
     TrialItemComponent,
     CourseItemComponent
   ],
-  declarations: [CourseComponent, HomeContentComponent, TrialListComponent, CourseListComponent, CourseItemComponent, TrialItemComponent, TrialItemInfoComponent]
+  declarations: [
+    CourseComponent, HomeContentComponent,
+    TrialListComponent, TrialItemComponent, TrialItemInfoComponent,
+    CourseListComponent, CourseItemComponent, CourseItemInfoComponent
+  ]
 })
 export class CourseModule { }

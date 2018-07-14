@@ -22,7 +22,7 @@
     </div>
     <mat-divider></mat-divider>
     <div class="elaborate-course-display">
-      <app-course-item *ngFor="let item of elaborateCourses" [item]="item"></app-course-item>
+      <app-course-item *ngFor="let item of elaborateCourses" [item]="item" (click)="navToCourseDetailPage(item)"></app-course-item>
     </div>
   </div>
 </div>
