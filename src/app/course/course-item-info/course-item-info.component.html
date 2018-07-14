@@ -1,10 +1,8 @@
 <div class="course-item-info-page">
   <div class="image-container">
     <!-- Image -->
-    <img src="{{item?.imgUrl}}" />
+    <img *ngIf="item" src="{{item?.imgUrl}}" />
   </div>
-  <!-- TODO 这里放图 -->
-  <span>这里放课程的图 imgUrl</span>
   <div class="main-part">
     <!-- Name -->
     <div class="name">
@@ -70,10 +68,12 @@
             {{offering.lecturerName}}
           </mat-panel-description>
         </mat-expansion-panel-header>
-        <!-- TODO 这里放地图 -->
-        <p>测试：经度：{{branches[offering.branchId]?.longitude}}</p>
-        <p>地址：{{branches[offering.branchId]?.address}}</p>
-        <p>这里放地图，看你了！</p>
+        <p *ngIf="branches[offering.branchId]">地址：{{branches[offering.branchId]?.address}}</p>
+        <ngx-amap *ngIf="branches[offering.branchId]"
+                  class="map-window"
+                  [center]="[branches[offering.branchId].longitude, branches[offering.branchId].latitude]"
+                  [zoom]="13">
+        </ngx-amap>
       </mat-expansion-panel>
     </div>
 
@@ -82,7 +82,7 @@
 <!-- Purchase button at the bottom -->
 <div class="operation-row">
   <!-- Purchase button on the right -->
-  <button mat-raised-button color="primary" class="operation-button">立即购买</button>
+  <button mat-raised-button color="primary">立即购买</button>
   <!-- Rest for the price on the left -->
-  <span class="color-primary price-tag">价格：￥{{item?.price}}</span>
+  <span>价格：￥{{item?.price}}</span>
 </div>
