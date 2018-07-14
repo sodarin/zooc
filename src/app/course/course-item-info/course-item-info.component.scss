@@ -127,8 +127,7 @@ $operation-row-height: 56px;
   bottom: 0;
   height: $operation-row-height;
   background: rgba(white, .92);
-  border: 0 solid;
-  border-top: 1px rgb(236, 236, 236);
+  border-top: 1px solid rgb(236, 236, 236);
 }
 .operation-button {
   height: 100%;
