@@ -13,6 +13,8 @@ import {CourseService} from '../service/course/course.service';
 import { TrialItemInfoComponent } from './trial-item-info/trial-item-info.component';
 import { NgxAmapModule } from 'ngx-amap';
 import { CourseItemInfoComponent } from './course-item-info/course-item-info.component';
+import { ReservationMessageComponent } from './trial-item-info/reservation-message/reservation-message.component';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
 @NgModule({
@@ -20,6 +22,8 @@ import { CourseItemInfoComponent } from './course-item-info/course-item-info.com
     SharedModule,
     CoreModule,
     CourseRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
     NgxAmapModule.forRoot({
       apiKey: '5063258ea73f5e445d4e4203b4885fe0'
     })
@@ -32,10 +36,13 @@ import { CourseItemInfoComponent } from './course-item-info/course-item-info.com
     TrialItemComponent,
     CourseItemComponent
   ],
+  entryComponents: [
+    ReservationMessageComponent
+  ],
   declarations: [
     CourseComponent, HomeContentComponent,
     TrialListComponent, TrialItemComponent, TrialItemInfoComponent,
-    CourseListComponent, CourseItemComponent, CourseItemInfoComponent
+    CourseListComponent, CourseItemComponent, CourseItemInfoComponent, ReservationMessageComponent
   ]
 })
 export class CourseModule { }

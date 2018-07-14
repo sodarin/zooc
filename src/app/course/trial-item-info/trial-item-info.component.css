@@ -11,6 +11,9 @@
   position: relative;
   overflow: hidden;
 }
+.content {
+  padding-bottom: 50px;
+}
 .image-container img {
   width: 100%;
   height: auto;
@@ -100,4 +103,13 @@ mat-card-subtitle {
 }
 .detail {
   margin: 0 26px;
+}
+.footer {
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
+.footer button {
+  width: 100%;
+
 }
