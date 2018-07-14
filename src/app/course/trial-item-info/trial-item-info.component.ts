@@ -22,12 +22,12 @@ export class TrialItemInfoComponent implements OnInit {
   reservationId;
 
   constructor(private snackBar: MatSnackBar,
+              private bottomSheet: MatBottomSheet,
               private router: Router,
               private routeInfo: ActivatedRoute,
               private loginService$: LoginService,
               private trialService$: TrialService,
               private branchService$: BranchService,
-              private bottomSheet: MatBottomSheet,
               private reservationService$: ReserveService) { }
 
 
@@ -103,7 +103,7 @@ export class TrialItemInfoComponent implements OnInit {
       }
 
     } else {
-      this.snackBar.open('请先登录', null, {
+      this.snackBar.open('请先登录！', null, {
         duration: 2000
       });
       this.router.navigateByUrl('/login');
