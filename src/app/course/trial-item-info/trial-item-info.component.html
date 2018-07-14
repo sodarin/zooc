@@ -1,10 +1,8 @@
 <div class="trial-item-info-page">
   <div class="image-container">
     <!-- Image -->
-    <img src="{{item?.imgUrl}}" />
+    <img [src]="item?.imgUrl" />
   </div>
-  <!-- TODO 这里放图 -->
-  <span>讲道理，这里再出现轮播图就不好了吧。能不能把轮播图只限制在首页，或者最多也出现在师资列表和课程列表里。然后这里放一个试听课程的图 imgUrl</span>
   <div class="main-part">
     <!-- Name -->
     <div class="name">
@@ -28,8 +26,8 @@
           </mat-panel-description>
         </mat-expansion-panel-header>
         <!-- TODO 这里放地图 -->
-        <p>测试：经度：{{branch?.longitude}}</p>
-        <p>这里放地图，看你了！</p>
+        <p>地址：{{branch?.address}}</p>
+        <ngx-amap style="width: 100%; height: 200px;" [center]="[longitude, latitude]" [zoom]="16"></ngx-amap>
       </mat-expansion-panel>
       <!-- Lecturer -->
       <mat-card>
@@ -55,7 +53,7 @@
           发布时间
         </mat-card-title>
         <mat-card-subtitle>
-          {{item?.releaseTime}}
+          {{item?.releaseTime | date: 'yyyy年MM月dd日'}}
         </mat-card-subtitle>
       </mat-card>
     </div>

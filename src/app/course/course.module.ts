@@ -11,12 +11,16 @@ import { TrialItemComponent } from './trial-item/trial-item.component';
 import {TrialService} from '../service/trial/trial.service';
 import {CourseService} from '../service/course/course.service';
 import { TrialItemInfoComponent } from './trial-item-info/trial-item-info.component';
+import { NgxAmapModule } from 'ngx-amap';
 
 @NgModule({
   imports: [
     SharedModule,
     CoreModule,
-    CourseRoutingModule
+    CourseRoutingModule,
+    NgxAmapModule.forRoot({
+      apiKey: '5063258ea73f5e445d4e4203b4885fe0'
+    })
   ],
   providers: [
     TrialService,

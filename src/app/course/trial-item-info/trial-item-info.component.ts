@@ -14,6 +14,9 @@ export class TrialItemInfoComponent implements OnInit {
   item: Trial;
   branch: Branch;
 
+  longitude: number = 123;
+  latitude: number = 41;
+
   constructor(private routeInfo: ActivatedRoute, private trialService$: TrialService, private branchService$: BranchService) { }
 
   ngOnInit() {
@@ -28,6 +31,10 @@ export class TrialItemInfoComponent implements OnInit {
     }
     this.branchService$.getId(this.item.branchId).subscribe(branch => {
       this.branch = branch;
+      this.longitude = this.branch.longitude;
+      this.latitude = this.branch.latitude;
+      console.log(this.longitude);
+      console.log(this.latitude);
     });
   }
 }
