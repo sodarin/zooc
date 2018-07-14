@@ -1,11 +1,10 @@
 <div class="trial-item-info-page">
+
   <div class="content">
     <div class="image-container">
-      <!-- Image -->
-      <img [src]="item?.imgUrl" />
+      <img *ngIf="item" [src]="item.imgUrl" />
     </div>
     <div class="main-part">
-      <!-- Name -->
       <div class="name">
         <span>{{item?.name}}</span>
       </div>

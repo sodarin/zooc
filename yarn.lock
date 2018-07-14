@@ -4280,6 +4280,12 @@ ng2-filter-pipe@^0.1.10:
   dependencies:
     typings "^2.0.0"
 
+ngx-amap@^2.1.1:
+  version "2.1.1"
+  resolved "http://registry.npm.taobao.org/ngx-amap/download/ngx-amap-2.1.1.tgz#02643213bd6b52de20d7444ca1e6d45a635d29bb"
+  dependencies:
+    tslib "^1.9.0"
+
 no-case@^2.2.0:
   version "2.3.2"
   resolved "http://registry.npm.taobao.org/no-case/download/no-case-2.3.2.tgz#60b813396be39b3f1288a4c1ed5d1e7d28b464ac"
