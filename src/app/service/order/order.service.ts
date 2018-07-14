@@ -25,10 +25,9 @@ export class OrderService {
   constructor(private _http: HttpClient) { }
 
   create(courseId: number, userId: number): Observable<number> {
-    const params = new HttpParams();
-    params.set('courseId', courseId.toString());
-    params.set('userId', userId.toString());
-    return this._http.post<number>(`/api/v1/course/${courseId}`, { params: params }, this.httpOptions);
+    return this._http.post<number>(`/api/v1/course/${courseId}/order`, {
+      userId: userId.toString()
+    }, this.httpOptions);
   }
 
   getHistory(userId: number,
@@ -49,7 +48,7 @@ export class OrderService {
 
   update(orderId: number, status: OrderStatusEnum): Observable<any> {
     return this._http.put(`/api/v1/order/${orderId}`, {
-      status: status
+      status: OrderStatusEnum[status]
     }, this.httpOptions);
   }
 }

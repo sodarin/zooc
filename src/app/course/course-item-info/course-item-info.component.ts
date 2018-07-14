@@ -39,16 +39,21 @@ export class CourseItemInfoComponent implements OnInit {
 
   ngOnInit() {
     this.activeUserId = this.loginService$.resultUser ? +this.loginService$.resultUser.userId : null;
-    console.log(`UserId: ${this.activeUserId}`);
-    // Get the information of the course and its offerings and order
+    // Get the course info
     this.courseService$.getDetailById(this.routeInfo.snapshot.params['id']).subscribe(course => {
       this.item = course;
+      // Get the offerings
       this.courseOfferingService$.getAll(this.item.courseId).subscribe(listResultOfOfferings => {
         this.offerings = listResultOfOfferings.list;
       });
-      this.orderService$.getHistory(this.activeUserId, course.courseId).subscribe(listResultOfOrders => {
-        this.order = listResultOfOrders.list[0];
-      });
+      // Get the order info
+      if (!this.activeUserId) {
+        console.log('User not logged in.');
+      } else {
+        this.orderService$.getHistory(this.activeUserId, course.courseId).subscribe(listResultOfOrders => {
+          this.order = listResultOfOrders.list[0];
+        });
+      }
     });
   }
 
@@ -72,9 +77,13 @@ export class CourseItemInfoComponent implements OnInit {
         // Update the order
         this.order = order;
         if (this.order.status.toString() === OrderStatusEnum[OrderStatusEnum.PENDING]) {
-          this.snackBar.open("订单未支付，请在 15 分钟内支付，如未支付订单将被取消！");
+          this.snackBar.open("订单未支付，请在 15 分钟内支付，如未支付订单将被取消！", null, {
+            duration: 2000
+          });
         } else if (this.order.status.toString() === OrderStatusEnum[OrderStatusEnum.AVAILABLE]) {
-          this.snackBar.open("订单支付成功！");
+          this.snackBar.open("订单支付成功！", null, {
+            duration: 2000
+          });
         }
       });
     } else {
