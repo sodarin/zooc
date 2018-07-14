@@ -10,7 +10,7 @@ import { BranchService } from '../../service/branch/branch.service';
 @Component({
   selector: 'app-course-item-info',
   templateUrl: './course-item-info.component.html',
-  styleUrls: ['./course-item-info.component.css']
+  styleUrls: ['./course-item-info.component.scss']
 })
 export class CourseItemInfoComponent implements OnInit {
   item: Course;

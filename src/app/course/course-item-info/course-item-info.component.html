@@ -1,4 +1,4 @@
-<div class="course-item-info">
+<div class="course-item-info-page">
   <div class="image-container">
     <!-- Image -->
     <img src="{{item?.imgUrl}}" />
@@ -18,29 +18,29 @@
     </div>
     <div class="card-info">
       <!-- Category -->
-      <mat-card>
-        <mat-card-title>
+      <mat-card class="mat-card">
+        <mat-card-title class="mat-card-title">
           类型
         </mat-card-title>
-        <mat-card-subtitle>
+        <mat-card-subtitle class="mat-card-subtitle">
           {{item?.categoryName}}
         </mat-card-subtitle>
       </mat-card>
       <!-- Price -->
       <mat-card>
-        <mat-card-title>
+        <mat-card-title class="mat-card-title">
           价格
         </mat-card-title>
-        <mat-card-subtitle>
+        <mat-card-subtitle class="mat-card-subtitle">
           ￥{{item?.price | number: '1.2-2'}}
         </mat-card-subtitle>
       </mat-card>
       <!-- Release time -->
       <mat-card>
-        <mat-card-title>
+        <mat-card-title class="mat-card-title">
           发布时间
         </mat-card-title>
-        <mat-card-subtitle>
+        <mat-card-subtitle class="mat-card-subtitle">
           {{item?.releaseTime | date: 'y 年 M 月 d 日'}}
         </mat-card-subtitle>
       </mat-card>
@@ -60,7 +60,8 @@
     </div>
     <div class="card-info" *ngIf="offerings">
       <p *ngIf="offerings.length == 0">暂无课堂</p>
-      <mat-expansion-panel *ngFor="let offering of offerings" (opened)="getBranchDetailIfNotDone(offering.branchId)">
+      <mat-expansion-panel class=".mat-expansion-panel"
+        *ngFor="let offering of offerings" (opened)="getBranchDetailIfNotDone(offering.branchId)">
         <mat-expansion-panel-header>
           <mat-panel-title>
             {{offering.branchName}}
@@ -77,4 +78,11 @@
     </div>
 
   </div>
+</div>
+<!-- Purchase button at the bottom -->
+<div class="operation-row">
+  <!-- Purchase button on the right -->
+  <button mat-raised-button color="primary" class="operation-button">立即购买</button>
+  <!-- Rest for the price on the left -->
+  <span class="color-primary price-tag">价格：￥{{item?.price}}</span>
 </div>
