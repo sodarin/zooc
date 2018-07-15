@@ -11,7 +11,7 @@ import { MatBottomSheet, MatSnackBar } from '@angular/material';
 import { PurchaseConfirmationDialogComponent } from './purchase-confirmation-dialog/purchase-confirmation-dialog.component';
 import { OrderService } from '../../service/order/order.service';
 import { Order } from '../../model/Order';
-import {OrderStatusEnum} from '../../model/enum/OrderStatusEnum';
+import { OrderStatusEnum } from '../../model/enum/OrderStatusEnum';
 
 @Component({
   selector: 'app-course-item-info',
@@ -50,8 +50,9 @@ export class CourseItemInfoComponent implements OnInit {
       if (!this.activeUserId) {
         console.log('User not logged in.');
       } else {
-        this.orderService$.getHistory(this.activeUserId, course.courseId).subscribe(listResultOfOrders => {
+        this.orderService$.getHistory(this.activeUserId, this.item.courseId).subscribe(listResultOfOrders => {
           this.order = listResultOfOrders.list[0];
+          console.log(this.order);
         });
       }
     });
@@ -66,19 +67,21 @@ export class CourseItemInfoComponent implements OnInit {
     });
   }
 
-  purchase() {
+  purchase(event: Event) {
+    event.stopPropagation();
     if (this.activeUserId) {
       // Logged in
       // Purchase confirmation
       const bottomSheet = this.bottomSheet.open(PurchaseConfirmationDialogComponent, {
-        data: { userId: this.activeUserId, course: this.item, order: this.order }
+        data: { userId: this.activeUserId, course: this.item, order: this.order },
+        disableClose: true
       });
       bottomSheet.afterDismissed().subscribe((order: Order) => {
         // Update the order
         this.order = order;
         if (this.order.status.toString() === OrderStatusEnum[OrderStatusEnum.PENDING]) {
           this.snackBar.open("订单未支付，请在 15 分钟内支付，如未支付订单将被取消！", null, {
-            duration: 2000
+            duration: 3000
           });
         } else if (this.order.status.toString() === OrderStatusEnum[OrderStatusEnum.AVAILABLE]) {
           this.snackBar.open("订单支付成功！", null, {

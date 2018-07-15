@@ -83,15 +83,19 @@
 <div class="operation-row">
   <!-- Purchase button on the right -->
   <!-- Null: 立即购买; PENDING: 立即购买; CANCELED: 立即购买; other: 已购买 + disabled -->
-  <button
+  <ng-container
     *ngIf="!order ||
     order.status.toString() === orderStatusEnum[orderStatusEnum.PENDING] ||
-    order.status.toString() === orderStatusEnum[orderStatusEnum.CANCELED]"
-    mat-raised-button color="primary" (click)="purchase()">
-    立即购买
-  </button>
+    order.status.toString() === orderStatusEnum[orderStatusEnum.CANCELED];
+    then notPurchased;
+    else purchased"></ng-container>
+  <ng-template #notPurchased>
+    <button mat-raised-button color="primary" (click)="purchase($event)">
+      立即购买
+    </button>
+  </ng-template>
   <ng-template #purchased>
-    <button mat-raised-button disabled>已购买</button>
+    <button mat-raised-button disabled class="disabled">已购买</button>
   </ng-template>
   <!-- Rest for the price on the left -->
   <span>价格：￥{{item?.price}}</span>

@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Order } from '../../model/Order';
 import { OrderStatusEnum } from '../../model/enum/OrderStatusEnum';
-import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 @Injectable({
@@ -30,20 +30,28 @@ export class OrderService {
     }, this.httpOptions);
   }
 
+  async createAsync(courseId: number, userId: number): Promise<number> {
+    return await this.create(courseId, userId).toPromise();
+  }
+
   getHistory(userId: number,
              courseId: number = null, courseNameContaining: string = null,
              orderId: number = null,
              status: OrderStatusEnum = null): Observable<any> {
-    const params = new HttpParams();
-    params.set('orderId', orderId ? orderId.toString() : null);
-    params.set('courseId', courseId ? courseId.toString() : null);
-    params.set('courseNameContaining', courseNameContaining);
-    params.set('status', status ? status.toString() : null);
+    const params = new HttpParams()
+    .set('orderId', orderId ? orderId.toString() : '')
+    .set('courseId', courseId ? courseId.toString() : '')
+    .set('courseNameContaining', courseNameContaining ? courseNameContaining : '')
+    .set('status', status ? status.toString() : '');
     return this._http.get(`/api/v1/user/${userId}/order/list`, { params: params });
   }
 
   getDetailById(orderId: number): Observable<Order> {
     return this._http.get<Order>(`/api/v1/order/detail/${orderId}`);
+  }
+
+  async getDetailByIdAsync(orderId: number): Promise<Order> {
+    return await this.getDetailById(orderId).toPromise();
   }
 
   update(orderId: number, status: OrderStatusEnum): Observable<any> {
