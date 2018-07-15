@@ -24,8 +24,8 @@
             <input matInput formControlName="telephone" type="number" placeholder="电话">
           </mat-form-field>
           <div class="controller">
-            <button [disabled]="!registerForm.valid" style="width: 100%;" class="login-button" mat-raised-button color="accent" type="button" (click)="registerUser()">注册</button>
-            <button style="width: 100%;" class="login-button" mat-raised-button color="primary" type="button" [routerLink]="['/login']">返回登录</button>
+            <button [disabled]="!registerForm.valid" class="login-button" mat-raised-button color="accent" type="button" (click)="registerUser()">注册</button>
+            <button mat-raised-button class="secondary-button" type="button" [routerLink]="['/login']">返回登录</button>
           </div>
         </mat-card-content>
       </mat-card>
