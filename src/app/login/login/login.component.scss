@@ -1,5 +1,7 @@
 @import '../../../styles.scss';
 
+$secondary-button-color: map_get($mat-grey, 100);
+
 .login-page {
   height: 100%;
   display: flex;
@@ -45,4 +47,6 @@ mat-icon {
   color: $color-accent;
   margin: 8px 0;
 }
-
+.secondary-button {
+  background-color: $secondary-button-color;
+}
