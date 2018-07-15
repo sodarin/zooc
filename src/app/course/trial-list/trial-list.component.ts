@@ -32,6 +32,10 @@ export class TrialListComponent implements OnInit {
 
   openBottomSheet() {
     const bottomSheet = this.bottomSheet.open(SearchPageComponent);
+    bottomSheet.afterDismissed().subscribe(result => {
+      this.trailService$.getAll(1, null, result.name, result.branchId, null, result.category, null)
+        .subscribe(next => this.trials = next.list);
+    })
   }
 
 }

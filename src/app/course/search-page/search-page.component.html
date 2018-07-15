@@ -1,6 +1,40 @@
-<div class="search-name">
-  <mat-form-field>
-    <input matInput type="text" [(ngModel)]="name">
-    <span matPrefix><mat-icon>search</mat-icon></span>
-  </mat-form-field>
+<div class="search-page">
+  <div class="search-name">
+    <mat-form-field>
+      <input id="name" matInput placeholder="课程名称" type="text" [(ngModel)]="name">
+      <span matPrefix><mat-icon class="prefix-icon">search</mat-icon></span>
+    </mat-form-field>
+  </div>
+  <div class="empty-space"></div>
+  <div class="search-type">
+    <mat-form-field>
+      <mat-label>课程类型</mat-label>
+      <mat-select [value]="category" #type (selectionChange)="getNewCategoryValue(type.value)">
+        <mat-option *ngFor="let cat of categories" [value]="cat.categoryId">{{cat.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div class="empty-space"></div>
+  <div *ngIf="url == '/home/trials'" class="branch-list">
+    <mat-form-field>
+      <mat-label>分部列表</mat-label>
+      <mat-select [value]="branchId" #branch (selectionChange)="getNewBranchValue(branch.value)">
+        <mat-option *ngFor="let branch of branches" [value]="branch.branchId">{{branch.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div *ngIf="url == '/home/courses'" class="price-filter">
+    <table class="example-full-width" cellspacing="0"><tr>
+      <td><mat-form-field class="example-full-width">
+        <input type="number" [(ngModel)]="minPrice" matInput placeholder="最低价格">
+      </mat-form-field></td>
+      <td><mat-form-field class="example-full-width">
+        <input matInput type="number" [(ngModel)]="maxPrice" placeholder="最高价格">
+      </mat-form-field></td>
+    </tr></table>
+  </div>
+  <div class="search-button">
+    <button mat-raised-button color="primary" (click)="submitConditions()">搜索</button>
+    <button mat-raised-button color="warning" (click)="resetConditions()">重置</button>
+  </div>
 </div>

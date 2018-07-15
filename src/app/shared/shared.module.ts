@@ -8,7 +8,7 @@ import {
   MatExpansionModule,
   MatFormFieldModule,
   MatIconModule,
-  MatInputModule, MatMenuModule,
+  MatInputModule, MatMenuModule, MatSelectModule,
   MatSnackBarModule,
   MatTabsModule,
   MatToolbarModule,
@@ -30,7 +30,8 @@ import {ClickOutsideModule} from 'ng-click-outside';
     MatSnackBarModule,
     MatExpansionModule,
     MatMenuModule,
-    ClickOutsideModule
+    ClickOutsideModule,
+    MatSelectModule
   ],
   exports: [
     CommonModule,
@@ -46,7 +47,8 @@ import {ClickOutsideModule} from 'ng-click-outside';
     MatSnackBarModule,
     MatExpansionModule,
     MatMenuModule,
-    ClickOutsideModule
+    ClickOutsideModule,
+    MatSelectModule
   ],
   declarations: []
 })

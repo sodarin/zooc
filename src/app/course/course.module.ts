@@ -32,7 +32,7 @@ import { SearchPageComponent } from './search-page/search-page.component';
   ],
   providers: [
     TrialService,
-    CourseService
+    CourseService,
   ],
   exports: [
     TrialItemComponent,

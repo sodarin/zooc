@@ -17,6 +17,7 @@ export class TrialService {
          lecturerNameContaining: string = null): Observable<any> {
     const params = new HttpParams()
       .set('trialId', trialId ? trialId.toString() : '')
+      .set('nameContaining', nameContaining ? nameContaining.toString() : '')
       .set('branchId', branchId ? branchId.toString() : '')
       .set('branchNameContaining', branchNameContaining ? branchNameContaining : '')
       .set('categoryId', categoryId ? categoryId.toString() : '')
