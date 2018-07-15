@@ -16,6 +16,7 @@ import { CourseItemInfoComponent } from './course-item-info/course-item-info.com
 import { ReservationMessageComponent } from './trial-item-info/reservation-message/reservation-message.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { PurchaseConfirmationDialogComponent } from './course-item-info/purchase-confirmation-dialog/purchase-confirmation-dialog.component';
+import { SearchPageComponent } from './search-page/search-page.component';
 
 
 @NgModule({
@@ -39,12 +40,13 @@ import { PurchaseConfirmationDialogComponent } from './course-item-info/purchase
   ],
   entryComponents: [
     ReservationMessageComponent,
-    PurchaseConfirmationDialogComponent
+    PurchaseConfirmationDialogComponent,
+    SearchPageComponent
   ],
   declarations: [
     CourseComponent, HomeContentComponent,
     TrialListComponent, TrialItemComponent, TrialItemInfoComponent,
-    CourseListComponent, CourseItemComponent, CourseItemInfoComponent, ReservationMessageComponent, PurchaseConfirmationDialogComponent
+    CourseListComponent, CourseItemComponent, CourseItemInfoComponent, ReservationMessageComponent, PurchaseConfirmationDialogComponent, SearchPageComponent
   ]
 })
 export class CourseModule { }

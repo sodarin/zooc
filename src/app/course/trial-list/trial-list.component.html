@@ -1,4 +1,5 @@
 <div class="trial-list-page">
+  <button color="primary" class="search-button" mat-stroked-button (click)="openBottomSheet()"><mat-icon>search</mat-icon>搜索</button>
   <div class="trial-list">
     <app-trial-item *ngFor="let item of trials" [item]="item" (click)="navToTrialDetailPage(item)"></app-trial-item>
   </div>

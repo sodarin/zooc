@@ -25,6 +25,7 @@ import { EnterpriseFullMomentCommentComponent } from './enterprise-home/enterpri
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {DateFormatService} from '../service/date-format/date-format.service';
 import { BranchItemInfoComponent } from './enterprise-home/branch-list/branch-item-info/branch-item-info.component';
+import {NgxAmapModule} from 'ngx-amap';
 
 @NgModule({
   imports: [
@@ -33,7 +34,10 @@ import { BranchItemInfoComponent } from './enterprise-home/branch-list/branch-it
     EnterpriseRoutingModule,
     CourseModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxAmapModule.forRoot({
+      apiKey: '5063258ea73f5e445d4e4203b4885fe0'
+    })
   ],
   providers: [
     EnterpriseService,
