@@ -13,6 +13,7 @@ import {
   MatTabsModule,
   MatToolbarModule,
 } from '@angular/material';
+import {ClickOutsideModule} from 'ng-click-outside';
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import {
     MatInputModule,
     MatBottomSheetModule,
     MatSnackBarModule,
-    MatExpansionModule
+    MatExpansionModule,
+    ClickOutsideModule
   ],
   exports: [
     CommonModule,
@@ -41,7 +43,8 @@ import {
     MatInputModule,
     MatBottomSheetModule,
     MatSnackBarModule,
-    MatExpansionModule
+    MatExpansionModule,
+    ClickOutsideModule
   ],
   declarations: []
 })
