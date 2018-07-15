@@ -8,7 +8,7 @@ import {SearchPageComponent} from '../search-page/search-page.component';
 @Component({
   selector: 'app-trial-list',
   templateUrl: './trial-list.component.html',
-  styleUrls: ['./trial-list.component.css']
+  styleUrls: ['./trial-list.component.scss']
 })
 export class TrialListComponent implements OnInit {
 

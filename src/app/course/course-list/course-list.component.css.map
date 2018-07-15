@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAEA,cAAe;EACb,aAAa,EAAE,CAAC;EAChB,KAAK,EAAE,IAAI;EACX,SAAS,EAAE,CAAC;EACZ,KAAK,EAAE,oBAAuB;EAC9B,MAAM,EAAE,IAAI",
+"sources": ["course-list.component.scss"],
+"names": [],
+"file": "course-list.component.css"
+}
