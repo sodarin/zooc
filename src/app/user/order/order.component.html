@@ -1,22 +1,44 @@
-<div class="reserve-page">
+<div class="order-page">
   <mat-toolbar color="primary">
     <span>我的订单</span>
   </mat-toolbar>
-  <mat-tab-group mat-stretch-tabs>
+  <mat-tab-group mat-stretch-tabs
+                 (selectedIndexChange)="switchTo($event)">
     <mat-tab label="全部订单">
-      <app-order-item (statusChangeEvent)="refresh()" *ngFor="let order of orders" [item]="order"></app-order-item>
+      <ng-template [ngIf]="orders && orders.length > 0" [ngIfElse]="noItem">
+        <app-order-item (statusChangeEvent)="refresh()"
+                        *ngFor="let order of orders" [item]="order">
+        </app-order-item>
+      </ng-template>
     </mat-tab>
     <mat-tab label="待付款">
-      <app-order-item (statusChangeEvent)="refresh()" *ngFor="let order of pendingOrders" [item]="order"></app-order-item>
+      <ng-template [ngIf]="pendingOrders && pendingOrders.length > 0" [ngIfElse]="noItem">
+        <app-order-item (statusChangeEvent)="refresh()"
+                        *ngFor="let order of pendingOrders" [item]="order">
+        </app-order-item>
+      </ng-template>
     </mat-tab>
     <mat-tab label="已付款">
-      <app-order-item (statusChangeEvent)="refresh()" *ngFor="let order of availableOrders" [item]="order"></app-order-item>
+      <ng-template [ngIf]="availableOrders && availableOrders.length > 0" [ngIfElse]="noItem">
+        <app-order-item (statusChangeEvent)="refresh()"
+                        *ngFor="let order of availableOrders" [item]="order">
+        </app-order-item>
+      </ng-template>
     </mat-tab>
-    <mat-tab label="申请退款">
-      <app-order-item *ngFor="let order of refundRequestedOrders" [item]="order"></app-order-item>
+    <mat-tab label="已申请退款">
+      <ng-template [ngIf]="refundRequestedOrders && refundRequestedOrders.length > 0" [ngIfElse]="noItem">
+        <app-order-item *ngFor="let order of refundRequestedOrders" [item]="order"></app-order-item>
+      </ng-template>
     </mat-tab>
-    <mat-tab label="取消/退款">
-      <app-order-item *ngFor="let order of afterSaleOrders" [item]="order"></app-order-item>
+    <mat-tab label="取消/已退款">
+      <ng-template [ngIf]="inactiveOrders && inactiveOrders.length > 0" [ngIfElse]="noItem">
+        <app-order-item *ngFor="let order of inactiveOrders" [item]="order"></app-order-item>
+      </ng-template>
     </mat-tab>
   </mat-tab-group>
+  <ng-template #noItem>
+    <div class="no-item">
+      <div>无订单</div>
+    </div>
+  </ng-template>
 </div>
