@@ -23,6 +23,9 @@ mat-icon {
   width: 70px;
   height: 70px;
 }
+.content {
+  padding: 0 30px;
+}
 .mat-card:not([class*=mat-elevation-z]) {
   box-shadow: none;
 }
