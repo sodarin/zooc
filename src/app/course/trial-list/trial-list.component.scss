@@ -1,0 +1,9 @@
+$opacity: 0.87 * 0.6;
+
+.search-button {
+  border-radius: 0;
+  width: 100%;
+  flex-grow: 1;
+  color: rgba(0, 0, 0, $opacity);
+  height: 48px;
+}
