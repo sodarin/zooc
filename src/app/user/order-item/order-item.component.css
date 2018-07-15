@@ -1,17 +1,17 @@
 .container {
-  height: 84px;
+  height: 120px;
 }
 .content {
   display: flex;
   flex-direction: row;
   align-items: center;
   height: 100%;
-  margin-left: 7px;
+  margin-left: 16px;
 }
 .img-content {
   width: 135px;
   height: 74px;
-  margin:100px auto;
+  margin: 100px auto;
   overflow: hidden;
   position: relative;
 }
@@ -24,11 +24,12 @@
   display: inline-block;
 }
 mat-icon {
-  width: 15px;
-  height: 15px;
+  width: 18px;
+  height: 18px;
 }
 .material-icons {
-  font-size: 15px;
+  font-size: 18px;
+  margin: 3px 16px 3px 4px;
 }
 .empty-space {
   width: 5%;
@@ -50,7 +51,7 @@ img {
   font-size: 16px;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 .details {
   display: flex;
