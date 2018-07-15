@@ -1,37 +1,33 @@
 import { Component, OnInit } from '@angular/core';
 import { Trial } from '../../model/Trial';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { TrialService } from '../../service/trial/trial.service';
 import { BranchService } from '../../service/branch/branch.service';
 import { Branch } from '../../model/Branch';
-import {MatBottomSheet, MatSnackBar} from '@angular/material';
-import {ReservationMessageComponent} from './reservation-message/reservation-message.component';
-import {LoginService} from '../../service/login/login.service';
-import {ReserveService} from '../../service/reserve/reserve.service';
+import { MatBottomSheet, MatSnackBar } from '@angular/material';
+import { ReservationMessageComponent } from './reservation-message/reservation-message.component';
+import { LoginService } from '../../service/login/login.service';
+import { ReserveService } from '../../service/reserve/reserve.service';
 
 @Component({
   selector: 'app-trial-item-info',
   templateUrl: './trial-item-info.component.html',
-  styleUrls: ['./trial-item-info.component.css']
+  styleUrls: ['./trial-item-info.component.scss']
 })
 export class TrialItemInfoComponent implements OnInit {
   item: Trial;
   branch: Branch;
-
-
-  longitude: number = 123;
-  latitude: number = 41;
-
   isReserved = false;
   message = '';
   reservationId;
 
   constructor(private snackBar: MatSnackBar,
-              private loginService$: LoginService,
+              private bottomSheet: MatBottomSheet,
+              private router: Router,
               private routeInfo: ActivatedRoute,
+              private loginService$: LoginService,
               private trialService$: TrialService,
               private branchService$: BranchService,
-              private bottomSheet: MatBottomSheet,
               private reservationService$: ReserveService) { }
 
 
@@ -67,7 +63,7 @@ export class TrialItemInfoComponent implements OnInit {
   }
 
   openBottomSheet() {
-    if (this.loginService$.resultUser){
+    if (this.loginService$.resultUser) {
       const bottomSheet = this.bottomSheet.open(ReservationMessageComponent, {
         data: this.message
       });
@@ -83,33 +79,34 @@ export class TrialItemInfoComponent implements OnInit {
               }, error2 => {
                 this.snackBar.open(error2.error, null, {
                   duration: 2000
-                })
-              })
+                });
+              });
           }
-        })
+        });
       } else {
         bottomSheet.afterDismissed().subscribe(result => {
           if (result != null) {
-            let msg = result;
+            const msg = result;
             this.reservationService$.updateReservationMessage(this.reservationId, result)
               .subscribe(result => {
                 this.message = msg;
                 this.snackBar.open('修改留言成功！', null, {
                   duration: 2000
-                })
+                });
               }, error2 => {
                 this.snackBar.open(error2.error, null, {
                   duration: 2000
-                })
+                });
               });
           }
-        })
+        });
       }
 
-    }else {
-      this.snackBar.open('请先登录', null, {
+    } else {
+      this.snackBar.open('请先登录！', null, {
         duration: 2000
       });
+      this.router.navigateByUrl('/login');
     }
 
   }

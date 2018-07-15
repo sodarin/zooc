@@ -1,0 +1,36 @@
+.confirmation-dialog {
+  display: flex; }
+
+.info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 24px 24px 80px; }
+
+.row {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  font-size: 15px;
+  margin: 8px 0; }
+
+.label {
+  min-width: 90px;
+  font-weight: 600; }
+
+.operation-row {
+  width: 100%;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  border-top: 1px solid #ececec;
+  height: 56px; }
+  .operation-row button {
+    width: 100%;
+    height: 100%;
+    font-size: 15px; }
+
+/*# sourceMappingURL=purchase-confirmation-dialog.component.css.map */

@@ -4267,6 +4267,10 @@ next-tick@1:
   version "1.0.0"
   resolved "http://registry.npm.taobao.org/next-tick/download/next-tick-1.0.0.tgz#ca86d1fe8828169b0120208e3dc8424b9db8342c"
 
+ng-click-outside@^4.0.0:
+  version "4.0.0"
+  resolved "http://registry.npm.taobao.org/ng-click-outside/download/ng-click-outside-4.0.0.tgz#73e2a072c8dac0622c0f46763439cdc345479bd3"
+
 ng-zorro-antd@^1.1.1:
   version "1.1.1"
   resolved "http://registry.npm.taobao.org/ng-zorro-antd/download/ng-zorro-antd-1.1.1.tgz#d0653fbce09808c27c4294d299b8c67d04250c17"

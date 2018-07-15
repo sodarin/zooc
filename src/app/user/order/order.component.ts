@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {Order} from '../../model/Order.model';
 import {OrderDetail, OrderService} from '../../service/order/order.service';
 import {LoginService} from '../../service/login/login.service';
-import {OrderEnum} from '../../model/enum/OrderEnum';
+import {OrderStatusEnum} from '../../model/enum/OrderStatusEnum';
 
 
 @Component({
@@ -19,16 +18,17 @@ export class OrderComponent implements OnInit {
   refundRequestedOrders: OrderDetail[];
   afterSaleOrders: OrderDetail[];
 
-  constructor(private orderService: OrderService, private login: LoginService) { }
+  constructor(private orderService$: OrderService, private login: LoginService) { }
 
   ngOnInit() {
-    this.orderService.getOrderByUserId(this.login.resultUser.userId)
+
+    this.orderService$.getHistory(+this.login.resultUser.userId)
       .subscribe(result => {
         this.orders = result.list;
-        this.pendingOrders = this.orders.filter(order => order.status == OrderEnum[OrderEnum.PENDING]);
-        this.availableOrders = this.orders.filter(order => order.status == OrderEnum[OrderEnum.AVAILABLE]);
-        this.refundRequestedOrders = this.orders.filter(order => order.status == OrderEnum[OrderEnum.REFUND_REQUESTED]);
-        this.afterSaleOrders = this.orders.filter(order => order.status == OrderEnum[OrderEnum.REFUNDED] || order.status == OrderEnum[OrderEnum.CANCELED]);
+        this.pendingOrders = this.orders.filter(order => order.status == OrderStatusEnum[OrderStatusEnum.PENDING]);
+        this.availableOrders = this.orders.filter(order => order.status == OrderStatusEnum[OrderStatusEnum.AVAILABLE]);
+        this.refundRequestedOrders = this.orders.filter(order => order.status == OrderStatusEnum[OrderStatusEnum.REFUND_REQUESTED]);
+        this.afterSaleOrders = this.orders.filter(order => order.status == OrderStatusEnum[OrderStatusEnum.REFUNDED] || order.status == OrderStatusEnum[OrderStatusEnum.CANCELED]);
       })
 
   }

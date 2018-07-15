@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Course } from '../../model/Course';
 import { CourseService } from '../../service/course/course.service';
-import { OrderEnum } from '../../model/enum/OrderEnum';
+import { OrderStatusEnum } from '../../model/enum/OrderStatusEnum';
 
 @Component({
   selector: 'app-order-item',
@@ -13,7 +13,7 @@ export class OrderItemComponent implements OnInit {
   @Input() item;
 
   elaborateCourse: Course;
-  orderEnum = OrderEnum;
+  orderEnum = OrderStatusEnum;
 
   constructor(private elaborateCourseService$: CourseService) { }
 

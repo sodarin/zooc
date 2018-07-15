@@ -1,10 +1,8 @@
-<div class="course-item-info">
+<div class="course-item-info-page">
   <div class="image-container">
     <!-- Image -->
-    <img src="{{item?.imgUrl}}" />
+    <img *ngIf="item" src="{{item?.imgUrl}}" />
   </div>
-  <!-- TODO 这里放图 -->
-  <span>这里放课程的图 imgUrl</span>
   <div class="main-part">
     <!-- Name -->
     <div class="name">
@@ -18,29 +16,29 @@
     </div>
     <div class="card-info">
       <!-- Category -->
-      <mat-card>
-        <mat-card-title>
+      <mat-card class="mat-card">
+        <mat-card-title class="mat-card-title">
           类型
         </mat-card-title>
-        <mat-card-subtitle>
+        <mat-card-subtitle class="mat-card-subtitle">
           {{item?.categoryName}}
         </mat-card-subtitle>
       </mat-card>
       <!-- Price -->
       <mat-card>
-        <mat-card-title>
+        <mat-card-title class="mat-card-title">
           价格
         </mat-card-title>
-        <mat-card-subtitle>
+        <mat-card-subtitle class="mat-card-subtitle">
           ￥{{item?.price | number: '1.2-2'}}
         </mat-card-subtitle>
       </mat-card>
       <!-- Release time -->
       <mat-card>
-        <mat-card-title>
+        <mat-card-title class="mat-card-title">
           发布时间
         </mat-card-title>
-        <mat-card-subtitle>
+        <mat-card-subtitle class="mat-card-subtitle">
           {{item?.releaseTime | date: 'y 年 M 月 d 日'}}
         </mat-card-subtitle>
       </mat-card>
@@ -60,7 +58,8 @@
     </div>
     <div class="card-info" *ngIf="offerings">
       <p *ngIf="offerings.length == 0">暂无课堂</p>
-      <mat-expansion-panel *ngFor="let offering of offerings" (opened)="getBranchDetailIfNotDone(offering.branchId)">
+      <mat-expansion-panel class=".mat-expansion-panel"
+        *ngFor="let offering of offerings" (opened)="getBranchDetailIfNotDone(offering.branchId)">
         <mat-expansion-panel-header>
           <mat-panel-title>
             {{offering.branchName}}
@@ -69,12 +68,35 @@
             {{offering.lecturerName}}
           </mat-panel-description>
         </mat-expansion-panel-header>
-        <!-- TODO 这里放地图 -->
-        <p>测试：经度：{{branches[offering.branchId]?.longitude}}</p>
-        <p>地址：{{branches[offering.branchId]?.address}}</p>
-        <p>这里放地图，看你了！</p>
+        <p *ngIf="branches[offering.branchId]">地址：{{branches[offering.branchId]?.address}}</p>
+        <ngx-amap *ngIf="branches[offering.branchId]"
+                  class="map-window"
+                  [center]="[branches[offering.branchId].longitude, branches[offering.branchId].latitude]"
+                  [zoom]="13">
+        </ngx-amap>
       </mat-expansion-panel>
     </div>
 
   </div>
+</div>
+<!-- Purchase button at the bottom -->
+<div class="operation-row">
+  <!-- Purchase button on the right -->
+  <!-- Null: 立即购买; PENDING: 立即购买; CANCELED: 立即购买; other: 已购买 + disabled -->
+  <ng-container
+    *ngIf="!order ||
+    order.status.toString() === orderStatusEnum[orderStatusEnum.PENDING] ||
+    order.status.toString() === orderStatusEnum[orderStatusEnum.CANCELED];
+    then notPurchased;
+    else purchased"></ng-container>
+  <ng-template #notPurchased>
+    <button mat-raised-button color="primary" (click)="purchase($event)">
+      立即购买
+    </button>
+  </ng-template>
+  <ng-template #purchased>
+    <button mat-raised-button disabled class="disabled">已购买</button>
+  </ng-template>
+  <!-- Rest for the price on the left -->
+  <span>价格：￥{{item?.price}}</span>
 </div>
