@@ -10,11 +10,6 @@ import { Observable } from 'rxjs';
 })
 export class OrderService {
 
-
-
-
-
-
   httpOptions = {
     headers: new HttpHeaders().set('Content-Type', 'application/json')
   };
@@ -34,12 +29,12 @@ export class OrderService {
   getHistory(userId: number,
              courseId: number = null, courseNameContaining: string = null,
              orderId: number = null,
-             status: OrderStatusEnum = null): Observable<any> {
+             status: string = null): Observable<any> {
     const params = new HttpParams()
     .set('orderId', orderId ? orderId.toString() : '')
     .set('courseId', courseId ? courseId.toString() : '')
     .set('courseNameContaining', courseNameContaining ? courseNameContaining : '')
-    .set('status', status ? status.toString() : '');
+    .set('status', status ? status : '');
     return this._http.get(`/api/v1/user/${userId}/order/list`, { params: params });
   }
 
@@ -57,24 +52,4 @@ export class OrderService {
     }, this.httpOptions);
   }
 
-
-}
-
-export class OrderDetail {
-  constructor(
-    public  orderId: number,
-    public  userId: number,
-    public  username: string,
-    public  userEmail: string,
-    public  userMobile: string,
-    public  enterpriseId: number,
-    public  courseId: number,
-    public  courseName: string,
-    public  coursePrice: number,
-    public  time: Date,
-    public  status: string,
-    public  refundId: number,
-    public  refundTime: Date,
-    public  refundReason: string
-  ){}
 }
