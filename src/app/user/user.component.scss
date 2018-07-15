@@ -1,3 +1,5 @@
+@import '../../styles.scss';
+
 mat-toolbar {
   display: flex;
   flex-direction: row;
@@ -6,7 +8,7 @@ mat-toolbar {
 .background {
   width: 100%;
   height: 200px;
-  background: -webkit-gradient(linear, 0 0, 0 100%, from(#d32f2f), to(#ffffff));
+  background: linear-gradient(180deg, $color-primary 0, lighten($color-primary, 15%) 27%, white 100%);
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -23,4 +25,7 @@ button {
   flex-grow: 1;
   justify-content: center;
   align-items: center;
+  mat-icon {
+    margin-right: 8px;
+  }
 }
