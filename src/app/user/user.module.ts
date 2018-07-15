@@ -11,6 +11,7 @@ import { OrderComponent } from './order/order.component';
 import { OrderItemComponent } from './order-item/order-item.component';
 import {OrderService} from '../service/order/order.service';
 
+
 @NgModule({
   imports: [
     SharedModule,
@@ -18,9 +19,10 @@ import {OrderService} from '../service/order/order.service';
     UserRoutingModule,
   ],
   providers: [
+
     LoginService,
     ReserveService,
-    OrderService
+    OrderService,
   ],
   declarations: [ UserComponent, ReserveComponent, ReserveItemComponent, OrderComponent, OrderItemComponent]
 })

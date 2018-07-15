@@ -12,6 +12,9 @@
     <mat-tab label="已付款">
       <app-order-item *ngFor="let order of availableOrders" [item]="order"></app-order-item>
     </mat-tab>
+    <mat-tab label="申请退款">
+      <app-order-item *ngFor="let order of refundRequestedOrders" [item]="order"></app-order-item>
+    </mat-tab>
     <mat-tab label="取消/退款">
       <app-order-item *ngFor="let order of afterSaleOrders" [item]="order"></app-order-item>
     </mat-tab>

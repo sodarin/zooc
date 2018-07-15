@@ -1,11 +1,11 @@
 <div class="container">
   <div class="content">
-    <img [src]="elaborateCourse.url" [alt]="elaborateCourse.title">
+    <img [src]="elaborateCourse.imgUrl" [alt]="elaborateCourse.name">
     <div class="empty-space"></div>
     <div class="description">
-      <span class="title">{{elaborateCourse.title}}</span>
+      <span class="title">{{elaborateCourse.name}}</span>
       <div class="details">
-        <span class="time">{{item.time}}</span>
+        <span class="time" *ngIf="item?.status == orderEnum[orderEnum.PENDING]">{{item.time}}</span>
         <div class="empty-space"></div>
         <span *ngIf="item.status == 0">待付款</span>
         <span *ngIf="item.status == 1">已取消</span>

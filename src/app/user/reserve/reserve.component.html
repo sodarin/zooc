@@ -12,7 +12,10 @@
     <mat-tab label="已处理">
       <app-reserve-item *ngFor="let reserve of availableReservation" [item]="reserve"></app-reserve-item>
     </mat-tab>
-    <mat-tab label="已使用/已取消">
+    <mat-tab label="已取消">
+      <app-reserve-item *ngFor="let reserve of canceledReservation" [item]="reserve"></app-reserve-item>
+    </mat-tab>
+    <mat-tab label="已使用/已过期">
       <app-reserve-item *ngFor="let reserve of processedReservation" [item]="reserve"></app-reserve-item>
     </mat-tab>
   </mat-tab-group>

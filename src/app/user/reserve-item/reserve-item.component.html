@@ -1,18 +1,29 @@
 <div class="container">
   <div class="content">
-    <img [src]="freeTrial.url" [alt]="freeTrial.title">
+    <div class="img-content">
+      <img *ngIf="freeTrial" [src]="freeTrial.imgUrl" [alt]="freeTrial.name">
+    </div>
     <div class="empty-space"></div>
     <div class="description">
-      <span class="title">{{freeTrial.title}}</span>
+      <div class="desc-head">
+        <span class="title">{{freeTrial?.name}}</span>
+        <mat-icon *ngIf="item?.status == reservationEnum[reservationEnum.AVAILABLE]" [matMenuTriggerFor]="menu">more_vert</mat-icon>
+      </div>
       <div class="details">
-        <span class="time">{{item.time}}</span>
+        <span class="time">{{item?.time | date: 'yyyy年MM月dd日 hh:mm:ss'}}</span>
         <div class="empty-space"></div>
-        <span *ngIf="item.status == 0">待处理</span>
-        <span *ngIf="item.status == 1">已取消</span>
-        <span *ngIf="item.status == 2">已处理</span>
-        <span *ngIf="item.status == 3">已使用</span>
+        <span *ngIf="item?.status == reservationEnum[reservationEnum.PENDING]">待处理</span>
+        <span *ngIf="item?.status == reservationEnum[reservationEnum.CANCELED]">已取消</span>
+        <span *ngIf="item?.status == reservationEnum[reservationEnum.AVAILABLE]">可使用</span>
+        <span *ngIf="item?.status == reservationEnum[reservationEnum.USED]">已使用</span>
+        <span *ngIf="item?.status == reservationEnum[reservationEnum.EXPIRED]">已过期</span>
       </div>
     </div>
   </div>
 </div>
 <mat-divider></mat-divider>
+
+<mat-menu #menu="matMenu">
+  <button mat-menu-item (click)="changeStatus('USED')">使用预约</button>
+  <button mat-menu-item (click)="changeStatus('CANCELED')">取消预约</button>
+</mat-menu>

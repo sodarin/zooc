@@ -13,8 +13,9 @@ export class OrderItemComponent implements OnInit {
   @Input() item;
 
   elaborateCourse: Course;
+  orderEnum = OrderEnum;
 
-  constructor(private elaborateCourseService: CourseService) { }
+  constructor(private elaborateCourseService$: CourseService) { }
 
   ngOnInit() {
     // this.elaborateCourse = this.elaborateCourseService.getElaborateCoursesById(this.item.courseId);

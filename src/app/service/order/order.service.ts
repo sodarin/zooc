@@ -1,24 +1,39 @@
 import { Injectable } from '@angular/core';
-import {Order} from '../../model/Order.model';
-import {OrderEnum} from '../../model/enum/OrderEnum';
+import {Observable} from 'rxjs';
+import {HttpClient} from '@angular/common/http';
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class OrderService {
 
-  order: Order[] = [
-    new Order('158911520', '1', '1', '2018-6-25 11:11:50', OrderEnum.PENDING),
-    new Order('158911520', '1', '2', '2018-6-25 11:11:50', OrderEnum.CANCELED),
-    new Order('158911520', '3', '1', '2018-6-25 11:11:50', OrderEnum.AVAILABLE),
-    new Order('158911520', '1', '3', '2018-6-25 11:11:50', OrderEnum.REFUNDED),
-    new Order('158911520', '1', '3', '2018-6-25 11:11:50', OrderEnum.REFUND_REQUESTED),
-    new Order('158911520', '1', '1', '2018-6-25 11:11:50', OrderEnum.AVAILABLE),
-  ];
 
-  constructor() { }
 
-  getOrderById(userId: string): Order[] {
-    return this.order.filter(order => order.userId == userId);
+  constructor(private _http: HttpClient) { }
+
+  getOrderByUserId(userId: string): Observable<any> {
+    return this._http.get(`/api/v1/user/${userId}/order/list`);
   }
+
+
+}
+
+export class OrderDetail {
+  constructor(
+    public  orderId: number,
+    public  userId: number,
+    public  username: string,
+    public  userEmail: string,
+    public  userMobile: string,
+    public  enterpriseId: number,
+    public  courseId: number,
+    public  courseName: string,
+    public  coursePrice: number,
+    public  time: Date,
+    public  status: string,
+    public  refundId: number,
+    public  refundTime: Date,
+    public  refundReason: string
+  ){}
 }

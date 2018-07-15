@@ -8,7 +8,7 @@ import {
   MatExpansionModule,
   MatFormFieldModule,
   MatIconModule,
-  MatInputModule,
+  MatInputModule, MatMenuModule,
   MatSnackBarModule,
   MatTabsModule,
   MatToolbarModule,
@@ -27,7 +27,8 @@ import {
     MatInputModule,
     MatBottomSheetModule,
     MatSnackBarModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatMenuModule
   ],
   exports: [
     CommonModule,
@@ -41,7 +42,8 @@ import {
     MatInputModule,
     MatBottomSheetModule,
     MatSnackBarModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatMenuModule
   ],
   declarations: []
 })

@@ -1,4 +1,4 @@
-import {Component, Inject, OnInit} from '@angular/core';
+import {Component, Inject, OnDestroy, OnInit} from '@angular/core';
 import {MomentComment} from '../../../model/MomentComment.model';
 import {MAT_BOTTOM_SHEET_DATA, MatBottomSheet, MatBottomSheetRef} from '@angular/material';
 import {FormBuilder, FormGroup} from '@angular/forms';
@@ -8,7 +8,7 @@ import {FormBuilder, FormGroup} from '@angular/forms';
   templateUrl: './reservation-message.component.html',
   styleUrls: ['./reservation-message.component.css']
 })
-export class ReservationMessageComponent implements OnInit {
+export class ReservationMessageComponent implements OnInit, OnDestroy {
 
   message = '';
 
@@ -29,6 +29,10 @@ export class ReservationMessageComponent implements OnInit {
 
   sendMessage() {
     this.bottomSheetRef.dismiss(this.message);
+  }
+
+  ngOnDestroy () {
+    this.bottomSheetRef.dismiss("销毁")
   }
 
 }

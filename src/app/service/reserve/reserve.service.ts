@@ -3,6 +3,7 @@ import {Reserve} from '../../model/Reserve.model';
 import {ReservationEnum} from '../../model/enum/ReservationEnum';
 import {Observable} from 'rxjs';
 import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {TrialStatusEnum} from '../../model/enum/TrialStatusEnum';
 
 @Injectable({
   providedIn: 'root'
@@ -43,11 +44,36 @@ export class ReserveService {
     })
   }
 
+  updateReservationStatus(reservationId: number, status: string): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
+    return this._http.put(`/api/v1/reservation/${reservationId}`, {
+      status: status
+    })
+  }
+
   getReservationListByUserId(userId: string): Observable<any> {
     return this._http.get(`/api/v1/user/${userId}/reservation/list`);
   }
 
-  getReserveById(userId: string): Reserve[] {
-    return this.reserves.filter(reserve => reserve.userId == userId );
-  }
+
+}
+
+export class ReservationDetail {
+  constructor(
+    public reservationId: number,
+    public userId: number,
+    public username: string,
+    public userEmail: string,
+    public userMobile: string,
+    public enterpriseId: number,
+    public trialId: number,
+    public trialName: string,
+    public time: Date,
+    public message: string,
+    public status: string
+  ) {}
 }

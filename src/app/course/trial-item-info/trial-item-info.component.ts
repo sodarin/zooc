@@ -38,21 +38,21 @@ export class TrialItemInfoComponent implements OnInit {
   ngOnInit() {
     this.trialService$.getDetailById(this.routeInfo.snapshot.params['id']).subscribe(result => {
       this.item = result;
-    });
-    if (this.loginService$.resultUser) {
-      this.reservationService$.getReservationListByUserId(this.loginService$.resultUser.userId)
-        .subscribe(result => {
-          result.list.forEach(item => {
-            console.log(item);
-            console.log('this.item.trialId: ' + this.item.trialId);
-            if (item.trialId == this.item.trialId) {
-              this.isReserved = true;
-              this.reservationId = item.reservationId;
-              this.message = item.message;
-            }
+      if (this.loginService$.resultUser) {
+        this.reservationService$.getReservationListByUserId(this.loginService$.resultUser.userId)
+          .subscribe(result => {
+            result.list.forEach(item => {
+              console.log(item);
+              console.log('this.item.trialId: ' + this.item.trialId);
+              if (item.trialId == this.item.trialId && !(item.status == 'CANCELED')) {
+                this.isReserved = true;
+                this.reservationId = item.reservationId;
+                this.message = item.message;
+              }
+            })
           })
-        })
-    }
+      }
+    });
   }
 
   getBranchDetailIfNotDone() {
