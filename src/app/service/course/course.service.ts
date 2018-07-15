@@ -22,14 +22,14 @@ export class CourseService {
          courseId: number = null, nameContaining: string = null,
          categoryId: number = null,
          priceMin: number = null, priceMax: number = null,
-         status: CourseStatusEnum = null): Observable<any> {
+         status: string = null): Observable<any> {
     const params = new HttpParams()
       .set('courseId', courseId ? courseId.toString() : '')
       .set('nameContaining', nameContaining ? nameContaining : '')
       .set('categoryId', categoryId ? categoryId.toString() : '')
       .set('priceMin', priceMin ? priceMin.toString() : '')
       .set('priceMax', priceMax ? priceMax.toString() : '')
-      .set('status', status ? status.toString() : '');
+      .set('status', status ? status : '');
     return this._http.get(`/api/v1/enterprise/${enterpriseId}/course/list`, { params: params });
   }
 
