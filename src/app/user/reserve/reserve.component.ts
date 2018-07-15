@@ -21,6 +21,10 @@ export class ReserveComponent implements OnInit {
   constructor(private reservationService$: ReserveService, private loginService$: LoginService) { }
 
   ngOnInit() {
+    this.getReservations();
+  }
+
+  getReservations() {
     this.reservationService$.getReservationListByUserId(this.loginService$.resultUser.userId)
       .subscribe(result => {
         this.reserves = result.list;
@@ -29,8 +33,10 @@ export class ReserveComponent implements OnInit {
         this.canceledReservation = this.reserves.filter(reserve => reserve.status == ReservationEnum[ReservationEnum.CANCELED]);
         this.processedReservation = this.reserves.filter(reserve => reserve.status == ReservationEnum[ReservationEnum.EXPIRED] || reserve.status == ReservationEnum[ReservationEnum.USED]);
       });
+  }
 
-
+  refresh() {
+    this.getReservations();
   }
 
 }

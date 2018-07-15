@@ -21,7 +21,10 @@ export class OrderComponent implements OnInit {
   constructor(private orderService$: OrderService, private login: LoginService) { }
 
   ngOnInit() {
+    this.getOrders();
+  }
 
+  getOrders() {
     this.orderService$.getHistory(+this.login.resultUser.userId)
       .subscribe(result => {
         this.orders = result.list;
@@ -30,7 +33,10 @@ export class OrderComponent implements OnInit {
         this.refundRequestedOrders = this.orders.filter(order => order.status == OrderStatusEnum[OrderStatusEnum.REFUND_REQUESTED]);
         this.afterSaleOrders = this.orders.filter(order => order.status == OrderStatusEnum[OrderStatusEnum.REFUNDED] || order.status == OrderStatusEnum[OrderStatusEnum.CANCELED]);
       })
+  }
 
+  refresh() {
+    this.getOrders();
   }
 
 }

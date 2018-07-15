@@ -4,13 +4,13 @@
   </mat-toolbar>
   <mat-tab-group mat-stretch-tabs>
     <mat-tab label="全部订单">
-      <app-order-item *ngFor="let order of orders" [item]="order"></app-order-item>
+      <app-order-item (statusChangeEvent)="refresh()" *ngFor="let order of orders" [item]="order"></app-order-item>
     </mat-tab>
     <mat-tab label="待付款">
-      <app-order-item *ngFor="let order of pendingOrders" [item]="order"></app-order-item>
+      <app-order-item (statusChangeEvent)="refresh()" *ngFor="let order of pendingOrders" [item]="order"></app-order-item>
     </mat-tab>
     <mat-tab label="已付款">
-      <app-order-item *ngFor="let order of availableOrders" [item]="order"></app-order-item>
+      <app-order-item (statusChangeEvent)="refresh()" *ngFor="let order of availableOrders" [item]="order"></app-order-item>
     </mat-tab>
     <mat-tab label="申请退款">
       <app-order-item *ngFor="let order of refundRequestedOrders" [item]="order"></app-order-item>
