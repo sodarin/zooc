@@ -1,8 +1,6 @@
 <div class="branch-item-info-page">
   <!-- Map -->
-  <div>
-    Map here
-  </div>
+  <ngx-amap *ngIf="item" class="map-window" [center]="[item.longitude, item.latitude]" [zoom]="13"></ngx-amap>
   <div class="main-part">
     <!-- Name -->
     <div class="name">
