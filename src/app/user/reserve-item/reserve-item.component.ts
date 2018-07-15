@@ -1,4 +1,4 @@
-import {Component, Input, OnChanges, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnChanges, OnInit, Output} from '@angular/core';
 import { TrialService } from '../../service/trial/trial.service';
 import { Trial } from '../../model/Trial';
 import {ReservationEnum} from '../../model/enum/ReservationEnum';
@@ -13,6 +13,7 @@ import {MatSnackBar} from '@angular/material';
 export class ReserveItemComponent implements OnInit, OnChanges {
 
   @Input() item;
+  @Output() statusChangeEvent = new EventEmitter<any>();
 
   freeTrial: Trial;
   reservationEnum = ReservationEnum;
@@ -34,7 +35,8 @@ export class ReserveItemComponent implements OnInit, OnChanges {
         this.item.status = status;
         this.snackBar.open(`${status == 'USED'? '使用': '取消'}成功`, null, {
           duration: 2000
-        })
+        });
+        this.statusChangeEvent.emit();
       }, error2 => {
         this.snackBar.open(error2.error);
       })

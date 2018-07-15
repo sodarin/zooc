@@ -1,19 +1,35 @@
 <div class="container">
   <div class="content">
-    <img [src]="elaborateCourse.imgUrl" [alt]="elaborateCourse.name">
+    <div class="img-content">
+      <img *ngIf="elaborateCourse" [src]="elaborateCourse.imgUrl" [alt]="elaborateCourse.name">
+    </div>
     <div class="empty-space"></div>
     <div class="description">
-      <span class="title">{{elaborateCourse.name}}</span>
+      <div class="desc-head">
+        <span class="title">{{elaborateCourse?.name}}</span>
+        <mat-icon *ngIf="item?.status == orderEnum[orderEnum.AVAILABLE]" [matMenuTriggerFor]="availableMenu">more_vert</mat-icon>
+        <mat-icon *ngIf="item?.status == orderEnum[orderEnum.PENDING]" [matMenuTriggerFor]="pendingMenu">more_vert</mat-icon>
+      </div>
       <div class="details">
-        <span class="time" *ngIf="item?.status == orderEnum[orderEnum.PENDING]">{{item.time}}</span>
+        <span class="time">{{item.time | date: 'yyyy年MM月dd日 hh:mm:ss'}}</span>
+        <span class="time" *ngIf="item?.status == orderEnum[orderEnum.REFUNDED]">{{item.refundTime | date: 'yyyy年MM月dd日 hh:mm:ss'}}</span>
         <div class="empty-space"></div>
-        <span *ngIf="item.status == 0">待付款</span>
-        <span *ngIf="item.status == 1">已取消</span>
-        <span *ngIf="item.status == 2">已付款</span>
-        <span *ngIf="item.status == 3">已申请退款</span>
-        <span *ngIf="item.status == 4">已退款</span>
+        <span *ngIf="item?.status == orderEnum[orderEnum.PENDING]">待付款</span>
+        <span *ngIf="item?.status == orderEnum[orderEnum.CANCELED]">已取消</span>
+        <span *ngIf="item?.status == orderEnum[orderEnum.AVAILABLE]">已付款</span>
+        <span *ngIf="item?.status == orderEnum[orderEnum.REFUND_REQUESTED]">申请退款</span>
+        <span *ngIf="item?.status == orderEnum[orderEnum.REFUNDED]">已退款</span>
       </div>
     </div>
   </div>
 </div>
 <mat-divider></mat-divider>
+
+<mat-menu #availableMenu="matMenu">
+  <button mat-menu-item (click)="changeStatus('REFUND_REQUESTED')">退款申请</button>
+</mat-menu>
+
+<mat-menu #pendingMenu="matMenu">
+  <button mat-menu-item (click)="changeStatus('AVAILABLE')">立即支付</button>
+  <button mat-menu-item (click)="changeStatus('CANCELED')">取消订单</button>
+</mat-menu>

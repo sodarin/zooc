@@ -4,13 +4,13 @@
   </mat-toolbar>
   <mat-tab-group mat-stretch-tabs>
     <mat-tab label="全部预约">
-      <app-reserve-item *ngFor="let reserve of reserves" [item]="reserve"></app-reserve-item>
+      <app-reserve-item (statusChangeEvent)="refresh()" *ngFor="let reserve of reserves" [item]="reserve"></app-reserve-item>
     </mat-tab>
     <mat-tab label="待处理">
       <app-reserve-item *ngFor="let reserve of pendingReservation" [item]="reserve"></app-reserve-item>
     </mat-tab>
     <mat-tab label="已处理">
-      <app-reserve-item *ngFor="let reserve of availableReservation" [item]="reserve"></app-reserve-item>
+      <app-reserve-item (statusChangeEvent)="refresh()" *ngFor="let reserve of availableReservation" [item]="reserve"></app-reserve-item>
     </mat-tab>
     <mat-tab label="已取消">
       <app-reserve-item *ngFor="let reserve of canceledReservation" [item]="reserve"></app-reserve-item>

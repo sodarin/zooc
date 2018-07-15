@@ -10,6 +10,7 @@ import {ReserveService} from '../service/reserve/reserve.service';
 import { OrderComponent } from './order/order.component';
 import { OrderItemComponent } from './order-item/order-item.component';
 import {OrderService} from '../service/order/order.service';
+import { RefundReasonComponent } from './order-item/refund-reason/refund-reason.component';
 
 
 @NgModule({
@@ -24,6 +25,6 @@ import {OrderService} from '../service/order/order.service';
     ReserveService,
     OrderService,
   ],
-  declarations: [ UserComponent, ReserveComponent, ReserveItemComponent, OrderComponent, OrderItemComponent]
+  declarations: [ UserComponent, ReserveComponent, ReserveItemComponent, OrderComponent, OrderItemComponent, RefundReasonComponent]
 })
 export class UserModule { }
