@@ -242,6 +242,10 @@
   version "2.53.43"
   resolved "http://registry.npm.taobao.org/@types/selenium-webdriver/download/@types/selenium-webdriver-2.53.43.tgz#2de3d718819bc20165754c4a59afb7e9833f6707"
 
+"@types/swiper@^4.2.0":
+  version "4.2.0"
+  resolved "http://registry.npm.taobao.org/@types/swiper/download/@types/swiper-4.2.0.tgz#de90714db38414ad90efc22b00c0f8d2e9891bdb"
+
 "@webassemblyjs/ast@1.4.3":
   version "1.4.3"
   resolved "http://registry.npm.taobao.org/@webassemblyjs/ast/download/@webassemblyjs/ast-1.4.3.tgz#3b3f6fced944d8660273347533e6d4d315b5934a"
@@ -1898,6 +1902,12 @@ dom-serializer@0:
   dependencies:
     domelementtype "~1.1.1"
     entities "~1.1.1"
+
+dom7@^2.0.6:
+  version "2.0.7"
+  resolved "http://registry.npm.taobao.org/dom7/download/dom7-2.0.7.tgz#43940bff361cc0e5f38c349b055fd60c10309b89"
+  dependencies:
+    ssr-window "^1.0.0"
 
 domain-browser@^1.1.1:
   version "1.2.0"
@@ -4290,6 +4300,12 @@ ngx-amap@^2.1.1:
   dependencies:
     tslib "^1.9.0"
 
+ngx-swiper-wrapper@^6.3.0:
+  version "6.3.0"
+  resolved "http://registry.npm.taobao.org/ngx-swiper-wrapper/download/ngx-swiper-wrapper-6.3.0.tgz#dab16f8a7c27173f9e0f26af2374086a4b3baa37"
+  dependencies:
+    swiper "^4.3.0"
+
 no-case@^2.2.0:
   version "2.3.2"
   resolved "http://registry.npm.taobao.org/no-case/download/no-case-2.3.2.tgz#60b813396be39b3f1288a4c1ed5d1e7d28b464ac"
@@ -5964,6 +5980,10 @@ sshpk@^1.7.0:
     jsbn "~0.1.0"
     tweetnacl "~0.14.0"
 
+ssr-window@^1.0.0:
+  version "1.0.0"
+  resolved "http://registry.npm.taobao.org/ssr-window/download/ssr-window-1.0.0.tgz#8ed1b6beaa0a371ba7e74d6515d584c3f1cf973c"
+
 ssri@^5.2.4:
   version "5.3.0"
   resolved "http://registry.npm.taobao.org/ssri/download/ssri-5.3.0.tgz#ba3872c9c6d33a0704a7d71ff045e5ec48999d06"
@@ -6145,6 +6165,13 @@ supports-color@^5.1.0, supports-color@^5.3.0, supports-color@^5.4.0:
   resolved "http://registry.npm.taobao.org/supports-color/download/supports-color-5.4.0.tgz#1c6b337402c2137605efe19f10fec390f6faab54"
   dependencies:
     has-flag "^3.0.0"
+
+swiper@^4.3.0, swiper@^4.3.3:
+  version "4.3.3"
+  resolved "http://registry.npm.taobao.org/swiper/download/swiper-4.3.3.tgz#92e39c806ead23a18e5c3251dfba1ae9ce76270e"
+  dependencies:
+    dom7 "^2.0.6"
+    ssr-window "^1.0.0"
 
 symbol-observable@^1.2.0:
   version "1.2.0"
