@@ -18,8 +18,10 @@ export class EnterpriseMomentComponent implements OnInit {
   constructor(private momentService$: MomentService, private location: Location, private enterpriseService$: EnterpriseService) { }
 
   ngOnInit() {
-    // this.moments = this.momentService$.getMomentByEnterpriseId(id).reverse();
-    // this.enterprise = this.enterpriseService$.getEnterpriseById(id);
+    this.moments = this.momentService$.getMomentByEnterpriseId('1').reverse();
+    this.enterpriseService$.getById(1).subscribe(result => {
+      this.enterprise = result;
+    });
   }
 
 }
