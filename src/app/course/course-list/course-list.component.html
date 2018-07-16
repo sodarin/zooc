@@ -1,5 +1,5 @@
 <div class="elaborate-course-content">
-  <button color="primary" class="search-button" mat-stroked-button (click)="openBottomSheet()"><mat-icon>search</mat-icon>搜索</button>
+  <button color="primary" class="search-button" mat-button (click)="openBottomSheet()"><mat-icon>search</mat-icon>搜索</button>
   <mat-divider></mat-divider>
   <div class="elaborate-course-list">
     <app-course-item *ngFor="let item of elaborateCourses" [item]="item" (click)="navToCourseDetailPage(item)"></app-course-item>
