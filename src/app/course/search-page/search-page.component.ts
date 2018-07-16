@@ -59,7 +59,7 @@ export class SearchPageComponent implements OnInit {
   }
 
   submitConditions() {
-    if (this.url == '/home/trial') {
+    if (this.url == '/home/trials') {
       this.filterConditions = {'name': this.name, 'category': this.category, 'branchId': this.branchId};
     }else {
       this.filterConditions = {'name': this.name, 'category': this.category, 'minPrice': this.minPrice, 'maxPrice': this.maxPrice};
@@ -68,7 +68,7 @@ export class SearchPageComponent implements OnInit {
   }
 
   resetConditions() {
-    if (this.url == '/home/trial') {
+    if (this.url == '/home/trials') {
       this.filterConditions = {'name': '', 'category': '', 'branchId': ''};
     }else {
       this.filterConditions = {'name': '', 'category': '', 'minPrice': '', 'maxPrice': ''};
