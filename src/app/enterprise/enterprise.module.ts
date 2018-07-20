@@ -39,16 +39,7 @@ import {NgxAmapModule} from 'ngx-amap';
       apiKey: '5063258ea73f5e445d4e4203b4885fe0'
     })
   ],
-  providers: [
-    EnterpriseService,
-    LecturerService,
-    MomentService,
-    BranchService,
-    CourseService,
-    TrialService,
-    LoginService,
-    DateFormatService
-  ],
+  providers: [],
   entryComponents: [
     EnterpriseFullMomentCommentComponent
   ],

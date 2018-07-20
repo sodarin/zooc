@@ -19,7 +19,7 @@ import {LoginService} from '../service/login/login.service';
     NavbarComponent
   ],
   providers: [
-    LoginService
+
   ],
   declarations: [HeaderComponent, CarouselComponent, NavbarComponent]
 })

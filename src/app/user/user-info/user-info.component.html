@@ -1,0 +1,13 @@
+<div class="user-page">
+  <mat-toolbar color="primary">
+    <span>我的信息</span>
+  </mat-toolbar>
+  <div class="background">
+    <img style="width: 60px; height: 60px;" mat-card-avatar src="../../assets/img/icon/头像.svg">
+  </div>
+  <div class="nav-button">
+    <button mat-button [routerLink]="['/user/reserve']"><mat-icon svgIcon="clock"></mat-icon>我的预约</button>
+    <button mat-button [routerLink]="['/user/order']"><mat-icon svgIcon="order"></mat-icon>我的订单</button>
+    <button mat-button><mat-icon svgIcon="message"></mat-icon>我的客服</button>
+  </div>
+</div>

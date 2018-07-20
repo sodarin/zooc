@@ -16,6 +16,16 @@ import { MatIconRegistry } from '@angular/material';
 import { loadSvgResources } from './util/svg.util';
 import { DatePipe } from './pipe/date.pipe';
 import { ClickOutsideModule } from 'ng-click-outside';
+import {LoginService} from './service/login/login.service';
+import {OrderService} from './service/order/order.service';
+import {ReserveService} from './service/reserve/reserve.service';
+import {MomentService} from './service/moment/moment.service';
+import {BranchService} from './service/branch/branch.service';
+import {TrialService} from './service/trial/trial.service';
+import {DateFormatService} from './service/date-format/date-format.service';
+import {LecturerService} from './service/lecturer/lecturer.service';
+import {CourseService} from './service/course/course.service';
+import {EnterpriseService} from './service/enterprise/enterprise.service';
 
 @NgModule({
   declarations: [
@@ -29,12 +39,22 @@ import { ClickOutsideModule } from 'ng-click-outside';
     SharedModule,
     BrowserAnimationsModule,
     AppRoutingModule,
-    LoginModule,
     CoreModule,
     CourseModule,
     ClickOutsideModule
   ],
-  providers: [],
+  providers: [
+    LoginService,
+    ReserveService,
+    OrderService,
+    EnterpriseService,
+    LecturerService,
+    MomentService,
+    BranchService,
+    DateFormatService,
+    TrialService,
+    CourseService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {

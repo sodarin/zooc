@@ -9,8 +9,8 @@ import { ReserveItemComponent } from './reserve-item/reserve-item.component';
 import {ReserveService} from '../service/reserve/reserve.service';
 import { OrderComponent } from './order/order.component';
 import { OrderItemComponent } from './order-item/order-item.component';
-import {OrderService} from '../service/order/order.service';
 import { RefundReasonComponent } from './order-item/refund-reason/refund-reason.component';
+import {UserInfoComponent} from './user-info/user-info.component';
 
 
 @NgModule({
@@ -19,12 +19,7 @@ import { RefundReasonComponent } from './order-item/refund-reason/refund-reason.
     CoreModule,
     UserRoutingModule,
   ],
-  providers: [
-
-    LoginService,
-    ReserveService,
-    OrderService,
-  ],
-  declarations: [ UserComponent, ReserveComponent, ReserveItemComponent, OrderComponent, OrderItemComponent, RefundReasonComponent]
+  providers: [],
+  declarations: [ UserComponent, ReserveComponent, ReserveItemComponent, OrderComponent, OrderItemComponent, RefundReasonComponent, UserInfoComponent]
 })
 export class UserModule { }

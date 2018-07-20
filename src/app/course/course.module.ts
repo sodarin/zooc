@@ -30,10 +30,7 @@ import { SearchPageComponent } from './search-page/search-page.component';
       apiKey: '5063258ea73f5e445d4e4203b4885fe0'
     })
   ],
-  providers: [
-    TrialService,
-    CourseService,
-  ],
+  providers: [],
   exports: [
     TrialItemComponent,
     CourseItemComponent
