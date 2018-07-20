@@ -5,7 +5,7 @@ import {ReserveComponent} from './reserve/reserve.component';
 import {OrderComponent} from './order/order.component';
 
 const routes: Routes = [
-  {path: 'user', component: UserComponent},
+  {path: '', component: UserComponent},
   {path: 'user/reserve', component: ReserveComponent},
   {path: 'user/order', component: OrderComponent}
 ];

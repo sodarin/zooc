@@ -32,9 +32,6 @@ import { ClickOutsideModule } from 'ng-click-outside';
     LoginModule,
     CoreModule,
     CourseModule,
-    EnterpriseModule,
-    UserModule,
-    RegisterModule,
     ClickOutsideModule
   ],
   providers: [],
