@@ -27,6 +27,14 @@ export class CourseService {
     return this._http.get(`/api/v1/enterprise/${enterpriseId}/course/list`, { params: params });
   }
 
+  getCoursesWithPagination(enterpriseId: number, usePagination: boolean, targetPage: number, pageSize: number): Observable<any> {
+    const params = new HttpParams()
+      .set('usePagination', usePagination.toString())
+      .set('targetPage', targetPage.toString())
+      .set('pageSize', pageSize.toString());
+    return this._http.get(`/api/v1/enterprise/${enterpriseId}/course/list`, { params: params });
+  }
+
   getLatest(enterpriseId: number, n: number): Observable<Course[]> {
     return this._http.get<Course[]>(`/api/v1/enterprise/${enterpriseId}/course/latest?n=${n}`);
   }

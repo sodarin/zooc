@@ -25,6 +25,14 @@ export class TrialService {
     return this._http.get(`/api/v1/enterprise/${enterpriseId}/trial/list`, { params: params });
   }
 
+  getTrialsWithPagination(enterpriseId: number, usePagination: boolean, targetPage: number, pageSize: number): Observable<any> {
+    const params = new HttpParams()
+      .set('usePagination', usePagination.toString())
+      .set('targetPage', targetPage.toString())
+      .set('pageSize', pageSize.toString());
+    return this._http.get(`/api/v1/enterprise/${enterpriseId}/trial/list`, { params: params });
+  }
+
   getLatest(enterpriseId: number, n: number): Observable<Trial[]> {
     return this._http.get<Trial[]>(`/api/v1/enterprise/${enterpriseId}/trial/latest?n=${n}`);
   }

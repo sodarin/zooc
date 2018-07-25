@@ -26,6 +26,7 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {DateFormatService} from '../service/date-format/date-format.service';
 import { BranchItemInfoComponent } from './enterprise-home/branch-list/branch-item-info/branch-item-info.component';
 import {NgxAmapModule} from 'ngx-amap';
+import {EnterpriseHomeDeprecatedComponent} from './enterprise-home-deprecated/enterprise-home-deprecated.component';
 
 @NgModule({
   imports: [
@@ -43,6 +44,6 @@ import {NgxAmapModule} from 'ngx-amap';
   entryComponents: [
     EnterpriseFullMomentCommentComponent
   ],
-  declarations: [EnterpriseHomeComponent, EnterpriseItemDeprecatedComponent, LecturerListComponent, BranchListComponent, CourseListDeprecatedComponent, EnterpriseMomentComponent, BasicInfoComponent, LecturerItemComponent, BranchItemComponent, EnterpriseMomentItemComponent, EnterpriseMomentCommentItemComponent, EnterpriseFullMomentCommentComponent, BranchItemInfoComponent]
+  declarations: [EnterpriseHomeComponent, EnterpriseItemDeprecatedComponent, LecturerListComponent, BranchListComponent, CourseListDeprecatedComponent, EnterpriseMomentComponent, BasicInfoComponent, LecturerItemComponent, BranchItemComponent, EnterpriseMomentItemComponent, EnterpriseMomentCommentItemComponent, EnterpriseFullMomentCommentComponent, BranchItemInfoComponent, EnterpriseItemDeprecatedComponent, EnterpriseHomeDeprecatedComponent]
 })
 export class EnterpriseModule { }

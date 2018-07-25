@@ -5,4 +5,12 @@
   color: rgba(0, 0, 0, 0.522);
   height: 48px; }
 
+.elaborate-course-list {
+  height: 500px; }
+
+ul {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0; }
+
 /*# sourceMappingURL=course-list.component.css.map */

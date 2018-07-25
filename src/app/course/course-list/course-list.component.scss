@@ -7,3 +7,11 @@ $opacity: 0.87 * 0.6;
   color: rgba(0, 0, 0, $opacity);
   height: 48px;
 }
+.elaborate-course-list {
+  height: 500px;
+}
+ul {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
+}
