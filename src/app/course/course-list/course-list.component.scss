@@ -1,5 +1,7 @@
 $opacity: 0.87 * 0.6;
-
+.elaborate-course-content {
+  height: 100%;
+}
 .search-button {
   border-radius: 0;
   width: 100%;
@@ -8,7 +10,7 @@ $opacity: 0.87 * 0.6;
   height: 48px;
 }
 .elaborate-course-list {
-  height: 500px;
+  height: 90%;
 }
 ul {
   list-style: none;

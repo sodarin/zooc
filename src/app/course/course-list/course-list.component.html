@@ -4,8 +4,8 @@
   <div class="elaborate-course-list">
     <div id="mescroll" class="mescroll">
       <ul>
-        <li>
-          <app-course-item *ngFor="let item of elaborateCourses" [item]="item" (click)="navToCourseDetailPage(item)"></app-course-item>
+        <li *ngFor="let item of elaborateCourses">
+          <app-course-item [item]="item" (click)="navToCourseDetailPage(item)"></app-course-item>
         </li>
       </ul>
     </div>
