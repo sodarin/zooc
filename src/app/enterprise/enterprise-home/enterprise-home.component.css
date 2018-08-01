@@ -4,3 +4,6 @@ a:active, a:hover {
 mat-icon {
   margin-right: 8px;
 }
+.enterprise-page {
+  height: 100%;
+}

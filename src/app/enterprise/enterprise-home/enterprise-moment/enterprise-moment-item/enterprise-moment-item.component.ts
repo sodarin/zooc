@@ -15,41 +15,22 @@ export class EnterpriseMomentItemComponent implements OnInit {
   @Input() moment;
   @Input() enterprise;
 
+
   @ViewChildren(EnterpriseMomentCommentItemComponent) commentsComponent: QueryList<EnterpriseMomentCommentItemComponent>;
 
-  like = false;
-  likeNum: number;
-  momentComment: MomentComment[];
-  latestComment: MomentComment[];
-  momentCommentLength: number;
+
   constructor(private momentService$: MomentService, private bottomSheet: MatBottomSheet) { }
 
   ngOnInit() {
-    this.likeNum = this.momentService$.getMomentLikeNum(this.moment.momentId);
-    this.momentComment = this.momentService$.getMomentCommentByMomentId(this.moment.momentId).reverse();
-    this.momentCommentLength = this.momentComment.length;
-    this.latestComment = this.momentComment.slice(0, 3)
+    console.log(this.moment);
   }
 
   operateFavorite() {
-    this.like = !this.like;
-    if (this.like)
-      this.likeNum++;
-    else
-      this.likeNum--;
+
   }
 
   openFullComment() {
-    const bottomSheet = this.bottomSheet.open(EnterpriseFullMomentCommentComponent, {
-      data: this.momentComment
-    });
-    bottomSheet.afterDismissed().subscribe(result => {
-      if(result != null){
-        this.momentComment.unshift(result);
-        this.latestComment = this.momentComment.slice(0, 3);
-      }
 
-    })
   }
 
 }

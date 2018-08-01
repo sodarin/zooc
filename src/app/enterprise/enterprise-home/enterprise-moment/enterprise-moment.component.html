@@ -1,4 +1,14 @@
 <div class="moment-page">
   <div class="empty-space"></div>
-  <app-enterprise-moment-item *ngFor="let moment of moments" [moment]="moment" [enterprise]="enterprise"></app-enterprise-moment-item>
+  <div class="moment-list">
+    <div id="mescroll" class="mescroll">
+      <ul>
+        <li *ngFor="let moment of moments">
+          <app-enterprise-moment-item [moment]="moment" [enterprise]="enterprise"></app-enterprise-moment-item>
+          <mat-divider></mat-divider>
+        </li>
+      </ul>
+    </div>
+  </div>
+
 </div>
