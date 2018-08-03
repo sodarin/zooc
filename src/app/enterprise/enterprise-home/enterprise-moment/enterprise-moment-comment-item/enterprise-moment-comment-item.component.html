@@ -1,12 +1,16 @@
 <div class="comment">
   <div class="header">
-    <mat-icon svgIcon="portrait"></mat-icon>
-    <span class="name">{{user.username}}</span>
+    <mat-icon style="margin-right: 5px;" svgIcon="portrait"></mat-icon>
+    <div class="user-info">
+      <span class="name">{{comment.username}}</span>
+      <div class="time">
+        <span>{{comment.time | date: 'yyyy 年 MM 月 dd 日 HH:mm:ss'}}</span>
+      </div>
+    </div>
   </div>
   <div class="content">
+    <div class="empty-space"></div>
     <span>{{comment.content}}</span>
   </div>
-  <div class="operation-row">
-    <span>{{comment.time}}</span>
-  </div>
+
 </div>

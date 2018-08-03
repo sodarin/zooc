@@ -10,11 +10,11 @@ import {User} from '../../../../model/User.model';
 export class EnterpriseMomentCommentItemComponent implements OnInit {
 
   @Input() comment;
-  user: UserResponse;
+
   constructor(private loginService$: LoginService) { }
 
   ngOnInit() {
-    this.user = this.loginService$.resultUser;
+
   }
 
 }

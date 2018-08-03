@@ -4,14 +4,24 @@
   justify-content: flex-start;
   align-items: center;
   color: rgba(0, 0, 0, .8);
-  font-weight: bold;
   font-size: 12px;
+}
+.user-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 .content {
   color: rgb(0, 0, 0);
-  font-size: 10px;
+  font-size: 12px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
 }
-.operation-row {
+.empty-space {
+  width: 8%;
+}
+.time {
   color: rgba(0, 0, 0, .8);
   font-size: 10px;
 }

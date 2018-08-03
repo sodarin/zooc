@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Observable} from 'rxjs';
 
 
@@ -33,6 +33,33 @@ export class MomentService {
 
   getMomentCommentList(momentId: number, usePagination: boolean, targetPage: number, pageSize: number): Observable<any> {
     return this._http.get(`/api/v1/moment/${momentId}/comment/list?usePagination=true&targetPage=${targetPage}&pageSize=${pageSize}`);
+  }
+
+  likeAMoment(momentId: number, userId: string): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
+    return this._http.post(`/api/v1/moment/${momentId}/like`, {
+      userId: userId
+    }, httpOptions);
+  }
+
+  unlikeAMoment(momentId: number, userId: string): Observable<any> {
+    return this._http.delete(`/api/v1/moment/${momentId}/like?userId=${userId}`)
+  }
+
+  postComment(momentId: number, userId: string, content: string): Observable<any> {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json'
+      })
+    };
+    return this._http.post(`/api/v1/moment/${momentId}/comment`, {
+      userId: userId,
+      content: content
+    }, httpOptions)
   }
 }
 

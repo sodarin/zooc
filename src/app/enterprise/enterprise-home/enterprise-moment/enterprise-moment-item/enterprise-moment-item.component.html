@@ -22,27 +22,56 @@
 <!--</mat-card>-->
 
 <div class="moment-item">
-  <div class="moment-head">
-    <img class="avatar" [src]="enterprise.imgUrl" [alt]="enterprise.name"/>
-    <div class="sender-info">
-      <span class="sender-name">{{enterprise.name}}</span>
-      <span class="sending-time">{{moment.time | date : 'yyyy 年 MM 月 dd 日 HH:mm:ss'}}</span>
+  <div class="justify-space">
+    <div class="empty-space"></div>
+    <div class="moment-head">
+      <div class="avatar">
+        <img [src]="enterprise.imgUrl" [alt]="enterprise.name"/>
+      </div>
+      <div class="sender-info">
+        <span class="sender-name">{{enterprise.name}}</span>
+        <span class="sending-time">{{moment.time | date : 'yyyy 年 MM 月 dd 日 HH:mm:ss'}}</span>
+      </div>
     </div>
   </div>
-  <div class="moment-body">
-    <span class="content">{{moment.content}}</span>
-    <div *ngIf="moment.imgList !== []" class="img-list">
-      <mat-grid-list cols="3" rowHeight="1:1">
-        <mat-grid-tile *ngFor="let img of moment.imgList">
-          <img [src]="img.imgUrl"/>
-        </mat-grid-tile>
-      </mat-grid-list>
+  <div class="justify-space">
+    <div class="empty-space"></div>
+    <div class="moment-body">
+      <span class="content">{{moment.content}}</span>
+      <div *ngIf="moment.imgList !== []" class="img-list" style="margin-bottom: 5px">
+        <mat-grid-list cols="3" rowHeight="1:1">
+          <mat-grid-tile *ngFor="let img of moment.imgList">
+            <img #imgContent [class]="imgContent.width < imgContent.height? 'misaka': 'normal'" [src]="img.imgUrl"/>
+          </mat-grid-tile>
+        </mat-grid-list>
+      </div>
     </div>
+    <div class="empty-space"></div>
   </div>
-  <div class="moment-like">
-    <div class="latest-like" *ngIf="moment.likeNum > 0 && moment.likeLatest !== []">
-      <span *ngFor="let latest of moment.likeLatest; let i of moment.likeLatest.length">{{latest.username + (i == moment.likeLatest.length)? '、': '等'}}</span>
-      <span>{{moment.likeLatest.length + '人觉得很赞'}}</span>
+  <div class="justify-space">
+    <div class="empty-space"></div>
+    <div [class]="moment.likeNum == 0? 'moment-unlike': 'moment-like'">
+      <div class="latest-like" *ngIf="moment.likeNum > 0 && moment.likeLatest !== []">
+        <span *ngFor="let latest of moment.likeLatest; let i of moment.likeLatest.length">{{latest.username}}{{ (i == moment.likeLatest.length - 1)? '、': '等 '}}</span>
+        <span>{{moment.likeNum + ' 人觉得很赞'}}</span>
+      </div>
+      <div class="like-button">
+        <mat-icon color="primary" *ngIf="!moment?.hasLiked" (click)="operateFavorite()">favorite_border</mat-icon>
+        <mat-icon color="primary" *ngIf="moment?.hasLiked" (click)="operateFavorite()">favorite</mat-icon>
+        <mat-icon color="primary" (click)="editComment()">chat_bubble_outline</mat-icon>
+      </div>
     </div>
+    <div class="empty-space"></div>
+  </div>
+  <div class="justify-space">
+    <div class="empty-space"></div>
+    <div class="comment">
+      <div class="comment-content" *ngIf="commentTotalAmount > 0">
+        <mat-divider></mat-divider>
+        <app-enterprise-moment-comment-item *ngFor="let comment of moment.commentList" [comment]="comment"></app-enterprise-moment-comment-item>
+        <span class="search-button" *ngIf="commentTotalAmount > 5" style="color: #6495ed; font-size: 10px;" (click)="openFullComment()">查看全部评论</span>
+      </div>
+    </div>
+    <div class="empty-space"></div>
   </div>
 </div>

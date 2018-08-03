@@ -5,6 +5,7 @@ import {Location} from '@angular/common';
 import {Enterprise} from '../../../model/Enterprise';
 import {EnterpriseService} from '../../../service/enterprise/enterprise.service';
 import {LoginService} from '../../../service/login/login.service';
+import {MatSnackBar} from '@angular/material';
 declare var MeScroll: any;
 
 @Component({
@@ -18,10 +19,15 @@ export class EnterpriseMomentComponent implements OnInit {
   enterprise: Enterprise;
 
   targetPage: number = 1;
+  totalSize: number;
+  currentPageSize: number;
 
   public mescroll;
 
-  constructor(private momentService$: MomentService, private location: Location, private enterpriseService$: EnterpriseService, private loginService$: LoginService) { }
+  constructor(private momentService$: MomentService,
+              private location: Location,
+              private enterpriseService$: EnterpriseService,
+              private loginService$: LoginService) { }
 
   ngOnInit() {
     this.initMeScroll();
@@ -64,7 +70,14 @@ export class EnterpriseMomentComponent implements OnInit {
 
   loadMoments(targetPage: number) {
     this.momentService$.getMomentsByEnterpriseId(1, true, targetPage, 5).subscribe( result => {
-      this.moments = result.list;
+      if (targetPage == 1) {
+        this.moments = [];
+      }
+      this.totalSize = result.total;
+      this.currentPageSize = result.list.length;
+      this.moments.push(...result.list);
+      this.mescroll.endBySize(this.currentPageSize, this.totalSize);
+      this.targetPage++;
       this.moments.forEach(moment => {
         this.momentService$.getMomentImgList(moment.momentId).subscribe(result => {
           moment.imgList = result
@@ -80,16 +93,11 @@ export class EnterpriseMomentComponent implements OnInit {
         this.momentService$.getMomentLatestLikeLikst(moment.momentId, 3).subscribe( result => {
           moment.likeLatest = result;
         });
-        this.momentService$.getMomentCommentList(moment.momentId, true, 1, 5).subscribe( result => {
-          if (result.list == null || result.list.length == 0) {
-            moment.commentList = [];
-          } else {
-            moment.commentList = result.list;
-          }
-        })
       })
+    }, error2 =>  {
+      this.mescroll.endErr();
     });
-    this.targetPage++;
   }
+
 
 }

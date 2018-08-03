@@ -27,6 +27,7 @@ import {DateFormatService} from '../service/date-format/date-format.service';
 import { BranchItemInfoComponent } from './enterprise-home/branch-list/branch-item-info/branch-item-info.component';
 import {NgxAmapModule} from 'ngx-amap';
 import {EnterpriseHomeDeprecatedComponent} from './enterprise-home-deprecated/enterprise-home-deprecated.component';
+import { EnterpriseSendCommentComponent } from './enterprise-home/enterprise-moment/enterprise-send-comment/enterprise-send-comment.component';
 
 @NgModule({
   imports: [
@@ -42,8 +43,9 @@ import {EnterpriseHomeDeprecatedComponent} from './enterprise-home-deprecated/en
   ],
   providers: [],
   entryComponents: [
-    EnterpriseFullMomentCommentComponent
+    EnterpriseFullMomentCommentComponent,
+    EnterpriseSendCommentComponent
   ],
-  declarations: [EnterpriseHomeComponent, EnterpriseItemDeprecatedComponent, LecturerListComponent, BranchListComponent, CourseListDeprecatedComponent, EnterpriseMomentComponent, BasicInfoComponent, LecturerItemComponent, BranchItemComponent, EnterpriseMomentItemComponent, EnterpriseMomentCommentItemComponent, EnterpriseFullMomentCommentComponent, BranchItemInfoComponent, EnterpriseItemDeprecatedComponent, EnterpriseHomeDeprecatedComponent]
+  declarations: [EnterpriseHomeComponent, EnterpriseItemDeprecatedComponent, LecturerListComponent, BranchListComponent, CourseListDeprecatedComponent, EnterpriseMomentComponent, BasicInfoComponent, LecturerItemComponent, BranchItemComponent, EnterpriseMomentItemComponent, EnterpriseMomentCommentItemComponent, EnterpriseFullMomentCommentComponent, BranchItemInfoComponent, EnterpriseItemDeprecatedComponent, EnterpriseHomeDeprecatedComponent, EnterpriseSendCommentComponent]
 })
 export class EnterpriseModule { }

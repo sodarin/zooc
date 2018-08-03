@@ -85,8 +85,10 @@ export class CourseListComponent implements OnInit {
   openBottomSheet() {
     const bottomSheet = this.bottomSheet.open(SearchPageComponent);
     bottomSheet.afterDismissed().subscribe(result => {
-      this.courseService$.getAll(1, null, result.name, result.category, result.minPrice, result.maxPrice, null)
-        .subscribe(next => this.elaborateCourses = next.list);
+      if(result){
+        this.courseService$.getAll(1, null, result.name, result.category, result.minPrice, result.maxPrice, null)
+          .subscribe(next => this.elaborateCourses = next.list);
+      }
     })
   }
 }

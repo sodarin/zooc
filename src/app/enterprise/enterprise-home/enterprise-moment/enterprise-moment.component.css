@@ -1,9 +1,16 @@
 .moment-page {
-  height: 100%;
+  height: 85%;
   overflow-y: hidden;
+}
+.empty-space {
+  width: 100%;
+  height: 5%;
 }
 .moment-list {
   height: 100%;
+}
+.mescroll {
+  height: 100%
 }
 ul {
   list-style: none;

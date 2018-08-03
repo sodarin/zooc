@@ -1,0 +1,6 @@
+<div class="comment-field">
+  <mat-form-field style="width: 100%">
+    <input [(ngModel)]="comment" matInput placeholder="发送评论">
+  </mat-form-field>
+  <button [disabled]="comment == ''" style="width: 100%;" mat-flat-button color="primary" (click)="sendComment()">发送</button>
+</div>
