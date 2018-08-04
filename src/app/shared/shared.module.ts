@@ -12,7 +12,7 @@ import {
   MatSnackBarModule,
   MatTabsModule,
   MatToolbarModule,
-  MatGridListModule
+  MatGridListModule, MatBadgeModule
 } from '@angular/material';
 import {ClickOutsideModule} from 'ng-click-outside';
 
@@ -34,6 +34,7 @@ import {ClickOutsideModule} from 'ng-click-outside';
     ClickOutsideModule,
     MatSelectModule,
     MatGridListModule,
+    MatBadgeModule
   ],
   exports: [
     CommonModule,
@@ -52,6 +53,7 @@ import {ClickOutsideModule} from 'ng-click-outside';
     ClickOutsideModule,
     MatSelectModule,
     MatGridListModule,
+    MatBadgeModule
   ],
   declarations: []
 })

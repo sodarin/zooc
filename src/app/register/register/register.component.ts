@@ -20,7 +20,10 @@ export class RegisterComponent implements OnInit {
       password: ['', [Validators.required]],
       email: ['', [Validators.email, Validators.required]],
       telephone: ['', [Validators.required]]
-    })
+    });
+    if (document.getElementById('MEIQIA-BTN-HOLDER')){
+      document.getElementById('MEIQIA-BTN-HOLDER').style.display = "none";
+    }
   }
 
   matcher = new MyErrorStateMatcher();

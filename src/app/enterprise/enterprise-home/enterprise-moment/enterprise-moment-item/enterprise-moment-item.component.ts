@@ -88,7 +88,9 @@ export class EnterpriseMomentItemComponent implements OnInit {
   }
 
   openFullComment() {
-
+    this.bottomSheet.open(EnterpriseFullMomentCommentComponent, {
+      data: this.moment
+    });
   }
 
   editComment() {

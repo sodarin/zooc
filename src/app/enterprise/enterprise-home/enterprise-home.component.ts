@@ -28,6 +28,9 @@ export class EnterpriseHomeComponent implements OnInit {
       {'label': '分部', 'path': `/enterprise/branches`, 'icon': 'location_city'},
       {'label': '朋友圈', 'path': `/enterprise/moments`, 'icon': 'camera'}
     ];
+    if (document.getElementById('MEIQIA-BTN-HOLDER')){
+      document.getElementById('MEIQIA-BTN-HOLDER').style.display = "none";
+    }
   }
 
 }

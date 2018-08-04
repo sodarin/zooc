@@ -8,3 +8,6 @@ html, body, app-root, .site{
   margin: 0;
   font-family: mat-font-family($custom-typography);
 }
+#body {
+  margin-bottom: 0 !important;
+}

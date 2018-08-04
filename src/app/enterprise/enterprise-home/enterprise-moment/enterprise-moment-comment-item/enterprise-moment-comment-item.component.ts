@@ -1,6 +1,4 @@
-import {Component, Input, OnChanges, OnInit} from '@angular/core';
-import {LoginService, UserResponse} from '../../../../service/login/login.service';
-import {User} from '../../../../model/User.model';
+import {Component, Input,  OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-enterprise-moment-comment-item',
@@ -11,7 +9,7 @@ export class EnterpriseMomentCommentItemComponent implements OnInit {
 
   @Input() comment;
 
-  constructor(private loginService$: LoginService) { }
+  constructor() { }
 
   ngOnInit() {
 

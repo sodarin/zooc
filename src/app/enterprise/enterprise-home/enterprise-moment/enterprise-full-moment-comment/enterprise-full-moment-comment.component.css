@@ -1,6 +1,21 @@
+.full-comment-page {
+  height: 400px;
+  overflow-y: hidden;
+}
 .header {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   font-size: 16px;
+}
+.wrapper {
+  height: 70%
+}
+.mescroll {
+  height: 100%;
+}
+ul {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0;
 }

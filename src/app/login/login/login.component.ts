@@ -25,6 +25,9 @@ export class LoginComponent implements OnInit {
       mobile: ['', [Validators.required]],
       code: ['', [Validators.required]]
     });
+    if (document.getElementById('MEIQIA-BTN-HOLDER')){
+      document.getElementById('MEIQIA-BTN-HOLDER').style.display = "none";
+    }
   }
 
   login() {

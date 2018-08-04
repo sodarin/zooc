@@ -10,6 +10,9 @@ export class CourseComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    if (document.getElementById('MEIQIA-BTN-HOLDER')){
+      document.getElementById('MEIQIA-BTN-HOLDER').style.display = "none";
+    }
   }
 
 }

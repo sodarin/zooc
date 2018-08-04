@@ -1,40 +1,17 @@
-<!--<mat-card>-->
-  <!--<mat-card-header>-->
-    <!--<img mat-card-avatar [src]="enterprise.imgUrl" [alt]="enterprise.name">-->
-  <!--</mat-card-header>-->
-  <!--<mat-card-content>-->
-    <!--<span class="name">{{enterprise.name}}</span>-->
-    <!--<span class="content">{{moment.content}}</span>-->
-    <!--<div class="operation-row">-->
-      <!--<span class="time">{{moment.time}}</span>-->
-      <!--<div class="like-num">-->
-        <!--<span>{{moment?.likeNum}}人喜欢</span>-->
-        <!--<mat-icon color="primary" *ngIf="!moment?.hasLiked" (click)="operateFavorite()">favorite_border</mat-icon>-->
-        <!--<mat-icon color="primary" *ngIf="moment?.hasLiked" (click)="operateFavorite()">favorite</mat-icon>-->
-      <!--</div>-->
-    <!--</div>-->
-    <!--<div class="empty-space"></div>-->
-    <!--<div class="comment">-->
-      <!--<app-enterprise-moment-comment-item *ngFor="let latest of moment.commentList" [comment]="latest"></app-enterprise-moment-comment-item>-->
-      <!--<span style="color: #6495ed; font-size: 10px;" (click)="openFullComment()">查看全部评论</span>-->
-    <!--</div>-->
-  <!--</mat-card-content>-->
-<!--</mat-card>-->
-
 <div class="moment-item">
   <div class="justify-space">
     <div class="empty-space"></div>
     <div class="moment-head">
       <div class="avatar">
-        <img [src]="enterprise.imgUrl" [alt]="enterprise.name"/>
+        <img *ngIf="enterprise" [src]="enterprise.imgUrl" [alt]="enterprise.name"/>
       </div>
       <div class="sender-info">
-        <span class="sender-name">{{enterprise.name}}</span>
+        <span class="sender-name">{{enterprise?.name}}</span>
         <span class="sending-time">{{moment.time | date : 'yyyy 年 MM 月 dd 日 HH:mm:ss'}}</span>
       </div>
     </div>
   </div>
-  <div class="justify-space">
+  <div class="justify-space" style="margin-bottom: 10px;">
     <div class="empty-space"></div>
     <div class="moment-body">
       <span class="content">{{moment.content}}</span>
@@ -48,7 +25,7 @@
     </div>
     <div class="empty-space"></div>
   </div>
-  <div class="justify-space">
+  <div class="justify-space" style="margin-bottom: 10px">
     <div class="empty-space"></div>
     <div [class]="moment.likeNum == 0? 'moment-unlike': 'moment-like'">
       <div class="latest-like" *ngIf="moment.likeNum > 0 && moment.likeLatest !== []">
@@ -67,9 +44,9 @@
     <div class="empty-space"></div>
     <div class="comment">
       <div class="comment-content" *ngIf="commentTotalAmount > 0">
-        <mat-divider></mat-divider>
+        <mat-divider style="margin-bottom: 10px"></mat-divider>
         <app-enterprise-moment-comment-item *ngFor="let comment of moment.commentList" [comment]="comment"></app-enterprise-moment-comment-item>
-        <span class="search-button" *ngIf="commentTotalAmount > 5" style="color: #6495ed; font-size: 10px;" (click)="openFullComment()">查看全部评论</span>
+        <span class="search-button" *ngIf="commentTotalAmount > 5" style="color: #6495ed; font-size: 12px;" (click)="openFullComment()">查看全部评论</span>
       </div>
     </div>
     <div class="empty-space"></div>

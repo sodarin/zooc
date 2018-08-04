@@ -1,14 +1,23 @@
-<div>
+<div class="full-comment-page">
   <div class="header">
     <span (click)="close()">×</span>
   </div>
-  <app-enterprise-moment-comment-item *ngFor="let comment of fullComment" [comment]="comment"></app-enterprise-moment-comment-item>
+  <div class="wrapper">
+    <div class="mescroll" id="commentScroll">
+      <ul>
+        <li *ngFor="let comment of commentList">
+          <app-enterprise-moment-comment-item [comment]="comment"></app-enterprise-moment-comment-item>
+        </li>
+      </ul>
+    </div>
+  </div>
+
   <div class="comment-input">
     <form [formGroup]="commentGroup">
       <mat-form-field color="accent" style="width: 80%;">
-        <input matInput formControlName="comment" placeholder="评论" [errorStateMatcher]="matcher">
+        <input id="comment" autocomplete="false" matInput formControlName="comment" placeholder="评论" [errorStateMatcher]="matcher">
       </mat-form-field>
-      <button [disabled]="!commentGroup.valid" style="width: 10%;"  mat-raised-button color="primary" (click)="sendComment()" type="button">发送</button>
+      <button [disabled]="!commentGroup.valid" style="width: 10%;"  mat-flat-button color="primary" (click)="sendComment()" type="button">发送</button>
     </form>
   </div>
 </div>
