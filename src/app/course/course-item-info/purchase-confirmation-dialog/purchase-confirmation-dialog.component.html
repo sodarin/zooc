@@ -20,7 +20,7 @@
         可用 {{orderPreview.totalPoints}} 积分
       </ng-template>
       <div style="flex-grow: 1;"></div>
-      <mat-checkbox color="primary" [(ngModel)]="usePoints" [labelPosition]="before" (change)="preview()">使用</mat-checkbox>
+      <mat-checkbox color="primary" [(ngModel)]="usePoints" [labelPosition]="'before'" (change)="preview()">使用</mat-checkbox>
     </div>
   </section>
   <div class="operation-row">

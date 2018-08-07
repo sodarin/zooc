@@ -39,6 +39,8 @@ export class CourseItemInfoComponent implements OnInit {
 
   ngOnInit() {
     // Get the course info
+    this.activeUserId = this.loginService$.resultUser ? +this.loginService$.resultUser.userId : null;
+    console.log(this.loginService$.resultUser);
     this.courseService$.getDetailById(this.routeInfo.snapshot.params['id']).subscribe(course => {
       this.item = course;
       // Get the offerings
