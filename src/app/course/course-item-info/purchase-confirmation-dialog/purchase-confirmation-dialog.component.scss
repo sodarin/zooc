@@ -3,6 +3,9 @@ $font-size: 15px;
 
 .confirmation-dialog {
   display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 16px 16px 16px + $operation_row-height 16px;
 }
 .actual-payment {
   width: 100%;
@@ -18,7 +21,6 @@ $font-size: 15px;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  margin: 24px 24px 24px + $operation_row-height;
 }
 .row {
   width: 100%;

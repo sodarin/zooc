@@ -32,9 +32,18 @@ export class PurchaseConfirmationDialogComponent implements OnInit {
   ngOnInit() {
     this.userId = this.data.userId;
     this.course = this.data.course;
-    this.orderService$.getOrderPreview(this.course.courseId, this.userId).subscribe(orderPreview => this.orderPreview = orderPreview);
+    this.preview();
     // TODO: The enterprise ID is hard-coded
     this.couponService$.getUserAvailable(1, this.userId, this.course.price).subscribe(it => this.availableCoupons = it);
+  }
+
+  preview() {
+    const couponId = this.selectedCoupon ? this.selectedCoupon.couponId : null;
+    this.orderPreview = null;
+    this.orderService$.getOrderPreview(this.course.courseId, this.userId, couponId, this.usePoints)
+      .subscribe(orderPreview => {
+        this.orderPreview = orderPreview;
+      });
   }
 
   close() {

@@ -38,7 +38,6 @@ export class CourseItemInfoComponent implements OnInit {
               private orderService$: OrderService) { }
 
   ngOnInit() {
-    this.activeUserId = this.loginService$.resultUser ? +this.loginService$.resultUser.userId : null;
     // Get the course info
     this.courseService$.getDetailById(this.routeInfo.snapshot.params['id']).subscribe(course => {
       this.item = course;
@@ -69,6 +68,7 @@ export class CourseItemInfoComponent implements OnInit {
 
   purchase(event: Event) {
     event.stopPropagation();
+    this.activeUserId = this.loginService$.resultUser ? +this.loginService$.resultUser.userId : null;
     if (this.activeUserId) {
       // Logged in
       // Purchase confirmation
