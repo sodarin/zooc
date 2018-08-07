@@ -25,10 +25,6 @@ export class OrderService {
     }, this.httpOptions);
   }
 
-  async createAsync(courseId: number, userId: number): Promise<number> {
-    return await this.create(courseId, userId).toPromise();
-  }
-
   getHistory(userId: number,
              courseId: number = null, courseNameContaining: string = null,
              orderId: number = null,

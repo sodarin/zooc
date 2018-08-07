@@ -80,6 +80,7 @@ export class CourseItemInfoComponent implements OnInit {
       bottomSheet.afterDismissed().subscribe((order: Order) => {
         // Update the order
         if (order) {
+          this.order = order;
           this.snackBar.open("订单支付成功！", null, {
             duration: 2000
           });
