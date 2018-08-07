@@ -10,3 +10,5 @@ Run `yarn start` or `npm start` to run the dev server. Navigate to `http://local
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+
+For general use, `ng build --prod --aot` is recommended. 

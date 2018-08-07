@@ -11,6 +11,7 @@ export class Order {
     public courseId: string,
     public courseName: string,
     public coursePrice: number,
+    public paid: number,
     public time: Date,
     public status: OrderStatusEnum,
     public refundId?: number,

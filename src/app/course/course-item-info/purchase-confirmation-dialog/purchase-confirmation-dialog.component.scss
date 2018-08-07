@@ -4,6 +4,14 @@ $font-size: 15px;
 .confirmation-dialog {
   display: flex;
 }
+.actual-payment {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  font-weight: 400;
+}
 .info {
   width: 100%;
   display: flex;

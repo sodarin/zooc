@@ -73,7 +73,7 @@ export class CourseItemInfoComponent implements OnInit {
       // Logged in
       // Purchase confirmation
       const bottomSheet = this.bottomSheet.open(PurchaseConfirmationDialogComponent, {
-        data: { userId: this.activeUserId, course: this.item, order: this.order },
+        data: { userId: this.activeUserId, course: this.item },
         disableClose: true
       });
       bottomSheet.afterDismissed().subscribe((order: Order) => {

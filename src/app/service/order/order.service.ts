@@ -4,6 +4,7 @@ import { Order } from '../../model/Order';
 import { OrderStatusEnum } from '../../model/enum/OrderStatusEnum';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import {OrderPreview} from '../../model/OrderPreview';
 
 @Injectable({
   providedIn: 'root'
@@ -50,6 +51,14 @@ export class OrderService {
     return this._http.put(`/api/v1/order/${orderId}`, {
       status: OrderStatusEnum[status]
     }, this.httpOptions);
+  }
+
+  getOrderPreview(courseId: number, userId: number, couponId: number = null, usePoints: boolean = false): Observable<OrderPreview> {
+    const params = new HttpParams()
+      .set('userId', userId ? userId.toString() : '')
+      .set('couponId', couponId ? couponId.toString() : '')
+      .set('usePoints', usePoints ? usePoints.toString() : '');
+    return this._http.get<OrderPreview>(`/api/v1/course/${courseId}/order-preview`, { params: params });
   }
 
 }
