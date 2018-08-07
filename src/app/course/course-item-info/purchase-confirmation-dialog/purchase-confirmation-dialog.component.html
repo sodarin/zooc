@@ -22,15 +22,23 @@
           <div class="row coupon-control">
             <div class="label">优惠券：</div>
             <div *ngIf="selectedCoupon; else notUsingCoupon">
-              <span (click)="enterNextPage()" *ngIf="selectedCoupon.threshold > 0">满 {{selectedCoupon.threshold}} 减 {{selectedCoupon.value | number: '1.2-2'}} 元</span>
               <span (click)="enterNextPage()"
-                    *ngIf="selectedCoupon.threshold === 0">无门槛减 {{selectedCoupon.value}} 元</span>
+                    *ngIf="selectedCoupon.threshold > 0">
+                满 {{selectedCoupon.threshold}} 减 {{selectedCoupon.value | number: '1.2-2'}} 元
+              </span>
+              <span (click)="enterNextPage()"
+                    *ngIf="selectedCoupon.threshold === 0">
+                无门槛减 {{selectedCoupon.value}} 元
+              </span>
             </div>
             <ng-template #notUsingCoupon>
               <span (click)="enterNextPage()">不使用优惠券</span>
             </ng-template>
             <div style="flex-grow: 1"></div>
-            <button id="next-button" (click)="nextField()" mat-button matStepperNext>
+            <button id="next-button"
+                    style="color: #757575; font-size: 18px;"
+                    (click)="nextField()"
+                    mat-button matStepperNext>
               <mat-icon>keyboard_arrow_right</mat-icon>
             </button>
           </div>
