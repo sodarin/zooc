@@ -1,4 +1,4 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import {ChangeDetectorRef, Component, Inject, OnInit} from '@angular/core';
 import { MAT_BOTTOM_SHEET_DATA, MatBottomSheetRef } from '@angular/material';
 import { ReservationMessageComponent } from '../../trial-item-info/reservation-message/reservation-message.component';
 import { OrderService } from '../../../service/order/order.service';
@@ -27,7 +27,8 @@ export class PurchaseConfirmationDialogComponent implements OnInit {
   constructor(private bottomSheetRef: MatBottomSheetRef<ReservationMessageComponent>,
               @Inject(MAT_BOTTOM_SHEET_DATA) private data,
               private orderService$: OrderService,
-              private couponService$: CouponService) { }
+              private couponService$: CouponService,
+              private changeDetector: ChangeDetectorRef) { }
 
   ngOnInit() {
     this.userId = this.data.userId;
@@ -39,10 +40,10 @@ export class PurchaseConfirmationDialogComponent implements OnInit {
 
   preview() {
     const couponId = this.selectedCoupon ? this.selectedCoupon.couponId : null;
-    this.orderPreview = null;
     this.orderService$.getOrderPreview(this.course.courseId, this.userId, couponId, this.usePoints)
       .subscribe(orderPreview => {
         this.orderPreview = orderPreview;
+        this.changeDetector.markForCheck();
       });
   }
 
