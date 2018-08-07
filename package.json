@@ -30,6 +30,7 @@
     "ng-zorro-antd": "^1.1.1",
     "ng2-filter-pipe": "^0.1.10",
     "ngx-amap": "^2.1.1",
+    "ngx-cookie-service": "^1.0.10",
     "ngx-swiper-wrapper": "^6.3.0",
     "rxjs": "^6.0.0",
     "swiper": "^4.3.3",

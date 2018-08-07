@@ -24,6 +24,8 @@
             <input matInput formControlName="code" type="text" placeholder="短信验证码">
           </mat-form-field>
           <div class="login-method">
+            <mat-checkbox formControlName="rememberBox">7 天内保持登录</mat-checkbox>
+            <div class="empty-space"></div>
             <span *ngIf="!isMobile" (click)="isMobile = !isMobile">使用短信验证登录</span>
             <span *ngIf="isMobile" (click)="isMobile = !isMobile">使用邮箱登录</span>
           </div>

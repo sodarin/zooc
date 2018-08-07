@@ -18,7 +18,6 @@ export class UserInfoComponent implements OnInit {
 
   ngOnInit() {
     this.user = this.loginService.resultUser;
-
     (function(m, ei, q, i, a, j, s) {
       m[i] = m[i] || function() {
         (m[i].a = m[i].a || []).push(arguments)
@@ -31,7 +30,6 @@ export class UserInfoComponent implements OnInit {
       s.parentNode.insertBefore(j, s);
     })(window, document, 'script', '_MEIQIA');
     _MEIQIA('entId', 116943);
-
     _MEIQIA('metadata', {
       name: this.loginService.resultUser.username,
       email: this.loginService.resultUser.email,

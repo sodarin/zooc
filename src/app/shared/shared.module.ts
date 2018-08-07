@@ -35,7 +35,7 @@ import {ClickOutsideModule} from 'ng-click-outside';
     MatSelectModule,
     MatGridListModule,
     MatBadgeModule,
-    MatCheckboxModule
+    MatCheckboxModule,
   ],
   exports: [
     CommonModule,
@@ -55,7 +55,7 @@ import {ClickOutsideModule} from 'ng-click-outside';
     MatSelectModule,
     MatGridListModule,
     MatBadgeModule,
-    MatCheckboxModule
+    MatCheckboxModule,
   ],
   declarations: []
 })

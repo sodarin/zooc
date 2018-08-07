@@ -27,10 +27,9 @@ export class TrialListComponent implements OnInit {
               private bottomSheet: MatBottomSheet) { }
 
   ngOnInit() {
-    // TODO The enterprise ID is hard coded
     this.initMeScroll();
   }
-
+  //初始化滚动加载配置
   initMeScroll() {
     this.mescroll = new MeScroll("mescroll", {
       down: {
@@ -40,20 +39,21 @@ export class TrialListComponent implements OnInit {
           num: 0,
           size: 5
         },
-        callback: this.refresh
+        callback: this.refresh//下拉刷新的回调函数
       },
       up: {
         use: true,
-        auto: true,
+        auto: true,//进入页面的时候自动调用上拉加载
         page: {
           num: 0,
-          size: 5
+          size: 5//单个页面最多显示5条数据
         },
-        callback: this.loadMore
+        callback: this.loadMore//上拉加载的回调函数
       }
     });
   }
 
+  //分页加载五条数据
   loadFiveTrials(targetPage: number) {
     this.trailService$.getTrialsWithPagination(1, true, targetPage, 5).subscribe(result => {
       if (targetPage == 1) {
@@ -62,6 +62,7 @@ export class TrialListComponent implements OnInit {
       this.totalSize = result.total;
       this.currentPageSize = result.list.length;
       this.trials.push(...result.list);
+      //数据加载成功调用此函数，传入总数据及当前页数据
       this.mescroll.endBySize(this.currentPageSize, this.totalSize);
       this.targetPage++;
     }, error2 => {
@@ -69,11 +70,14 @@ export class TrialListComponent implements OnInit {
     });
   }
 
+  //下拉刷新的回调函数
   refresh = () => {
     this.targetPage = 1;
+    //调用上拉加载的回调函数，并将目标页码重置为1
     this.mescroll.resetUpScroll(true);
   };
 
+  //上拉加载的回调函数
   loadMore = () => {
     this.loadFiveTrials(this.targetPage);
   };

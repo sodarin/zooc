@@ -8,9 +8,6 @@ const routes: Routes = [
   {path: 'enterprise', loadChildren: './enterprise/enterprise.module#EnterpriseModule'},
   {path: 'register', loadChildren: './register/register.module#RegisterModule'},
   {path: 'login', loadChildren: './login/login.module#LoginModule'},
-  // { path: 'login', redirectTo: '/login', pathMatch: 'full' },
-  // { path: 'user', redirectTo: '/user', pathMatch: 'full' },
-  // { path: 'register', redirectTo: 'register', pathMatch: 'full' }
 ];
 
 @NgModule({
