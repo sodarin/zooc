@@ -3,6 +3,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {LoginService} from '../../service/login/login.service';
 import {Router} from '@angular/router';
 import {MatSnackBar} from '@angular/material';
+import {CookieService} from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-login',
@@ -15,7 +16,11 @@ export class LoginComponent implements OnInit {
 
   isMobile = false;
 
-  constructor(private fb: FormBuilder, private loginService$: LoginService, private route: Router, private snackBar: MatSnackBar) {
+  constructor(private fb: FormBuilder,
+              private loginService$: LoginService,
+              private route: Router,
+              private snackBar: MatSnackBar,
+              private cookieService: CookieService) {
   }
 
   ngOnInit() {
@@ -23,7 +28,8 @@ export class LoginComponent implements OnInit {
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required]],
       mobile: ['', [Validators.required]],
-      code: ['', [Validators.required]]
+      code: ['', [Validators.required]],
+      rememberBox: [false]
     });
     if (document.getElementById('MEIQIA-BTN-HOLDER')){
       document.getElementById('MEIQIA-BTN-HOLDER').style.display = "none";
@@ -31,10 +37,10 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.loginService$.loginByEmail(this.loginForm.value.email, this.loginForm.value.password)
+    this.loginService$.loginByEmail(this.loginForm.value.email, this.loginForm.value.password, this.loginForm.value.rememberBox)
       .subscribe(
         result => {
-          console.log(result);
+          console.log(this.cookieService.getAll());
           this.loginService$.resultUser = result;
           this.snackBar.open('登录成功', null, {
             duration: 2000

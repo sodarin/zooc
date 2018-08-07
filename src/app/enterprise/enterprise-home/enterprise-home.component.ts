@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
 import {EnterpriseService} from '../../service/enterprise/enterprise.service';
 import {Enterprise} from '../../model/Enterprise';
+import {LoginService, UserResponse} from '../../service/login/login.service';
 
 @Component({
   selector: 'app-enterprise-home',
@@ -10,10 +11,14 @@ import {Enterprise} from '../../model/Enterprise';
 })
 export class EnterpriseHomeComponent implements OnInit {
 
+  user: UserResponse;
+
   enterprise: Enterprise;
   navLinks;
 
-  constructor(private routeInfo: ActivatedRoute, private enterpriseService$: EnterpriseService) { }
+  constructor(private routeInfo: ActivatedRoute,
+              private enterpriseService$: EnterpriseService,
+              private loginService$: LoginService) { }
 
   ngOnInit() {
     // TODO The enterprise ID is hard coded
@@ -30,6 +35,14 @@ export class EnterpriseHomeComponent implements OnInit {
     ];
     if (document.getElementById('MEIQIA-BTN-HOLDER')){
       document.getElementById('MEIQIA-BTN-HOLDER').style.display = "none";
+    }
+    if (!this.loginService$.resultUser) {
+      this.loginService$.loginByCookies().subscribe( result => {
+        this.user = result;
+        this.loginService$.resultUser = result;
+      })
+    } else {
+      this.user = this.loginService$.resultUser;
     }
   }
 

@@ -62,6 +62,9 @@ mat-grid-tile {
   align-items: center;
   background: white;
 }
+/*
+图片高度大于图片宽度时，保持图片宽度大小不变，高度从上下两边向中间靠拢居中显示
+ */
 .misaka {
   display: block;
   width: 100%;
@@ -72,6 +75,9 @@ mat-grid-tile {
   -moz-transform: translateY(-50%);
   position: relative;
 }
+/*
+图片宽度大于图片高度时，保持图片高度大小不变，宽度从左右两边向中间靠拢居中显示
+ */
 .normal {
   width: auto;
   height: 100%;

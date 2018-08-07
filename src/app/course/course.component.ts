@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {LoginService, UserResponse} from '../service/login/login.service';
 
 @Component({
   selector: 'app-course',
@@ -7,11 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CourseComponent implements OnInit {
 
-  constructor() { }
+  user: UserResponse;
+
+  constructor(private loginService$: LoginService) { }
 
   ngOnInit() {
     if (document.getElementById('MEIQIA-BTN-HOLDER')){
       document.getElementById('MEIQIA-BTN-HOLDER').style.display = "none";
+    }
+    if (!this.loginService$.resultUser) {
+      this.loginService$.loginByCookies().subscribe( result => {
+        this.user = result;
+        this.loginService$.resultUser = result;
+      })
+    } else {
+      this.user = this.loginService$.resultUser;
     }
   }
 

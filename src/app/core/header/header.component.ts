@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {LoginService, UserResponse} from '../../service/login/login.service';
 
 @Component({
@@ -8,14 +8,12 @@ import {LoginService, UserResponse} from '../../service/login/login.service';
 })
 export class HeaderComponent implements OnInit {
 
-  user: UserResponse = null;
+  @Input() user;
 
   constructor(private loginService: LoginService) { }
 
   ngOnInit() {
-    console.log(this.loginService);
-    this.user = this.loginService.resultUser;
-    console.log(this.user);
+
   }
 
   // changePassword(){

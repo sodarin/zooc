@@ -32,6 +32,7 @@ export class TrialItemInfoComponent implements OnInit {
 
 
   ngOnInit() {
+    //获取试听课程的详情
     this.trialService$.getDetailById(this.routeInfo.snapshot.params['id']).subscribe(result => {
       this.item = result;
       if (this.loginService$.resultUser) {
@@ -51,6 +52,7 @@ export class TrialItemInfoComponent implements OnInit {
     });
   }
 
+  //获取分部信息
   getBranchDetailIfNotDone() {
     if (this.branch) {
       return;
@@ -62,13 +64,18 @@ export class TrialItemInfoComponent implements OnInit {
     });
   }
 
+  //点击页面按钮，打开bottom sheet，在bottom sheet里进行预约及留言操作
   openBottomSheet() {
+    //判断是否登录，如果没有登录则跳转到登录页面，如果已登录则可以正常预约
     if (this.loginService$.resultUser) {
       const bottomSheet = this.bottomSheet.open(ReservationMessageComponent, {
         data: this.message
       });
+      //如果该课程还没有预约，则可以申请预约
       if (!this.isReserved) {
+        //bottom sheet关闭后将返回result数据，在这里通过subscribe进行监听
         bottomSheet.afterDismissed().subscribe(result => {
+          //如果返回数据不为空，则用户进行了预约
           if (result != null) {
             this.reservationService$.createReservation(this.item.trialId, this.loginService$.resultUser.userId, result)
               .subscribe(result => {
@@ -83,6 +90,7 @@ export class TrialItemInfoComponent implements OnInit {
               });
           }
         });
+        //如果课程已经预约，则用户只能修改留言
       } else {
         bottomSheet.afterDismissed().subscribe(result => {
           if (result != null) {

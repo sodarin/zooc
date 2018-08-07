@@ -18,7 +18,7 @@
       <div *ngIf="moment.imgList !== []" class="img-list" style="margin-bottom: 5px">
         <mat-grid-list cols="3" rowHeight="1:1">
           <mat-grid-tile *ngFor="let img of moment.imgList">
-            <img #imgContent [class]="imgContent.width < imgContent.height? 'misaka': 'normal'" [src]="img.imgUrl"/>
+            <img *ngIf="img" #imgContent [class]="imgContent.width < imgContent.height? 'misaka': 'normal'" [src]="img.imgUrl"/>
           </mat-grid-tile>
         </mat-grid-list>
       </div>
