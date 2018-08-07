@@ -19,6 +19,7 @@ export class PurchaseConfirmationDialogComponent implements OnInit {
   userId: number;
   course: Course;
   orderPreview: OrderPreview;
+  isOrderPreviewPending: boolean;
   availableCoupons: Coupon[];
   selectedCoupon: Coupon;
   usePoints: boolean;
@@ -39,10 +40,12 @@ export class PurchaseConfirmationDialogComponent implements OnInit {
   }
 
   preview() {
+    this.isOrderPreviewPending = true;
     const couponId = this.selectedCoupon ? this.selectedCoupon.couponId : null;
     this.orderService$.getOrderPreview(this.course.courseId, this.userId, couponId, this.usePoints)
       .subscribe(orderPreview => {
         this.orderPreview = orderPreview;
+        this.isOrderPreviewPending = false;
         this.changeDetector.markForCheck();
       });
   }

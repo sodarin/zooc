@@ -1,9 +1,12 @@
 <div class="confirmation-dialog" (clickOutside)="close()">
-  <section *ngIf="orderPreview" class="actual-payment">
-    <span>￥{{orderPreview.actualPayment | number: '1.2-2'}}</span>
+  <section class="actual-payment">
+    <span *ngIf="orderPreview; else actualPaymentPending">￥{{orderPreview.actualPayment | number: '1.2-2'}}</span>
   </section>
+  <ng-template #actualPaymentPending>
+    <mat-progress-spinner [diameter]="30" [mode]="'indeterminate'"></mat-progress-spinner>
+  </ng-template>
   <section class="info">
-    <div class="row">
+    <div class="row" style="align-content: flex-start">
       <div class="label">课程名称：</div>
       <div>{{course.name}}</div>
     </div>
@@ -11,15 +14,25 @@
       <div class="label">课程价格：</div>
       <div>￥{{course.price | number: '1.2-2'}}</div>
     </div>
-    <div *ngIf="orderPreview" class="row">
+    <div class="row">
       <div class="label">积分：</div>
-      <div *ngIf="usePoints; else notUsingPoints">
-        使用 {{orderPreview.numPointsUsed}} 积分抵用￥{{orderPreview.discountedByPoints | number: '1.2-2'}}
+      <div *ngIf="orderPreview; else pointPending">
+        <div *ngIf="orderPreview.numPointsUsed; else notUsingPoints">
+          使用 {{orderPreview.numPointsUsed}} 积分抵用￥{{orderPreview.discountedByPoints | number: '1.2-2'}}
+        </div>
+        <ng-template #notUsingPoints>
+          可用 {{orderPreview.totalPoints}} 积分
+        </ng-template>
       </div>
-      <ng-template #notUsingPoints>
-        可用 {{orderPreview.totalPoints}} 积分
+      <ng-template #pointPending>
+        <mat-progress-spinner [diameter]="20"
+                              [mode]="'indeterminate'"></mat-progress-spinner>
       </ng-template>
       <div style="flex-grow: 1;"></div>
+      <mat-progress-spinner *ngIf="isOrderPreviewPending"
+                            style="margin-right: 4px;"
+                            [diameter]="20"
+                            [mode]="'indeterminate'"></mat-progress-spinner>
       <mat-checkbox color="primary" [(ngModel)]="usePoints" [labelPosition]="before" (change)="preview()">使用</mat-checkbox>
     </div>
   </section>
