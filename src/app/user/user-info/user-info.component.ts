@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {LoginService, UserResponse} from '../../service/login/login.service';
+import {CheckinService} from '../../service/checkin/checkin.service';
+import {MatSnackBar} from '@angular/material';
 declare var _MEIQIA: any;
 @Component({
   selector: 'app-user-info',
@@ -9,23 +11,29 @@ declare var _MEIQIA: any;
 export class UserInfoComponent implements OnInit {
 
   user: UserResponse = null;
-
+  hasCheckedIn: boolean;
   unreadMsg = 0;
   hidden = false;
   hasInit = false;
 
-  constructor(private loginService$: LoginService) { }
+  constructor(private loginService$: LoginService,
+              private checkinService$: CheckinService,
+              private snackBar: MatSnackBar,
+              private changeDetector: ChangeDetectorRef) { }
 
-  ngOnInit() {
+  async ngOnInit() {
     // Log in using cookies if it's not logged in
     if (!this.loginService$.resultUser) {
-      this.loginService$.loginByCookies().subscribe( result => {
-        this.user = result;
-        this.loginService$.resultUser = result;
-      });
-    } else {
-      this.user = this.loginService$.resultUser;
+      this.loginService$.resultUser = await this.loginService$.loginByCookies().toPromise();
     }
+    this.user = this.loginService$.resultUser;
+    // Check if the user has checked in
+    // TODO: Enterprise ID is hard-coded
+    this.checkinService$.checkCheckedInOrNot(+this.user.userId, 1, new Date()).subscribe(it => {
+      this.hasCheckedIn = it;
+      this.changeDetector.markForCheck();
+    });
+
     console.log(this.user);
     (function(m, ei, q, i, a, j, s) {
       m[i] = m[i] || function() {
@@ -49,4 +57,10 @@ export class UserInfoComponent implements OnInit {
     }
   }
 
+  async checkIn() {
+    // TODO: Enterprise ID is hard-coded
+    await this.checkinService$.checkIn(+this.user.userId, 1).toPromise();
+    this.snackBar.open('签到成功。', null, { duration: 2000 });
+    this.hasCheckedIn = true;
+  }
 }

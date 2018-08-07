@@ -6,9 +6,14 @@
     <div class="basic-info">
       <div class="username">{{user.username}}</div>
       <div class="email">{{user.email}}</div>
+      <div class="checkin-button-container">
+        <button *ngIf="hasCheckedIn != null"
+                mat-raised-button
+                [disabled]="hasCheckedIn" (click)="checkIn()">签到</button>
+      </div>
     </div>
     <app-zzzz-avatar [avatarUrl]="user.avatarUrl"
-                     [size]="100"
+                     [size]="120"
                      [shape]="'circle'"
                      [shadow]="true"></app-zzzz-avatar>
   </section>
