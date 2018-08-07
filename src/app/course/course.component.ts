@@ -20,7 +20,7 @@ export class CourseComponent implements OnInit {
       this.loginService$.loginByCookies().subscribe( result => {
         this.user = result;
         this.loginService$.resultUser = result;
-      })
+      });
     } else {
       this.user = this.loginService$.resultUser;
     }

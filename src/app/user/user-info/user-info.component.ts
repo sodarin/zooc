@@ -17,7 +17,15 @@ export class UserInfoComponent implements OnInit {
   constructor(private loginService$: LoginService) { }
 
   ngOnInit() {
-    this.user = this.loginService$.resultUser;
+    // Log in using cookies if it's not logged in
+    if (!this.loginService$.resultUser) {
+      this.loginService$.loginByCookies().subscribe( result => {
+        this.user = result;
+        this.loginService$.resultUser = result;
+      });
+    } else {
+      this.user = this.loginService$.resultUser;
+    }
     console.log(this.user);
     (function(m, ei, q, i, a, j, s) {
       m[i] = m[i] || function() {

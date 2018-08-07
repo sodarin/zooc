@@ -1,14 +1,21 @@
 <div class="user-page">
   <mat-toolbar color="primary">
-    <span>我的信息</span>
+    <span>关于我</span>
   </mat-toolbar>
-  <div class="background">
-    <app-zzzz-avatar [avatarUrl]="user.avatarUrl" [size]="100" [shape]="'circle'"></app-zzzz-avatar>
-  </div>
-  <div class="nav-button">
+  <section class="background">
+    <div class="basic-info">
+      <div class="username">{{user.username}}</div>
+      <div class="email">{{user.email}}</div>
+    </div>
+    <app-zzzz-avatar [avatarUrl]="user.avatarUrl"
+                     [size]="100"
+                     [shape]="'circle'"
+                     [shadow]="true"></app-zzzz-avatar>
+  </section>
+  <section class="nav-button">
     <button mat-button [routerLink]="['/user/reserve']"><mat-icon svgIcon="clock"></mat-icon>我的预约</button>
     <button mat-button [routerLink]="['/user/order']"><mat-icon svgIcon="order"></mat-icon>我的订单</button>
     <button mat-button [routerLink]="['/user/detail']" ><mat-icon svgIcon="portrait"></mat-icon>我的信息</button>
-  </div>
+  </section>
 </div>
 

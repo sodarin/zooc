@@ -13,8 +13,20 @@ mat-toolbar {
   background: linear-gradient(180deg, $color-primary 0, lighten($color-primary, 15%) 27%, white 100%);
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
+  padding: 0 12.4%;
+}
+.basic-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  color: white;
+  text-shadow: rgba(0, 0, 0, 0.24) 0 2px 6px, rgba(0, 0, 0, 0.36) 0 1px 2px;
+}
+.username {
+  font-size: 28px;
 }
 .avatar-container {
   width: 100%;
