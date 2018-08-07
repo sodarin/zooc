@@ -1,3 +1,28 @@
-<p>
-  user-detail works!
-</p>
+<div class="page">
+  <!-- Avatar -->
+  <section *ngIf="user" class="avatar-container">
+    <img #imgContent
+         [src]="user.avatarUrl"
+         [class]="imgContent.width <= imgContent.height ? 'portrait' : 'landscape'" />
+  </section>
+  <section *ngIf="user" class="detailed-info">
+    <div class="row">
+      <div class="label">用户名</div>
+      <div>{{user.username}}</div>
+    </div>
+    <mat-divider></mat-divider>
+
+    <div class="row">
+      <div class="label">电子邮箱</div>
+      <div>{{user.email}}</div>
+    </div>
+    <mat-divider></mat-divider>
+
+    <div class="row">
+      <button>
+        <span>修改密码</span>
+        <mat-icon>keyboard_arrow_right</mat-icon>
+      </button>
+    </div>
+  </section>
+</div>

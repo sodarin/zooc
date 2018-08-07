@@ -1,0 +1,60 @@
+@import '../../../styles.scss';
+
+$avatar-height: 200px;
+$label-color: #808080;
+
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.avatar-container {
+  width: 100%;
+  height: $avatar-height;
+  position: relative;
+  overflow: hidden;
+  box-shadow: rgba(0, 0, 0, 0.12) 0 2px 6px, rgba(0, 0, 0, 0.24) 0 1px 2px;
+}
+// Height > width. Show all horizontal pixels. Show from the middle vertically as much as possible.
+.portrait {
+  display: block;
+  width: 100%;
+  height: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  position: relative;
+}
+// Width > height. Show all vertical pixels. Show from the center horizontally as much as possible.
+.landscape {
+  display: block;
+  width: auto;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  position: relative;
+}
+.detailed-info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 16px 24px;
+}
+.row {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 12px 0;
+  font-size: 16px;
+}
+.label {
+  color: $label-color;
+  font-size: 14px;
+}
+mat-divider {
+  width: 100%;
+}
