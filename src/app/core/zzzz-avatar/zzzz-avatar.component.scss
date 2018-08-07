@@ -1,0 +1,27 @@
+@import '../../../styles.scss';
+
+$border-color: map_get($mat-grey, 100);
+
+img {
+  border: 1px $border-color solid;
+}
+
+// Height > width. Show all horizontal pixels. Show from the middle vertically as much as possible.
+.portrait {
+  display: block;
+  width: 100%;
+  height: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  position: relative;
+}
+
+// Width > height. Show all vertical pixels. Show from the center horizontally as much as possible.
+.landscape {
+  display: block;
+  width: auto;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  position: relative;
+}

@@ -6,6 +6,7 @@ import { CarouselComponent } from './carousel/carousel.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NgZorroAntdModule } from 'ng-zorro-antd';
 import {LoginService} from '../service/login/login.service';
+import { ZzzzAvatarComponent } from './zzzz-avatar/zzzz-avatar.component';
 
 @NgModule({
   imports: [
@@ -16,11 +17,12 @@ import {LoginService} from '../service/login/login.service';
   exports: [
     HeaderComponent,
     CarouselComponent,
-    NavbarComponent
+    NavbarComponent,
+    ZzzzAvatarComponent
   ],
   providers: [
 
   ],
-  declarations: [HeaderComponent, CarouselComponent, NavbarComponent]
+  declarations: [HeaderComponent, CarouselComponent, NavbarComponent, ZzzzAvatarComponent]
 })
 export class CoreModule { }

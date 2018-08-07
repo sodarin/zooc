@@ -1,5 +1,7 @@
 @import '../../../styles.scss';
 
+$avatar-height: 80px;
+
 mat-toolbar {
   display: flex;
   flex-direction: row;
@@ -13,6 +15,22 @@ mat-toolbar {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+}
+.avatar-container {
+  width: 100%;
+  height: $avatar-height;
+  position: relative;
+  overflow: hidden;
+}
+.avatar-container img {
+  width: 100%;
+  height: auto;
+  top:50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  -moz-transform: translateY(-50%);
+  position: relative;
+  border-radius: 4px;
 }
 .nav-button {
   display: flex;

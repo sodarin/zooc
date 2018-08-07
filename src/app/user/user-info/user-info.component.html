@@ -3,12 +3,12 @@
     <span>我的信息</span>
   </mat-toolbar>
   <div class="background">
-    <img style="width: 60px; height: 60px;" mat-card-avatar src="../../assets/img/icon/头像.svg">
+    <app-zzzz-avatar [avatarUrl]="user.avatarUrl" [size]="100" [shape]="'circle'"></app-zzzz-avatar>
   </div>
   <div class="nav-button">
     <button mat-button [routerLink]="['/user/reserve']"><mat-icon svgIcon="clock"></mat-icon>我的预约</button>
     <button mat-button [routerLink]="['/user/order']"><mat-icon svgIcon="order"></mat-icon>我的订单</button>
-    <button mat-button ><mat-icon svgIcon="portrait"></mat-icon>我的信息</button>
+    <button mat-button [routerLink]="['/user/detail']" ><mat-icon svgIcon="portrait"></mat-icon>我的信息</button>
   </div>
 </div>
 

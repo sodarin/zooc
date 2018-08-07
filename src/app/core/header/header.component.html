@@ -6,6 +6,10 @@
     <span>/</span>
     <a [routerLink]="['/register']">注册</a>
   </span>
-  <mat-icon style="border-radius: 50%" *ngIf="user != null" [svgIcon]="user.avatarUrl? user.avatarUrl: 'avatar'" [routerLink]="['/user']"></mat-icon>
+  <app-zzzz-avatar *ngIf="user"
+                   [avatarUrl]="user ? user.avatarUrl : null"
+                   [size]="28" [shape]="'circle'" [placeholder]="'anonymous'"
+                   [routerLink]="['/user']"></app-zzzz-avatar>
+  <!--<mat-icon style="border-radius: 50%" *ngIf="user != null" [svgIcon]="user.avatarUrl? user.avatarUrl: 'avatar'" [routerLink]="['/user']"></mat-icon>-->
 </mat-toolbar>
 
