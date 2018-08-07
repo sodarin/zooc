@@ -14,6 +14,8 @@ export class ZzzzAvatarComponent implements OnInit {
   @Input() shape = 'circle';
   // The icon to be used when the avatar URL is not specified. Either 'anonymous' or 'portrait' (default)
   @Input() placeholder = 'portrait';
+  // Use shadow or not (`false` by default)
+  @Input() shadow = false;
 
   constructor() { }
 

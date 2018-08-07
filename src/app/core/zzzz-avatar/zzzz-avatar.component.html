@@ -2,6 +2,7 @@
   <img *ngIf="avatarUrl; else placeholderTemplate" #imgContent
        [ngStyle]="{ 'border-radius': shape === 'circle' ? '50%' : '0' }"
        [class]="imgContent.width < imgContent.height ? 'portrait' : 'landscape'"
+       [ngClass]="{ 'shadow': shadow }"
        [src]="avatarUrl" />
   <ng-template #placeholderTemplate>
     <img *ngIf="placeholder === 'portrait'; else placeholderAnonymous"
