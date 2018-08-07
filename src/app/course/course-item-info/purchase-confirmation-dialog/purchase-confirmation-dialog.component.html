@@ -1,5 +1,5 @@
 <div class="confirmation-dialog" (clickOutside)="close()">
-  <section class="actual-payment">
+  <section *ngIf="orderPreview" class="actual-payment">
     <span>￥{{orderPreview.actualPayment | number: '1.2-2'}}</span>
   </section>
   <section class="info">
@@ -11,7 +11,7 @@
       <div class="label">课程价格：</div>
       <div>￥{{course.price | number: '1.2-2'}}</div>
     </div>
-    <div class="row">
+    <div *ngIf="orderPreview" class="row">
       <div class="label">积分：</div>
       <div *ngIf="usePoints; else notUsingPoints">
         使用 {{orderPreview.numPointsUsed}} 积分抵用￥{{orderPreview.discountedByPoints | number: '1.2-2'}}
@@ -26,5 +26,4 @@
   <div class="operation-row">
     <button mat-raised-button color="primary" (click)="confirmPurchase()">立即支付</button>
   </div>
-  <mat-checkbox style="display: none" name="refreshDisplayCheckbox"></mat-checkbox>
 </div>
