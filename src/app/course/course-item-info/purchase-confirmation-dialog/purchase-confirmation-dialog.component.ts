@@ -2,8 +2,6 @@ import {ChangeDetectorRef, Component, Inject, OnInit} from '@angular/core';
 import { MAT_BOTTOM_SHEET_DATA, MatBottomSheetRef } from '@angular/material';
 import { ReservationMessageComponent } from '../../trial-item-info/reservation-message/reservation-message.component';
 import { OrderService } from '../../../service/order/order.service';
-import { Order } from '../../../model/Order';
-import { OrderStatusEnum } from '../../../model/enum/OrderStatusEnum';
 import { OrderPreview } from '../../../model/OrderPreview';
 import { Coupon } from '../../../model/Coupon';
 import { CouponService } from '../../../service/coupon/coupon.service';
@@ -23,6 +21,7 @@ export class PurchaseConfirmationDialogComponent implements OnInit {
   selectedCoupon: Coupon;
   usePoints: boolean;
   isConfirmed = false;
+  order: any;
 
   constructor(private bottomSheetRef: MatBottomSheetRef<ReservationMessageComponent>,
               @Inject(MAT_BOTTOM_SHEET_DATA) private data,
@@ -35,7 +34,9 @@ export class PurchaseConfirmationDialogComponent implements OnInit {
     this.course = this.data.course;
     this.preview();
     // TODO: The enterprise ID is hard-coded
-    this.couponService$.getUserAvailable(1, this.userId, this.course.price).subscribe(it => this.availableCoupons = it);
+    this.couponService$.getUserAvailable(1, this.userId, this.course.price).subscribe(it => {
+      this.availableCoupons = it;
+    });
   }
 
   preview() {
@@ -69,6 +70,7 @@ export class PurchaseConfirmationDialogComponent implements OnInit {
     //   console.log("pending");
     //   this.bottomSheetRef.dismiss(this.order);
     // }
+    this.bottomSheetRef.dismiss();
   }
 
   confirmPurchase() {
@@ -101,6 +103,31 @@ export class PurchaseConfirmationDialogComponent implements OnInit {
     //     });
     //   });
     // }
+    this.orderService$.create(this.course.courseId, this.userId, this.selectedCoupon.couponId, this.usePoints).subscribe( orderId => {
+      this.orderService$.getDetailById(orderId).subscribe(order => {
+        this.order = order;
+        this.isConfirmed = true;
+        this.bottomSheetRef.dismiss(this.order);
+      })
+    })
 
+  }
+
+  nextField() {
+    document.getElementById('pay-button').style.display = 'none';
+  }
+
+  previousPage() {
+    document.getElementById('pay-button').style.display = 'block'
+  }
+
+  selectCoupon(coupon: Coupon) {
+    this.selectedCoupon = coupon;
+    document.getElementById('previous-button').click();
+    this.preview();
+  }
+
+  enterNextPage() {
+    document.getElementById('next-button').click();
   }
 }

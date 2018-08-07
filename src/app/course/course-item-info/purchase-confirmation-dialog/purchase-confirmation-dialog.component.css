@@ -4,12 +4,24 @@
   justify-content: flex-start;
   margin: 16px 16px 72px 16px; }
 
+.coupon-selected-dialog {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; }
+
 .actual-payment {
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 28px;
+  font-weight: 400; }
+
+.coupon-list-header {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  font-size: 2px;
   font-weight: 400; }
 
 .info {
@@ -42,5 +54,27 @@
     width: 100%;
     height: 100%;
     font-size: 15px; }
+
+:host ::ng-deep .mat-horizontal-stepper-header-container {
+  display: none !important; }
+
+:host ::ng-deep .mat-horizontal-content-container {
+  padding: 0; }
+
+:host ::ng-deep .coupon-control button {
+  min-width: 0;
+  line-height: 0;
+  padding: 0; }
+
+:host ::ng-deep .coupon-list-header button {
+  min-width: 0;
+  line-height: 0;
+  padding: 0; }
+
+:host ::ng-deep .mat-button-focus-overlay {
+  background-color: rgba(0, 0, 0, 0.01); }
+
+:host ::ng-deep .mat-pseudo-checkbox {
+  display: none !important; }
 
 /*# sourceMappingURL=purchase-confirmation-dialog.component.css.map */

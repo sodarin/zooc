@@ -75,17 +75,11 @@ export class CourseItemInfoComponent implements OnInit {
       // Logged in
       // Purchase confirmation
       const bottomSheet = this.bottomSheet.open(PurchaseConfirmationDialogComponent, {
-        data: { userId: this.activeUserId, course: this.item },
-        disableClose: true
+        data: { userId: this.activeUserId, course: this.item }
       });
       bottomSheet.afterDismissed().subscribe((order: Order) => {
         // Update the order
-        this.order = order;
-        if (this.order.status.toString() === OrderStatusEnum[OrderStatusEnum.PENDING]) {
-          this.snackBar.open("订单未支付，请在 15 分钟内支付，如未支付订单将被取消！", null, {
-            duration: 3000
-          });
-        } else if (this.order.status.toString() === OrderStatusEnum[OrderStatusEnum.AVAILABLE]) {
+        if (order) {
           this.snackBar.open("订单支付成功！", null, {
             duration: 2000
           });

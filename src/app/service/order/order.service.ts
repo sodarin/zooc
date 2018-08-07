@@ -17,9 +17,11 @@ export class OrderService {
 
   constructor(private _http: HttpClient) { }
 
-  create(courseId: number, userId: number): Observable<number> {
+  create(courseId: number, userId: number, couponId: number, usePoints: boolean): Observable<number> {
     return this._http.post<number>(`/api/v1/course/${courseId}/order`, {
-      userId: userId.toString()
+      userId: userId.toString(),
+      couponId: couponId,
+      usePoints: usePoints
     }, this.httpOptions);
   }
 
