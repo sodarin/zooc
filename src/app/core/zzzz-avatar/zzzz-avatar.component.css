@@ -2,19 +2,19 @@
 Error: File to import not found or unreadable: ~@angular/material/theming.
         on line 1 of ../../../theme.scss
         from line 3 of ../../../styles.scss
-        from line 1 of user-info.component.scss
+        from line 1 of zzzz-avatar.component.scss
 
 1: @import '../../../styles.scss';
 2: 
-3: $avatar-height: 80px;
+3: $border-color: map_get($mat-grey, 100);
 4: 
-5: mat-toolbar {
-6:   display: flex;
+5: img {
+6:   border: 1px $border-color solid;
 
 Backtrace:
 ../../../theme.scss:1
 ../../../styles.scss:3
-user-info.component.scss:1
+zzzz-avatar.component.scss:1
 C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.4/lib/sass/tree/import_node.rb:67:in `rescue in import'
 C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.4/lib/sass/tree/import_node.rb:44:in `import'
 C:/Ruby24-x64/lib/ruby/gems/2.4.0/gems/sass-3.5.4/lib/sass/tree/import_node.rb:28:in `imported_file'
@@ -83,4 +83,4 @@ C:/Ruby24-x64/bin/scss:23:in `<main>'
 body:before {
   white-space: pre;
   font-family: monospace;
-  content: "Error: File to import not found or unreadable: ~@angular/material/theming.\A         on line 1 of ../../../theme.scss\A         from line 3 of ../../../styles.scss\A         from line 1 of user-info.component.scss\A \A 1: @import '../../../styles.scss';\A 2: \A 3: $avatar-height: 80px;\A 4: \A 5: mat-toolbar {\A 6:   display: flex;"; }
+  content: "Error: File to import not found or unreadable: ~@angular/material/theming.\A         on line 1 of ../../../theme.scss\A         from line 3 of ../../../styles.scss\A         from line 1 of zzzz-avatar.component.scss\A \A 1: @import '../../../styles.scss';\A 2: \A 3: $border-color: map_get($mat-grey, 100);\A 4: \A 5: img {\A 6:   border: 1px $border-color solid;"; }

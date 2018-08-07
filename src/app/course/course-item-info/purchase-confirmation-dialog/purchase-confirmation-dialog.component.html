@@ -1,73 +1,91 @@
- <mat-horizontal-stepper>
-   <mat-step>
-     <div class="confirmation-dialog">
-       <div class="pay-way">
-         <section *ngIf="orderPreview" class="actual-payment">
-           <span>￥{{orderPreview.actualPayment | number: '1.2-2'}}</span>
-         </section>
-         <section class="info">
-           <div class="row">
-             <div class="label">课程名称：</div>
-             <div>{{course.name}}</div>
-           </div>
-           <mat-divider></mat-divider>
-           <div class="row">
-             <div class="label">课程价格：</div>
-             <div>￥{{course.price | number: '1.2-2'}}</div>
-           </div>
-           <mat-divider></mat-divider>
-           <div class="row coupon-control">
-             <div class="label">优惠券：</div>
-             <div *ngIf="selectedCoupon; else notUsingCoupon">
-               <span (click)="enterNextPage()" *ngIf="selectedCoupon.threshold > 0">满 {{selectedCoupon.threshold}} 减 {{selectedCoupon.value | number: '1.2-2'}} 元</span>
-               <span (click)="enterNextPage()" *ngIf="selectedCoupon.threshold === 0">无门槛减 {{selectedCoupon.value}} 元</span>
-             </div>
-             <ng-template #notUsingCoupon>
-               <span (click)="enterNextPage()">不使用优惠券</span>
-             </ng-template>
-             <div style="flex-grow: 1"></div>
-             <button id="next-button" (click)="nextField()" mat-button matStepperNext><mat-icon>keyboard_arrow_right</mat-icon></button>
-           </div>
-           <mat-divider></mat-divider>
-           <div *ngIf="orderPreview" class="row">
-             <div class="label">积分：</div>
-             <div *ngIf="usePoints; else notUsingPoints">
-               使用 {{orderPreview.numPointsUsed}} 积分抵用￥{{orderPreview.discountedByPoints | number: '1.2-2'}}
-             </div>
-             <ng-template #notUsingPoints>
-               可用 {{orderPreview.totalPoints}} 积分
-             </ng-template>
-             <div style="flex-grow: 1;"></div>
-             <mat-checkbox color="primary" [(ngModel)]="usePoints" (change)="preview()"></mat-checkbox>
-           </div>
-         </section>
-       </div>
-     </div>
-   </mat-step>
+<mat-horizontal-stepper>
+  <mat-step>
+    <div class="confirmation-dialog">
+      <div class="pay-way">
+        <section class="actual-payment">
+          <span *ngIf="orderPreview; else actualPaymentPending">￥{{orderPreview.actualPayment | number: '1.2-2'}}</span>
+        </section>
+        <ng-template #actualPaymentPending>
+          <mat-progress-spinner [diameter]="30" [mode]="'indeterminate'"></mat-progress-spinner>
+        </ng-template>
+        <section class="info">
+          <div class="row">
+            <div class="label">课程名称：</div>
+            <div>{{course.name}}</div>
+          </div>
+          <mat-divider></mat-divider>
+          <div class="row">
+            <div class="label">课程价格：</div>
+            <div>￥{{course.price | number: '1.2-2'}}</div>
+          </div>
+          <mat-divider></mat-divider>
+          <div class="row coupon-control">
+            <div class="label">优惠券：</div>
+            <div *ngIf="selectedCoupon; else notUsingCoupon">
+              <span (click)="enterNextPage()" *ngIf="selectedCoupon.threshold > 0">满 {{selectedCoupon.threshold}} 减 {{selectedCoupon.value | number: '1.2-2'}} 元</span>
+              <span (click)="enterNextPage()"
+                    *ngIf="selectedCoupon.threshold === 0">无门槛减 {{selectedCoupon.value}} 元</span>
+            </div>
+            <ng-template #notUsingCoupon>
+              <span (click)="enterNextPage()">不使用优惠券</span>
+            </ng-template>
+            <div style="flex-grow: 1"></div>
+            <button id="next-button" (click)="nextField()" mat-button matStepperNext>
+              <mat-icon>keyboard_arrow_right</mat-icon>
+            </button>
+          </div>
+          <mat-divider></mat-divider>
+          <div class="row">
+            <div class="label">积分：</div>
+            <div *ngIf="orderPreview; else pointPending">
+              <div *ngIf="orderPreview.numPointsUsed; else notUsingPoints">
+                使用 {{orderPreview.numPointsUsed}} 积分抵用￥{{orderPreview.discountedByPoints | number: '1.2-2'}}
+              </div>
+              <ng-template #notUsingPoints>
+                可用 {{orderPreview.totalPoints}} 积分
+              </ng-template>
+            </div>
+            <ng-template #pointPending>
+              <mat-progress-spinner [diameter]="20"
+                                    [mode]="'indeterminate'"></mat-progress-spinner>
+            </ng-template>
+            <div style="flex-grow: 1;"></div>
+            <mat-progress-spinner *ngIf="isOrderPreviewPending"
+                                  style="margin-right: 4px;"
+                                  [diameter]="20"
+                                  [mode]="'indeterminate'"></mat-progress-spinner>
+            <mat-checkbox color="primary" [(ngModel)]="usePoints" (change)="preview()"></mat-checkbox>
+          </div>
+        </section>
+      </div>
+    </div>
+  </mat-step>
 
-   <mat-step>
-     <div class="coupon-selected-dialog">
-       <div class="coupon-list-header">
-         <button id="previous-button" (click)="previousPage()" mat-button matStepperPrevious><mat-icon>keyboard_arrow_left</mat-icon></button>
-         <div style="flex-grow: 1;"></div>
-         <span>优惠券列表</span>
-         <div style="flex-grow: 1;"></div>
-       </div>
-       <div class="coupon-list">
-         <mat-selection-list>
-           <mat-list-option><span (click)="selectCoupon(null)">不使用优惠券</span></mat-list-option>
-           <mat-divider></mat-divider>
-           <mat-list-option *ngFor="let coupon of availableCoupons">
-             <span (click)="selectCoupon(coupon)" *ngIf="coupon.threshold > 0">满 {{coupon.threshold}} 减 {{coupon.value}} 元</span>
-             <span (click)="selectCoupon(coupon)" *ngIf="coupon.threshold === 0">无门槛减 {{coupon.value}} 元</span>
-             <mat-divider></mat-divider>
-           </mat-list-option>
-         </mat-selection-list>
-       </div>
-     </div>
-   </mat-step>
- </mat-horizontal-stepper>
+  <mat-step>
+    <div class="coupon-selected-dialog">
+      <div class="coupon-list-header">
+        <button id="previous-button" (click)="previousPage()" mat-button matStepperPrevious>
+          <mat-icon>keyboard_arrow_left</mat-icon>
+        </button>
+        <div style="flex-grow: 1;"></div>
+        <span>优惠券列表</span>
+        <div style="flex-grow: 1;"></div>
+      </div>
+      <div class="coupon-list">
+        <mat-selection-list>
+          <mat-list-option><span (click)="selectCoupon(null)">不使用优惠券</span></mat-list-option>
+          <mat-divider></mat-divider>
+          <mat-list-option *ngFor="let coupon of availableCoupons">
+            <span (click)="selectCoupon(coupon)" *ngIf="coupon.threshold > 0">满 {{coupon.threshold}} 减 {{coupon.value}} 元</span>
+            <span (click)="selectCoupon(coupon)" *ngIf="coupon.threshold === 0">无门槛减 {{coupon.value}} 元</span>
+            <mat-divider></mat-divider>
+          </mat-list-option>
+        </mat-selection-list>
+      </div>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper>
 
- <div id="pay-button" class="operation-row">
-   <button mat-raised-button color="primary" (click)="confirmPurchase()">立即支付</button>
- </div>
+<div id="pay-button" class="operation-row">
+  <button mat-raised-button color="primary" (click)="confirmPurchase()">立即支付</button>
+</div>

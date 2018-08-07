@@ -21,7 +21,7 @@
   width: 100%;
   display: flex;
   justify-content: flex-start;
-  font-size: 2px;
+  font-size: 20px;
   font-weight: 400; }
 
 .info {
@@ -35,12 +35,12 @@
   width: 100%;
   display: flex;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
   font-size: 15px;
   margin: 8px 0; }
 
 .label {
-  min-width: 90px;
+  min-width: 80px;
   font-weight: 600; }
 
 .operation-row {

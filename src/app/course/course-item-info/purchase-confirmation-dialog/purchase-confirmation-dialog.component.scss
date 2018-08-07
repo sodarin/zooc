@@ -38,12 +38,12 @@ $font-size: 15px;
   width: 100%;
   display: flex;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
   font-size: $font-size;
   margin: 8px 0;
 }
 .label {
-  min-width: 90px;
+  min-width: 80px;
   font-weight: 600;
 }
 .operation-row {

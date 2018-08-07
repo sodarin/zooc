@@ -10,17 +10,26 @@ export class UserInfoComponent implements OnInit {
 
   user: UserResponse = null;
 
-  unReadMsg: number = 0;
-  hidden: boolean = false;
-  hasInit: boolean = false;
+  unreadMsg = 0;
+  hidden = false;
+  hasInit = false;
 
-  constructor(private loginService: LoginService) { }
+  constructor(private loginService$: LoginService) { }
 
   ngOnInit() {
-    this.user = this.loginService.resultUser;
+    // Log in using cookies if it's not logged in
+    if (!this.loginService$.resultUser) {
+      this.loginService$.loginByCookies().subscribe( result => {
+        this.user = result;
+        this.loginService$.resultUser = result;
+      });
+    } else {
+      this.user = this.loginService$.resultUser;
+    }
+    console.log(this.user);
     (function(m, ei, q, i, a, j, s) {
       m[i] = m[i] || function() {
-        (m[i].a = m[i].a || []).push(arguments)
+        (m[i].a = m[i].a || []).push(arguments);
       };
       j = ei.createElement(q),
         s = ei.getElementsByTagName(q)[0];
@@ -31,15 +40,13 @@ export class UserInfoComponent implements OnInit {
     })(window, document, 'script', '_MEIQIA');
     _MEIQIA('entId', 116943);
     _MEIQIA('metadata', {
-      name: this.loginService.resultUser.username,
-      email: this.loginService.resultUser.email,
-      tel: this.loginService.resultUser.mobile
+      name: this.loginService$.resultUser.username,
+      email: this.loginService$.resultUser.email,
+      tel: this.loginService$.resultUser.mobile
     });
-    if (document.getElementById('MEIQIA-BTN-HOLDER')){
+    if (document.getElementById('MEIQIA-BTN-HOLDER')) {
       document.getElementById('MEIQIA-BTN-HOLDER').style.display = "block";
     }
   }
-
-
 
 }

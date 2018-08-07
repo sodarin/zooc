@@ -11,6 +11,7 @@ import { OrderComponent } from './order/order.component';
 import { OrderItemComponent } from './order-item/order-item.component';
 import { RefundReasonComponent } from './order-item/refund-reason/refund-reason.component';
 import {UserInfoComponent} from './user-info/user-info.component';
+import { UserDetailComponent } from './user-detail/user-detail.component';
 
 
 @NgModule({
@@ -20,6 +21,6 @@ import {UserInfoComponent} from './user-info/user-info.component';
     UserRoutingModule,
   ],
   providers: [],
-  declarations: [ UserComponent, ReserveComponent, ReserveItemComponent, OrderComponent, OrderItemComponent, RefundReasonComponent, UserInfoComponent]
+  declarations: [ UserComponent, ReserveComponent, ReserveItemComponent, OrderComponent, OrderItemComponent, RefundReasonComponent, UserInfoComponent, UserDetailComponent]
 })
 export class UserModule { }
