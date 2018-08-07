@@ -4304,6 +4304,10 @@ ngx-amap@^2.1.1:
   dependencies:
     tslib "^1.9.0"
 
+ngx-cookie-service@^1.0.10:
+  version "1.0.10"
+  resolved "http://registry.npm.taobao.org/ngx-cookie-service/download/ngx-cookie-service-1.0.10.tgz#dc17ff4f1a0224cf3b0c7a7f52bff2b798396e3d"
+
 ngx-swiper-wrapper@^6.3.0:
   version "6.3.0"
   resolved "http://registry.npm.taobao.org/ngx-swiper-wrapper/download/ngx-swiper-wrapper-6.3.0.tgz#dab16f8a7c27173f9e0f26af2374086a4b3baa37"
