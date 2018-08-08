@@ -17,6 +17,7 @@ export class BasicInfoComponent implements OnInit {
     // TODO The enterprise ID is hard coded
     this.enterpriseService$.getById(1).subscribe(result => {
       this.enterprise = result;
+      document.getElementById('detail').innerHTML = result.detail;
     });
   }
 
