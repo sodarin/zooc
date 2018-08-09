@@ -35,6 +35,7 @@ export class TrialItemInfoComponent implements OnInit {
     //获取试听课程的详情
     this.trialService$.getDetailById(this.routeInfo.snapshot.params['id']).subscribe(result => {
       this.item = result;
+      document.getElementById('detail').innerHTML = result.detail;
       if (this.loginService$.resultUser) {
         this.reservationService$.getReservationListByUserId(this.loginService$.resultUser.userId)
           .subscribe(result => {
