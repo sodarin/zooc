@@ -43,6 +43,7 @@ export class CourseItemInfoComponent implements OnInit {
     console.log(this.loginService$.resultUser);
     this.courseService$.getDetailById(this.routeInfo.snapshot.params['id']).subscribe(course => {
       this.item = course;
+      document.getElementById('detail').innerHTML = course.detail;
       // Get the offerings
       this.courseOfferingService$.getAll(this.item.courseId).subscribe(listResultOfOfferings => {
         this.offerings = listResultOfOfferings.list;
