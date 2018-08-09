@@ -2,6 +2,8 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.0.8.
 
+Version 1.0 (2018-08-10)
+
 ## Development server
 
 Run `yarn install` or `npm install` to download and configure the dependencies required.
